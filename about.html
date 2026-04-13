@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — SpeakEasy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="about.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Speak<span>Easy</span></a>
+
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="index.html">Home ▾</a>
+      <div class="dropdown-menu">
+          <a href="index.html">Home 1</a>
+          <a href="home2.html">Home 2</a>
+      </div>
+    </li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-only-item">
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </li>
+    <li class="mobile-only-item">
+      <a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a>
+    </li>
+  </ul>
+
+  <div class="nav-icons">
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">
+      <i class="fas fa-exchange-alt"></i>
+    </button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard">
+      <i class="fas fa-th-large"></i> Dashboard
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<section class="about-hero">
+  <div class="hero-ring2"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-blob"></div>
+  <div class="about-hero-inner">
+    <div class="ah-eyebrow">Our Story Since 2015</div>
+    <h1 class="ah-title">We Teach the World<br>to <em>Speak Freely.</em></h1>
+    <p class="ah-sub">SpeakEasy was founded with one mission: make world-class language education accessible to every learner, anywhere, at any level. Ten years later, 50,000+ students across 80+ countries are living that mission.</p>
+    <div class="ah-scroll">
+      <div class="ah-scroll-line"></div>
+      <div class="ah-scroll-txt">Scroll to explore</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="mission">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <div class="eyebrow" style="color:var(--secondary);">Our Mission</div>
+      <h2 class="sec-title">Breaking Language <em>Barriers</em></h2>
+      <p>Language is the most powerful skill you can build. It opens careers, connects families, unlocks cultures, and builds bridges across borders. Yet most language education is <strong>slow, expensive, and ineffective</strong> &mdash; designed for classrooms, not for real lives.</p>
+      <p>SpeakEasy was built to fix that. We combined the irreplaceable magic of <strong>certified native human tutors</strong> with the 24/7 availability of AI-powered practice &mdash; and wrapped it in a curriculum that actually gets people fluent in 12 weeks.</p>
+      <div class="highlight-box">&ldquo;We don&rsquo;t teach languages for certificates. We teach them for conversations &mdash; the ones that change your life.&rdquo;<br><span style="font-size:0.9rem;font-style:normal;color:var(--accent);font-family:'Space Mono',monospace;font-weight:700;margin-top:10px;display:block;">&mdash; Priya Krishnamurthy, Founder &amp; CEO</span></div>
+      <p>Since 2015 we&rsquo;ve grown from 3 tutors and 40 students in Hyderabad to a global academy with 50,000+ active learners across 12 languages and 80+ countries.</p>
+      <div class="outcome-tags">
+        <div class="otag">12 Languages</div>
+        <div class="otag">200+ Native Tutors</div>
+        <div class="otag">80+ Countries Served</div>
+        <div class="otag">50,000+ Learners</div>
+        <div class="otag">95% Pass Rate</div>
+        <div class="otag">Founded 2015</div>
+      </div>
+    </div>
+    <div class="mission-visual">
+      <img src="about-img.jpg" alt="Our Mission" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"/>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt reveal">
+  <div class="eyebrow" style="color:var(--secondary);">Our Values</div>
+  <h2 class="sec-title">What We <em>Believe</em></h2>
+  <p class="sec-sub">These six values guide every lesson, every hire, and every decision we make.</p>
+  <div class="values-grid">
+    <div class="val-card"><div class="val-icon">🎯</div><div class="val-title">Results Over Completion</div><div class="val-text">We measure success by your fluency and exam scores &mdash; not by how many lessons you complete. If you don&rsquo;t improve, we give your money back.</div></div>
+    <div class="val-card"><div class="val-icon">🤝</div><div class="val-title">Human First, Always</div><div class="val-text">AI powers our practice tools, but certified human tutors lead every class. Language is ultimately a human connection and we never forget that.</div></div>
+    <div class="val-card"><div class="val-icon">🌍</div><div class="val-title">Accessible Education</div><div class="val-text">World-class language education shouldn&rsquo;t require a Western budget. Our pricing is designed for learners at every income level, everywhere.</div></div>
+    <div class="val-card"><div class="val-icon">📈</div><div class="val-title">Continuous Improvement</div><div class="val-text">We analyse every lesson outcome to continuously improve our curriculum. Our pass rates go up every year because we never stop learning ourselves.</div></div>
+    <div class="val-card"><div class="val-icon">👥</div><div class="val-title">Small Groups Matter</div><div class="val-text">We cap every group at 6 students. Because language learning requires speaking time &mdash; not silent observation in a 30-person classroom.</div></div>
+    <div class="val-card"><div class="val-icon">🔬</div><div class="val-title">Science-Backed</div><div class="val-text">Every method we use &mdash; spaced repetition, comprehensible input, pronunciation drilling &mdash; is backed by peer-reviewed language acquisition research.</div></div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Active Learners</div></div>
+  <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Languages</div></div>
+  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Expert Tutors</div></div>
+  <div class="stat-item"><div class="stat-num">95%</div><div class="stat-label">Exam Pass Rate</div></div>
+</div>
+
+<section class="section reveal">
+  <div class="eyebrow" style="color:var(--secondary);">Leadership Team</div>
+  <h2 class="sec-title">The <em>People</em> Behind SpeakEasy</h2>
+  <p class="sec-sub">Educators, technologists, and language experts united by one mission: help the world communicate.</p>
+  <div class="team-grid">
+    <div class="team-card"><img src="team-1.jpg" alt="Priya Krishnamurthy" style="width:100%;height:220px;object-fit:cover;border-radius:22px 22px 0 0;"/><div class="tc-body"><div class="tc-name">Priya Krishnamurthy</div><div class="tc-role">Founder &amp; CEO</div><div class="tc-bio">Former IELTS examiner. IIM Ahmedabad MBA. Built SpeakEasy from 40 to 50,000+ students across 10 years and 80+ countries.</div><div class="tc-tags"><span class="tc-tag">IIM Ahmedabad</span><span class="tc-tag">IELTS Examiner</span></div></div></div>
+    <div class="team-card"><img src="team-2.jpg" alt="Rahul Menon" style="width:100%;height:220px;object-fit:cover;border-radius:22px 22px 0 0;"/><div class="tc-body"><div class="tc-name">Rahul Menon</div><div class="tc-role">Co-Founder &amp; CTO</div><div class="tc-bio">Ex-Google AI engineer. Built the adaptive learning engine that powers every personalised lesson plan and AI pronunciation coach.</div><div class="tc-tags"><span class="tc-tag">Ex-Google</span><span class="tc-tag">AI / ML</span></div></div></div>
+    <div class="team-card"><img src="team-3.jpg" alt="Sofia Martínez" style="width:100%;height:220px;object-fit:cover;border-radius:22px 22px 0 0;"/><div class="tc-body"><div class="tc-name">Sofia Mart&iacute;nez</div><div class="tc-role">Head of Curriculum</div><div class="tc-bio">PhD in Applied Linguistics, Universidad Complutense Madrid. Designed the 12-week fluency methodology used across all 12 languages.</div><div class="tc-tags"><span class="tc-tag">Complutense PhD</span><span class="tc-tag">DELE Examiner</span></div></div></div>
+    <div class="team-card"><img src="team-4.jpg" alt="Pierre Lefebvre" style="width:100%;height:220px;object-fit:cover;border-radius:22px 22px 0 0;"/><div class="tc-body"><div class="tc-name">Pierre Lefebvre</div><div class="tc-role">Head of European Languages</div><div class="tc-bio">Sorbonne graduate. Certified DELF/DALF examiner with a 97% student pass rate across all European language programmes.</div><div class="tc-tags"><span class="tc-tag">Sorbonne</span><span class="tc-tag">DELF/DALF</span></div></div></div>
+  </div>
+</section>
+
+<section class="section section-alt reveal">
+  <div class="eyebrow" style="color:var(--secondary);">Why SpeakEasy</div>
+  <h2 class="sec-title">What Makes Us <em>Different</em></h2>
+  <p class="sec-sub">Six reasons why 50,000+ learners chose SpeakEasy over every other option.</p>
+  <div class="features-grid">
+    <div class="feat-item"><div class="feat-icon">🎙️</div><div><div class="feat-title">Live Native Tutors in Every Class</div><div class="feat-text">Every session is led by a certified native speaker &mdash; not a pre-recorded video, not a chatbot.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">🤖</div><div><div class="feat-title">24/7 AI Conversation Partner</div><div class="feat-text">Practice between classes with our AI partner that corrects grammar, scores pronunciation, and adapts to your level in real time.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">👥</div><div><div class="feat-title">Maximum 6 Students Per Group</div><div class="feat-text">More speaking time per student. More tutor attention. Faster results.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">🏆</div><div><div class="feat-title">95% Exam Pass Rate</div><div class="feat-text">IELTS, DELF, DELE, JLPT, HSK &mdash; our students pass on first attempt at 2&times; the industry average rate.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">📈</div><div><div class="feat-title">Fluency in 12 Weeks</div><div class="feat-text">Our structured curriculum moves students from A1 to B1 in 12 weeks &mdash; 3&times; faster than traditional evening classes.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">💰</div><div><div class="feat-title">7-Day Money-Back Guarantee</div><div class="feat-text">No questions asked. If you&rsquo;re not satisfied in your first 7 days, we refund 100% of your payment.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">🌍</div><div><div class="feat-title">80+ Countries, One Platform</div><div class="feat-text">Students in Hyderabad, Dubai, London, and Singapore learn side-by-side. Classes auto-adjust to your timezone.</div></div></div>
+    <div class="feat-item"><div class="feat-icon">🧠</div><div><div class="feat-title">Science-Backed Every Step</div><div class="feat-text">Spaced repetition, comprehensible input theory, Lozanov accelerated learning &mdash; every method is from peer-reviewed linguistics research.</div></div></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="eyebrow" style="color:var(--secondary);">Our Journey</div>
+  <h2 class="sec-title">10 Years of <em>Growth</em></h2>
+  <p class="sec-sub">From a small tutoring service to India&rsquo;s most trusted online language academy.</p>
+  <div class="timeline-wrap">
+    <div class="tl-item"><div class="tl-dot">15</div><div class="tl-card"><div class="tl-year">2015</div><div class="tl-title">Founded in Hyderabad</div><div class="tl-text">Priya and Rahul launched SpeakEasy with 3 tutors, 2 languages (Spanish &amp; French), and 40 founding students.</div><div class="tl-badge">🚀 3 Tutors &middot; 40 Students &middot; 2 Languages</div></div></div>
+    <div class="tl-item"><div class="tl-dot">17</div><div class="tl-card"><div class="tl-year">2017</div><div class="tl-title">1,000 Students &amp; 6 Languages</div><div class="tl-text">Expanded to Japanese, Mandarin, Arabic, and German. Launched the first version of the AI pronunciation engine.</div><div class="tl-badge">⚡ First AI Tool Launched</div></div></div>
+    <div class="tl-item"><div class="tl-dot">19</div><div class="tl-card"><div class="tl-year">2019</div><div class="tl-title">Exam Prep Launch &amp; 95% Pass Rate</div><div class="tl-text">Launched the dedicated IELTS, DELF, and JLPT exam preparation programme.</div><div class="tl-badge">🏆 95% First-Attempt Pass Rate</div></div></div>
+    <div class="tl-item"><div class="tl-dot">21</div><div class="tl-card"><div class="tl-year">2021</div><div class="tl-title">10,000 Students &amp; Series A Funding</div><div class="tl-text">Raised ₹24 crore Series A from Sequoia India &amp; Lightspeed. Expanded to 12 languages and 200+ tutors.</div><div class="tl-badge">💰 ₹24 Cr Series A</div></div></div>
+    <div class="tl-item"><div class="tl-dot">23</div><div class="tl-card"><div class="tl-year">2023</div><div class="tl-title">Corporate Programmes &amp; B2B Expansion</div><div class="tl-text">Launched dedicated corporate language training for Infosys, TCS, L&amp;T, and IndiGo. Crossed 30,000 students.</div><div class="tl-badge">🏢 Corporate Training Launched</div></div></div>
+    <div class="tl-item"><div class="tl-dot">25</div><div class="tl-card"><div class="tl-year">2025</div><div class="tl-title">50,000 Students &amp; Global Reach</div><div class="tl-text">Now serving learners in 80+ countries. Named India&rsquo;s #1 online language academy by EdTech Review 2025.</div><div class="tl-badge">🌍 80+ Countries &middot; 50,000+ Students</div></div></div>
+  </div>
+</section>
+
+<section class="section section-dark reveal">
+  <div class="eyebrow" style="color:var(--secondary)">Student Stories</div>
+  <h2 class="sec-title" style="color:#fff;">Real Journeys,<br><em>Real Lives Changed.</em></h2>
+  <p class="sec-sub" style="color:rgba(255,255,255,.55);margin-bottom:32px;">A few of the 50,000+ learners who chose to speak freely.</p>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="t-stars">★★★★★</div><div class="t-text">&ldquo;In 6 months I went from zero Spanish to running bilingual meetings with my Mexico City team.&rdquo;</div><div class="t-author"><div class="t-avatar" style="background:linear-gradient(135deg,#6c3fc5,#c8993a)">A</div><div><div class="t-name">Aanya Sharma</div><div class="t-detail">Software Engineer, Pune &middot; Spanish A1 &rarr; B2</div></div></div></div>
+    <div class="testi-card"><div class="t-stars">★★★★★</div><div class="t-text">&ldquo;I needed DALF C1 for a UNESCO fellowship. 10 weeks of SpeakEasy French &mdash; scored 91/100.&rdquo;</div><div class="t-author"><div class="t-avatar" style="background:linear-gradient(135deg,#1a237e,#c86868)">D</div><div><div class="t-name">Deepa Krishnamurthy</div><div class="t-detail">UNESCO Fellow &middot; DALF C1 &middot; 91/100</div></div></div></div>
+    <div class="testi-card"><div class="t-stars">★★★★★</div><div class="t-text">&ldquo;Arabic script felt impossible. By week 16 I was running Gulf client meetings in Arabic.&rdquo;</div><div class="t-author"><div class="t-avatar" style="background:linear-gradient(135deg,#0a6e6e,#086a60)">R</div><div><div class="t-name">Rajesh Nair</div><div class="t-detail">Project Manager &middot; Dubai &middot; Arabic A1 &rarr; B1</div></div></div></div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-ring"></div><div class="cta-ring"></div><div class="cta-ring"></div>
+  <h2 class="cta-title">Join the SpeakEasy Family</h2>
+  <p class="cta-sub">50,000+ learners. 12 languages. One proven method. Start your 7-day free trial today &mdash; no credit card required.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white">Start Free Trial &rarr;</a>
+    <a href="#" class="btn btn-outline-white">Talk to a Consultant</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">𝕏</a>
+        <a class="social-btn" href="#">▶</a>
+        <a class="social-btn" href="#">✉</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="service-details.html">Spanish</a><a href="service-details1.html">Arabic</a><a href="service-details2.html">Italian</a><a href="service-details3.html">Exam Prep</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
+  </div>
+</footer>
+
+<script src="about.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — SpeakEasy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="contact.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Speak<span>Easy</span></a>
+  <ul class="nav-links">
+    <li class="dropdown"><a href="index.html">Home ▾</a><div class="dropdown-menu"><a href="index.html">Home 1</a><a href="home2.html">Home 2</a></div></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li class="mobile-only-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li class="mobile-only-item"><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><i class="fas fa-exchange-alt"></i></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="contact-hero">
+  <div class="hero-ring"></div>
+  <div class="contact-hero-inner">
+    <div class="hero-eyebrow">Get in Touch</div>
+    <h1 class="hero-title">We&rsquo;d Love to <em>Hear</em> From You</h1>
+    <p class="hero-sub">Have a question about our programmes, need help choosing the right language, or want to book a free trial class? Our team is here &mdash; and we reply within 2 hours.</p>
+  </div>
+</section>
+
+<div class="info-strip reveal">
+  <div class="info-card"><div class="info-icon">🏢</div><div class="info-label">Our Office</div><div class="info-value">Hyderabad, India</div><div class="info-sub">Jubilee Hills, Hyderabad &mdash; 500033</div></div>
+  <div class="info-card"><div class="info-icon">📞</div><div class="info-label">Call Us</div><div class="info-value">+91 40 4567 9000</div><div class="info-sub">Mon&ndash;Sat, 9 AM &ndash; 7 PM IST</div></div>
+  <div class="info-card"><div class="info-icon">✉️</div><div class="info-label">Email Us</div><div class="info-value">hello@speakeasy.in</div><div class="info-sub">We reply within 2 hours on business days</div></div>
+  <div class="info-card"><div class="info-icon">💬</div><div class="info-label">Live Chat</div><div class="info-value">Available 24/7</div><div class="info-sub">Chat with our AI tutor or support team anytime</div></div>
+</div>
+
+<div class="contact-main">
+  <div class="form-card reveal">
+    <div id="formContent">
+      <div class="form-eyebrow">Send a Message</div>
+      <h2 class="form-title">How Can We Help?</h2>
+      <p class="form-subtitle">Fill in the form below and one of our language consultants will get back to you &mdash; usually within 2 hours during business hours.</p>
+      <div class="enquiry-tabs">
+        <div class="eq-tab active" onclick="setTab(this)">🏫 General Enquiry</div>
+        <div class="eq-tab" onclick="setTab(this)">🎯 Free Trial Class</div>
+        <div class="eq-tab" onclick="setTab(this)">🏆 Exam Preparation</div>
+        <div class="eq-tab" onclick="setTab(this)">🏢 Corporate Training</div>
+        <div class="eq-tab" onclick="setTab(this)">🛠 Technical Support</div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">First Name <span>*</span></label><input class="form-input" id="fname" type="text" placeholder="Aanya"/></div>
+        <div class="form-group"><label class="form-label">Last Name <span>*</span></label><input class="form-input" id="lname" type="text" placeholder="Sharma"/></div>
+        <div class="form-group"><label class="form-label">Email Address <span>*</span></label><input class="form-input" id="email" type="email" placeholder="aanya@example.com"/></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="phone" type="tel" placeholder="+91 98765 43210"/></div>
+        <div class="form-group"><label class="form-label">City / Country</label><input class="form-input" id="city" type="text" placeholder="Hyderabad, India"/></div>
+        <div class="form-group"><label class="form-label">How Did You Find Us?</label><select class="form-input" id="source"><option value="">Select one&hellip;</option><option>Google Search</option><option>Instagram / Facebook</option><option>Friend / Colleague Referral</option><option>YouTube</option><option>LinkedIn</option><option>Other</option></select></div>
+      </div>
+      <div class="form-group" style="margin-bottom:18px;"><label class="form-label">Current Level</label><select class="form-input" id="level"><option value="">Select your current level&hellip;</option><option>Complete Beginner (A1)</option><option>Elementary (A2)</option><option>Pre-Intermediate (B1)</option><option>Intermediate (B2)</option><option>Upper Intermediate (C1)</option><option>Advanced (C2)</option><option>Not Sure</option></select></div>
+      <div class="form-group" style="margin-bottom:18px;">
+        <label class="form-label">Preferred Class Time (IST)</label>
+        <div class="time-slots">
+          <div class="time-slot" onclick="toggleSlot(this)">🌅 Morning (6–9 AM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)">☀️ Afternoon (12–3 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)">🌇 Evening (6–9 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)">🌙 Late Night (9–11 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)">📅 Weekends Only</div>
+          <div class="time-slot" onclick="toggleSlot(this)">🕐 Any Time</div>
+        </div>
+      </div>
+      <div class="form-group full" style="margin-bottom:24px;"><label class="form-label">Your Message <span>*</span></label><textarea class="form-input" id="message" placeholder="Tell us more about what you&rsquo;re looking for&hellip;"></textarea></div>
+      <label class="form-check" style="margin-bottom:24px;"><input type="checkbox" id="consent"/><span class="form-check-label">I agree to SpeakEasy&rsquo;s <a href="#">Privacy Policy</a> and consent to being contacted about language programmes and offers.</span></label>
+      <button class="form-submit" id="submitBtn" onclick="submitForm()"><span id="submitText">Send Message &rarr;</span></button>
+      <div class="form-note">🔒 Your data is safe. We never share your information with third parties.</div>
+    </div>
+    <div class="success-msg" id="successMsg">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Message Sent!</div>
+      <p class="success-sub">Thank you for reaching out. One of our language consultants will respond within 2 hours during business hours.</p>
+      <button class="success-back" onclick="resetForm()">&larr; Send Another Message</button>
+    </div>
+  </div>
+
+  <aside class="contact-sidebar">
+    <div class="sidebar-card reveal">
+      <div class="sc-title">🕐 Office Hours</div>
+      <div class="hours-list">
+        <div class="hours-row"><span class="hours-day">Monday &ndash; Friday</span><div style="display:flex;align-items:center;"><span class="hours-time">9:00 AM &ndash; 7:00 PM IST</span><span class="hours-badge open" id="weekdayBadge">Open</span></div></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><div style="display:flex;align-items:center;"><span class="hours-time">10:00 AM &ndash; 5:00 PM IST</span><span class="hours-badge open" id="satBadge">Open</span></div></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><div style="display:flex;align-items:center;"><span class="hours-time">Closed</span><span class="hours-badge closed">Closed</span></div></div>
+        <div class="hours-row"><span class="hours-day">Live Chat &amp; AI Tutor</span><div style="display:flex;align-items:center;"><span class="hours-time">24 / 7 &mdash; Always On</span><span class="hours-badge open">Online</span></div></div>
+      </div>
+    </div>
+    <div class="sidebar-card reveal">
+      <div class="sc-title">📲 Follow Us</div>
+      <div class="social-grid">
+        <div class="social-card"><span class="sc-emoji">📸</span><div><span class="sc-name">Instagram</span><span class="sc-handle">@speakeasy.in</span></div></div>
+        <div class="social-card"><span class="sc-emoji">𝕏</span><div><span class="sc-name">Twitter / X</span><span class="sc-handle">@SpeakEasyAcad</span></div></div>
+        <div class="social-card"><span class="sc-emoji">💼</span><div><span class="sc-name">LinkedIn</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+        <div class="social-card"><span class="sc-emoji">▶️</span><div><span class="sc-name">YouTube</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+        <div class="social-card"><span class="sc-emoji">💬</span><div><span class="sc-name">WhatsApp</span><span class="sc-handle">+91 98765 43210</span></div></div>
+        <div class="social-card"><span class="sc-emoji">f</span><div><span class="sc-name">Facebook</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="map-section">
+  <div class="map-header reveal">
+    <div class="map-header-left">
+      <div class="map-eyebrow">Where to Find Us</div>
+      <h2 class="map-title">Visit Us in <em>Hyderabad</em></h2>
+      <p class="map-sub">Our main campus is in Jubilee Hills, Hyderabad &mdash; a short drive from the city centre.</p>
+    </div>
+    <div class="map-tabs">
+      <div class="map-tab active" onclick="setMapTab(this,'hyd')">📍 Hyderabad Campus</div>
+      <div class="map-tab" onclick="setMapTab(this,'online')">🌐 Online Worldwide</div>
+    </div>
+  </div>
+  <div class="map-container">
+    <iframe class="map-iframe" id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15232.240163316537!2d78.36076299!3d17.36436761517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95dcbdb5bd09%3A0x6c1da9b214b25536!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1774764673690!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SpeakEasy Academy, Jubilee Hills, Hyderabad"></iframe>
+    <div class="map-pin-card online" id="onlineCard" style="display:none;"><div class="mpc-label">Online Globally</div><div class="mpc-name">SpeakEasy Online</div><div class="mpc-addr">Available in 80+ countries</div><div class="mpc-dir">🌐 Join Online &rarr;</div></div>
+  </div>
+</section>
+
+<section class="faq-section reveal">
+  <div class="map-eyebrow">Common Questions</div>
+  <h2 class="map-title">Frequently <em>Asked</em> Questions</h2>
+  <div class="faq-grid" id="faqGrid">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">How quickly will someone respond to my message?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">During business hours (Mon&ndash;Fri 9 AM &ndash; 7 PM IST), we typically respond within 2 hours.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">Can I visit the Hyderabad campus in person?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Absolutely. Our Jubilee Hills campus is open Monday through Saturday.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">Do you offer corporate and group training?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Yes. Select &ldquo;Corporate Training&rdquo; in the enquiry type above and one of our B2B consultants will reach out within 24 hours.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">I&rsquo;m not sure which language to learn. Can you help?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Book a free 30-minute consultation call with one of our language advisors.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">What does the free trial class include?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">A 30-minute live session with a certified native tutor — not a pre-recorded demo. No credit card needed.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">Is there a refund policy?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Yes &mdash; a 7-day money-back guarantee with no questions asked.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">Can I switch languages or tutors after I enrol?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Yes, with no penalty. If you decide to switch your language track within the first two weeks, we&rsquo;ll transfer your enrolment at no cost.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-text">Do you have classes outside Indian time zones?</span><div class="faq-chevron">&#9662;</div></div><div class="faq-a">Yes. We serve students in 80+ countries and offer classes across all major time zones.</div></div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-ring"></div><div class="cta-ring"></div><div class="cta-ring"></div>
+  <h2 class="cta-title">Still Have Questions?<br>We&rsquo;re Here to Help.</h2>
+  <p class="cta-sub">Our team of language consultants is standing by. Whether you&rsquo;re ready to enrol or just exploring, we&rsquo;d love to chat.</p>
+  <div class="cta-btns">
+    <a href="#formContent" class="btn btn-white">💬 Send Us a Message</a>
+    <a href="#" class="btn btn-outline-white">🎯 Book a Free Trial</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
+      <div class="social-links" style="margin-top:20px;">
+        <a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">▶</a><a class="social-btn" href="#">✉</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="section-details.html">Spanish</a><a href="section-details1.html">Arabic</a><a href="section-details2.html">Italian</a><a href="section-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
+  </div>
+</footer>
+
+<script src="contact.js"></script>
+</body>
+</html>

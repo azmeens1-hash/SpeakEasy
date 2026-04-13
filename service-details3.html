@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exam Preparation — SpeakEasy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="service-details3.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Speak<span>Easy</span></a>
+
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="index.html">Home ▾</a>
+      <div class="dropdown-menu">
+        <a href="index.html">Home 1</a>
+        <a href="home2.html">Home 2</a>
+      </div>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-only-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li class="mobile-only-item"><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+  </ul>
+
+  <div class="nav-icons">
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><i class="fas fa-exchange-alt"></i></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="sd-hero">
+  <div class="hero-left">
+    <div class="breadcrumb">
+      <span style="color:var(--primary);">HOME</span><span class="sep">›</span>
+      <span style="color:var(--primary);">SERVICES</span><span class="sep">›</span>
+      <span class="current">EXAM PREP</span>
+    </div>
+    <div class="hero-badge">🏆 95% First-Attempt Pass Rate</div>
+    <h1 class="hero-title">Ace Your Exam.<br><em>First Time.</em></h1>
+    <p class="hero-desc">Targeted preparation for IELTS, TOEFL, DELF, DELE, JLPT, and HSK — with certified examiner coaches, 200+ real past papers, timed mock exams, and a personalised score improvement plan from day one.</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><span>⏱️</span> 10 Weeks</div>
+      <div class="meta-pill"><span>📝</span> 6 Exams</div>
+      <div class="meta-pill"><span>🎯</span> Score Guarantee</div>
+      <div class="meta-pill"><span>👨‍🏫</span> Examiner Coaches</div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-primary">Start Exam Prep →</button>
+      <button class="btn-ghost">Free Diagnostic Test</button>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-dot"></div><div class="hero-dot"></div>
+    <div class="score-card">
+      <div class="sc-header">
+        <div class="sc-icon">📊</div>
+        <div>
+          <div class="sc-title">Score Improvement</div>
+          <div class="sc-sub">Avg. progress after 10 weeks</div>
+        </div>
+      </div>
+      <div class="score-bars">
+        <div class="sbar-row"><div class="sbar-exam">IELTS</div><div class="sbar-track"><div class="sbar-fill f-red" style="--w:88%"></div></div><div class="sbar-pct">+1.5</div></div>
+        <div class="sbar-row"><div class="sbar-exam">TOEFL</div><div class="sbar-track"><div class="sbar-fill f-orange" style="--w:82%"></div></div><div class="sbar-pct">+22</div></div>
+        <div class="sbar-row"><div class="sbar-exam">DELF</div><div class="sbar-track"><div class="sbar-fill f-teal" style="--w:92%"></div></div><div class="sbar-pct">97%</div></div>
+        <div class="sbar-row"><div class="sbar-exam">DELE</div><div class="sbar-track"><div class="sbar-fill f-red" style="--w:86%"></div></div><div class="sbar-pct">95%</div></div>
+        <div class="sbar-row"><div class="sbar-exam">JLPT</div><div class="sbar-track"><div class="sbar-fill f-orange" style="--w:83%"></div></div><div class="sbar-pct">93%</div></div>
+        <div class="sbar-row"><div class="sbar-exam">HSK</div><div class="sbar-track"><div class="sbar-fill f-teal" style="--w:75%"></div></div><div class="sbar-pct">92%</div></div>
+      </div>
+      <div class="sc-result">
+        <span>🎉</span>
+        <div>
+          <div class="sc-result-text">Overall: 95% first-attempt pass rate</div>
+          <div class="sc-pass">3,200+ students certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="exams">
+  <div class="eyebrow">Certifications Covered</div>
+  <h2 class="sec-title">6 International <em>Examinations</em></h2>
+  <p class="sec-sub">One programme, six world-recognised certifications. Your coach specialises in your chosen exam from day one.</p>
+  <div class="exam-grid">
+    <div class="exam-card feat">
+      <div class="ec-head ec-h-red"><div class="ec-icon">📝</div><div class="ec-name">IELTS</div><div class="ec-org">British Council / IDP / Cambridge</div><div class="ec-rate">🏆 96% pass rate</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Target Band</div><div class="ec-score">6.0 → 9.0</div><ul class="ec-feats"><li>Academic &amp; General Training tracks</li><li>4 skills: Listen, Read, Write, Speak</li><li>60+ mock tests with examiner feedback</li><li>University &amp; visa requirement mapping</li></ul></div>
+    </div>
+    <div class="exam-card">
+      <div class="ec-head ec-h-blue"><div class="ec-icon">🖊️</div><div class="ec-name">TOEFL iBT</div><div class="ec-org">ETS — Educational Testing Service</div><div class="ec-rate">🏆 94% target score</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Target Score</div><div class="ec-score">80 → 120 pts</div><ul class="ec-feats"><li>US/Canada admissions focus</li><li>Integrated &amp; independent tasks</li><li>Note-taking strategy training</li><li>500+ academic vocabulary drills</li></ul></div>
+    </div>
+    <div class="exam-card">
+      <div class="ec-head ec-h-fr"><div class="ec-icon">🇫🇷</div><div class="ec-name">DELF / DALF</div><div class="ec-org">France Éducation International</div><div class="ec-rate">🏆 97% pass rate</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Levels</div><div class="ec-score">A1 · A2 · B1 · B2 · C1</div><ul class="ec-feats"><li>Certified DELF examiners on staff</li><li>Real oral exam roleplay practice</li><li>Written marking rubrics explained</li><li>6-week fast-track option available</li></ul></div>
+    </div>
+    <div class="exam-card">
+      <div class="ec-head ec-h-sp"><div class="ec-icon">🇪🇸</div><div class="ec-name">DELE</div><div class="ec-org">Instituto Cervantes</div><div class="ec-rate">🏆 95% pass rate</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Levels</div><div class="ec-score">A1 · A2 · B1 · B2 · C1 · C2</div><ul class="ec-feats"><li>DELE-accredited examiner coach</li><li>Prueba oral preparation sessions</li><li>Grammar consolidation per level</li><li>Spain &amp; LATAM variant coverage</li></ul></div>
+    </div>
+    <div class="exam-card">
+      <div class="ec-head ec-h-jp"><div class="ec-icon">🇯🇵</div><div class="ec-name">JLPT</div><div class="ec-org">Japan Foundation / JEES</div><div class="ec-rate">🏆 93% pass N2</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Levels</div><div class="ec-score">N5 · N4 · N3 · N2 · N1</div><ul class="ec-feats"><li>Kanji &amp; vocab intensive drills</li><li>Grammar pattern deep-dive</li><li>Timed reading practice sets</li><li>Listening speed training</li></ul></div>
+    </div>
+    <div class="exam-card">
+      <div class="ec-head ec-h-cn"><div class="ec-icon">🇨🇳</div><div class="ec-name">HSK</div><div class="ec-org">Hanban / Confucius Institute</div><div class="ec-rate">🏆 92% pass HSK 4+</div></div>
+      <div class="ec-body"><div class="ec-score-lbl">Levels</div><div class="ec-score">HSK 1 → HSK 6</div><ul class="ec-feats"><li>2,500+ vocab systematic study</li><li>Tone &amp; pinyin mastery sessions</li><li>Character memory techniques</li><li>HSKK spoken prep included</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt reveal">
+  <div class="eyebrow">Our Method</div>
+  <h2 class="sec-title">How SpeakEasy Exam Prep <em>Works</em></h2>
+  <p class="sec-sub">A proven 4-step system built around how examiners actually mark — not just what the exam tests.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">01</div><div class="step-icon">🔍</div><div class="step-title">Diagnostic Mock</div><div class="step-body">Week one begins with a full timed mock exam under real conditions. We identify every weak point with section-by-section scoring.</div></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-icon">🗺️</div><div class="step-title">Personalised Plan</div><div class="step-body">Your coach builds a custom 10-week improvement roadmap targeting your specific gaps — not a generic syllabus.</div></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-icon">🎯</div><div class="step-title">Live Coaching</div><div class="step-body">3× live sessions per week with a certified examiner. Real past papers, timed drills, AI writing analysis — every session.</div></div>
+    <div class="step-card"><div class="step-num">04</div><div class="step-icon">🏆</div><div class="step-title">Final Mock + Cert</div><div class="step-body">A full simulated exam in week 10 with examiner feedback. Walk in knowing exactly what to expect. Walk out with your target score.</div></div>
+  </div>
+</section>
+
+<section class="section reveal" id="overview">
+  <div class="overview-grid">
+    <div class="ov-body">
+      <div class="eyebrow">Why SpeakEasy Exam Prep?</div>
+      <h2 class="sec-title">We Teach You How <em>Examiners Think</em></h2>
+      <p>Most exam prep courses teach you what the exam tests. Ours teaches you <strong>how the examiners think</strong>. Every coach on our team is either a current or former certified examiner — they know exactly what earns top marks and what loses them.</p>
+      <p>Our 10-week intensive combines live expert coaching, timed past-paper practice under real exam conditions, AI-powered writing feedback, and a <strong>personalised improvement plan</strong> built around your specific weak points identified in week one's full diagnostic mock exam.</p>
+      <div class="ov-quote">"On exam day, our students don't just know the content — they know the game. That's why 95% pass on the first attempt."<br>— Dr. Priya Krishnamurthy, IELTS Lead Coach</div>
+      <p>Whether your goal is university admission, visa approval, professional certification, or career advancement, our coaches will get you there — with a <strong>score improvement guarantee or full refund</strong>.</p>
+      <ul class="checklist">
+        <li><div class="cl-tick">✓</div> Certified examiner coaches on every programme</li>
+        <li><div class="cl-tick">✓</div> 200+ real past papers with guided solutions</li>
+        <li><div class="cl-tick">✓</div> Full mock exam every 2 weeks</li>
+        <li><div class="cl-tick">✓</div> AI writing &amp; grammar checker — 24/7</li>
+        <li><div class="cl-tick">✓</div> Personalised score gap analysis from day 1</li>
+        <li><div class="cl-tick">✓</div> Score improvement guarantee or full refund</li>
+        <li><div class="cl-tick">✓</div> Post-exam result coaching session included</li>
+        <li><div class="cl-tick">✓</div> Lifetime study materials access</li>
+      </ul>
+    </div>
+    <div class="enrol-sidebar">
+      <div class="enrol-card">
+        <div class="ec-tag">⭐ Most Enrolled Programme</div>
+        <div class="ec-price"><sup>₹</sup>17,999</div>
+        <div class="ec-period">One-time · 10-week intensive</div>
+        <div class="ec-orig">₹21,999 — Save ₹4,000 Early Bird</div>
+        <ul class="ec-includes">
+          <li><div class="tick">✓</div> 30 Live Coaching Sessions (3× per week)</li>
+          <li><div class="tick">✓</div> 5 Full Timed Mock Exams</li>
+          <li><div class="tick">✓</div> 200+ Past Papers Library Access</li>
+          <li><div class="tick">✓</div> AI Writing Analyser — Unlimited</li>
+          <li><div class="tick">✓</div> 2 × 1-on-1 Strategy Sessions</li>
+          <li><div class="tick">✓</div> Personalised Improvement Plan</li>
+          <li><div class="tick">✓</div> Score Improvement Guarantee</li>
+        </ul>
+        <button class="ec-btn">Enrol Now — ₹17,999 →</button>
+        <button class="ec-btn-alt">Book Free Diagnostic Test</button>
+        <div class="ec-guarantee">🛡️ Score improvement guarantee or full refund</div>
+        <div class="countdown-wrap">
+          <div>🗓️</div>
+          <div>
+            <div class="cd-label">Next batch starts in</div>
+            <div class="cd-timer" id="countdown">4d 12h 00m 00s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt reveal" id="mock">
+  <div class="mock-grid">
+    <div class="mock-panel">
+      <div class="mp-head"><span>MOCK EXAM · IELTS READING</span><span class="mp-timer">⏱ 42:00 left</span></div>
+      <div class="mock-q">
+        <div class="mq-num">Question 14 of 40</div>
+        <div class="mq-text">According to the passage, the primary reason linguists consider language acquisition in children to be "critical period dependent" is because…</div>
+        <div class="mq-opts">
+          <div class="mq-opt"><div class="opt-ltr">A</div>Children have higher neuroplasticity in language regions.</div>
+          <div class="mq-opt correct"><div class="opt-ltr">B</div>Exposure after puberty rarely results in native-level phonology.</div>
+          <div class="mq-opt wrong"><div class="opt-ltr">C</div>Grammar acquisition follows a fixed developmental sequence.</div>
+          <div class="mq-opt"><div class="opt-ltr">D</div>Vocabulary growth declines sharply after age seven.</div>
+        </div>
+        <div class="mq-fb">✅ Correct! Option B directly references the passage argument. +1 mark</div>
+      </div>
+    </div>
+    <div class="mock-info">
+      <div class="eyebrow">Mock Exam Platform</div>
+      <h3>Train Under <em style="color:var(--secondary);">Real Exam Conditions</em></h3>
+      <p>Our platform replicates the exact format, timing, and pressure of the real exam — so that on exam day, nothing surprises you.</p>
+      <ul class="feat-list">
+        <li><div class="fl-icon">⏱️</div><div><div class="fl-title">Strictly Timed</div><div class="fl-body">Every mock mirrors real exam timing to the second — building the mental endurance that separates high scorers from average ones.</div></div></li>
+        <li><div class="fl-icon">📊</div><div><div class="fl-title">Instant Score Reports</div><div class="fl-body">Full breakdown by section and skill — with examiner commentary on every wrong answer within 30 minutes of finishing.</div></div></li>
+        <li><div class="fl-icon">🤖</div><div><div class="fl-title">AI Writing Analyser</div><div class="fl-body">Feedback on task achievement, coherence, lexical resource, and grammatical range — the exact criteria used by real examiners.</div></div></li>
+        <li><div class="fl-icon">📈</div><div><div class="fl-title">Progress Tracker</div><div class="fl-body">Visualise score improvement week-by-week. Most students improve by 1–1.5 bands within 6 weeks of consistent practice.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="schedule">
+  <div class="eyebrow">Schedule &amp; Format</div>
+  <h2 class="sec-title">Class <em>Schedule</em></h2>
+  <p class="sec-sub">Live sessions 3× per week in flexible time slots. All sessions recorded — catch up anytime.</p>
+  <div class="schedule-grid">
+    <div class="sch-card"><div class="sch-icon">🕐</div><div class="sch-title">Flexible Time Slots</div><div class="sch-body">Morning, afternoon, and evening batches — 7 days a week. Auto-converted to your local timezone.</div></div>
+    <div class="sch-card"><div class="sch-icon">📹</div><div class="sch-title">All Sessions Recorded</div><div class="sch-body">Every live class available in your portal within 2 hours. Never fall behind even with a busy schedule.</div></div>
+    <div class="sch-card"><div class="sch-icon">👥</div><div class="sch-title">Small Group Format</div><div class="sch-body">Maximum 6 students per group. Maximum speaking time, maximum tutor attention, maximum results.</div></div>
+  </div>
+  <div class="schedule-table">
+    <div class="st-header"><span>Batch</span><span>Days</span><span>Time (IST)</span><span>Starts</span><span>Availability</span></div>
+    <div class="st-row"><span class="batch">Morning A</span><span>Mon / Wed / Fri</span><span>7:00 – 8:00 AM</span><span>April 7, 2025</span><span><span class="avail few">3 seats left</span></span></div>
+    <div class="st-row"><span class="batch">Afternoon B</span><span>Tue / Thu / Sat</span><span>2:00 – 3:00 PM</span><span>April 7, 2025</span><span><span class="avail open">Open</span></span></div>
+    <div class="st-row"><span class="batch">Evening C</span><span>Mon / Wed / Fri</span><span>7:30 – 8:30 PM</span><span>April 14, 2025</span><span><span class="avail few">2 seats left</span></span></div>
+    <div class="st-row"><span class="batch">Weekend D</span><span>Sat / Sun</span><span>10:00 – 11:30 AM</span><span>April 12, 2025</span><span><span class="avail full">Full</span></span></div>
+    <div class="st-row"><span class="batch">Evening E</span><span>Tue / Thu / Sat</span><span>8:00 – 9:00 PM</span><span>April 21, 2025</span><span><span class="avail open">Open</span></span></div>
+  </div>
+</section>
+
+<section class="section section-alt reveal" id="instructor">
+  <div class="instructor-grid">
+    <div class="inst-photo">
+      <img src="team-1.jpg" alt="Dr. Priya Krishnamurthy, IELTS Lead Coach"/>
+      <div class="inst-badge">
+        <div class="inst-badge-icon">🎖️</div>
+        <div>
+          <div class="inst-badge-text">IELTS Certified Examiner</div>
+          <div class="inst-badge-sub">British Council Accredited</div>
+        </div>
+      </div>
+    </div>
+    <div class="inst-info">
+      <div class="eyebrow">Lead Instructor</div>
+      <div class="inst-name">Dr. Priya Krishnamurthy</div>
+      <div class="inst-role">IELTS Lead Coach &amp; Exam Prep Programme Director</div>
+      <p class="inst-bio">Priya is a British Council-accredited IELTS examiner with 16 years of experience preparing students across India for international certifications. She holds a PhD in Applied Linguistics from the University of Edinburgh and has designed exam prep curricula for corporates including Wipro, HCL, and Air India. Her approach — teaching students to think like examiners, not just answer like candidates — has helped 3,200+ students pass on their first attempt.</p>
+      <div class="inst-stats">
+        <div class="is-box"><div class="is-num">3,200+</div><div class="is-label">Students Certified</div></div>
+        <div class="is-box"><div class="is-num">16 yrs</div><div class="is-label">Experience</div></div>
+        <div class="is-box"><div class="is-num">4.9 ★</div><div class="is-label">Average Rating</div></div>
+      </div>
+      <div class="inst-tags">
+        <span class="inst-tag">🎓 IELTS Examiner</span>
+        <span class="inst-tag">📜 TOEFL Coach</span>
+        <span class="inst-tag">🇫🇷 DELF Certified</span>
+        <span class="inst-tag">PhD Applied Linguistics</span>
+        <span class="inst-tag">Corporate Trainer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-ring"></div><div class="cta-ring"></div>
+  <h2 class="cta-title">Your Target Score Is<br><em>Closer Than You Think</em></h2>
+  <p class="cta-sub">Join 3,200+ students who achieved their exam goals with SpeakEasy. Next batch starts in 4 days — limited seats per group.</p>
+  <div class="cta-btns">
+    <a href="#overview" class="btn-cta-primary">Enrol Now — ₹17,999 →</a>
+    <a href="#overview" class="btn-cta-outline">Book Free Diagnostic Test</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">▶</a>
+        <a class="social-btn" href="#">✉</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="service-details.html">Spanish</a><a href="service-details1.html">Arabic</a><a href="service-details2.html">Italian</a><a href="service-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpeakEasy Academy. All rights reserved.</span>
+    <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
+  </div>
+</footer>
+
+<script src="service-details3.js"></script>
+</body>
+</html>

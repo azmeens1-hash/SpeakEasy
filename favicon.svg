@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#6c3fc5"/>
+  <text x="16" y="23" font-family="Poppins,Arial,sans-serif" font-weight="900" 
+        font-size="18" fill="white" text-anchor="middle">S</text>
+  <circle cx="24" cy="10" r="4" fill="#c8993a"/>
+  <text x="24" y="13.5" font-family="Poppins,Arial,sans-serif" font-weight="900" 
+        font-size="7" fill="white" text-anchor="middle">E</text>
+</svg>

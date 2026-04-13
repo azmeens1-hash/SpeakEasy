@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — SpeakEasy Language Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="blog.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Speak<span>Easy</span></a>
+  <ul class="nav-links">
+    <li class="dropdown"><a href="index.html">Home ▾</a><div class="dropdown-menu"><a href="index.html">Home 1</a><a href="home2.html">Home 2</a></div></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-only-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li class="mobile-only-item"><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><i class="fas fa-exchange-alt"></i></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="hero-eyebrow">Our Blog</div>
+    <h1>Stories, Tips &amp; <em>Insights</em></h1>
+    <p>Practical language learning advice, cultural deep-dives, tutor spotlights and learner success stories — all in one place.</p>
+    <div class="hero-search">
+      <input type="text" placeholder="Search articles, tips, languages…"/>
+      <button>Search →</button>
+    </div>
+  </div>
+</section>
+
+<div class="category-strip">
+  <button class="cat-btn active" onclick="filterCat(this,'all')">All Posts <span class="cat-count">52</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'language-tips')">Language Tips <span class="cat-count">14</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'culture')">Culture &amp; Travel <span class="cat-count">9</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'grammar')">Grammar <span class="cat-count">11</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'success')">Success Stories <span class="cat-count">7</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'tutor')">Tutor Spotlight <span class="cat-count">5</span></button>
+  <button class="cat-btn" onclick="filterCat(this,'exam')">Exam Prep <span class="cat-count">6</span></button>
+</div>
+
+<div class="blog-layout">
+  <div class="posts-column">
+
+    <article class="featured-post reveal">
+      <div class="featured-img"><img src="french.jpg" alt="French language article"/><div class="featured-badge">✨ Featured</div></div>
+      <div class="featured-body">
+        <div class="post-category">Language Tips</div>
+        <h2>The 7 Secrets French Natives Use to Sound Fluent in Any Conversation</h2>
+        <p>From elision to liaisons, we break down the hidden patterns that textbooks never teach — and show you how to practise them in just 15 minutes a day.</p>
+        <div class="post-meta">
+          <div class="post-author"><div class="author-avatar">A</div><span class="author-name">Aditi Sharma</span></div>
+          <span class="meta-dot"></span><span class="post-date">Mar 28, 2026</span>
+          <span class="meta-dot"></span><span class="post-read">8 min read</span>
+        </div>
+        <div class="post-tags"><span class="tag">French</span><span class="tag">Fluency</span><span class="tag">Beginner</span></div>
+        <a class="read-more" href="blog-details.html">Read Article →</a>
+      </div>
+    </article>
+
+    <div class="posts-grid">
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="img-3.jpg" alt="German Grammar"/><span class="thumb-cat">Grammar</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">German</span><span class="tag">Grammar</span></div>
+          <h3>Mastering German Cases: A Visual Map That Finally Makes Sense</h3>
+          <p>Nominative, accusative, dative — stop memorising tables and start seeing the patterns.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">RS</div><span class="author-name">Rahul S.</span></div><span class="post-date">Mar 22, 2026</span></div>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="img-1.jpg" alt="Spanish Culture"/><span class="thumb-cat">Culture</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">Spanish</span><span class="tag">Culture</span></div>
+          <h3>Why Learning Spanish Changed How I See Food, Family &amp; Fiestas</h3>
+          <p>A learner's first-hand account of how language unlocked an entirely new worldview in Seville.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">PK</div><span class="author-name">Priya K.</span></div><span class="post-date">Mar 18, 2026</span></div>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="img-5.jpg" alt="JLPT Exam Prep"/><span class="thumb-cat">Exam Prep</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">Japanese</span><span class="tag">JLPT</span></div>
+          <h3>JLPT N3 in 90 Days: The Study Plan That Actually Worked for Me</h3>
+          <p>A strict but sustainable schedule, the right resources, and the mindset shifts that made all the difference.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">MN</div><span class="author-name">Meena N.</span></div><span class="post-date">Mar 14, 2026</span></div>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="img-6.jpg" alt="Italian Vocabulary"/><span class="thumb-cat">Language Tips</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">Italian</span><span class="tag">Vocabulary</span></div>
+          <h3>1000 Italian Words That Cover 85% of Daily Conversation</h3>
+          <p>Pareto's principle applied to vocabulary — focus on the 1,000 highest-frequency words and watch fluency skyrocket.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">LP</div><span class="author-name">Lorenzo P.</span></div><span class="post-date">Mar 10, 2026</span></div>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="ins-3.jpg" alt="Tutor Sofia"/><span class="thumb-cat">Tutor Spotlight</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">Tutor</span><span class="tag">Spotlight</span></div>
+          <h3>Meet Sofia: The Polyglot Who Speaks 7 Languages &amp; Teaches with Joy</h3>
+          <p>From Buenos Aires to Hyderabad, Sofia's story is proof that language is the ultimate superpower.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">SE</div><span class="author-name">SpeakEasy</span></div><span class="post-date">Mar 6, 2026</span></div>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-thumb"><img src="img-7.jpg" alt="Korean TOPIK"/><span class="thumb-cat">Success Story</span></div>
+        <div class="post-body">
+          <div class="post-tags"><span class="tag">Korean</span><span class="tag">TOPIK</span></div>
+          <h3>From Zero to TOPIK II in One Year: Anjali's Remarkable Journey</h3>
+          <p>How a software engineer in Hyderabad learned Korean through drama, music and sheer determination.</p>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">AV</div><span class="author-name">Anjali V.</span></div><span class="post-date">Feb 28, 2026</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="load-more-wrap reveal">
+      <button class="load-more-btn" onclick="loadMore()">Load More Articles ↓</button>
+    </div>
+  </div>
+
+  <aside class="blog-sidebar">
+    <div class="sb-card sb-newsletter reveal">
+      <div class="sb-title">📬 Weekly Digest</div>
+      <p>Get the best language learning tips delivered to your inbox every Tuesday — no spam, ever.</p>
+      <input class="sb-input" type="text" placeholder="Your name"/>
+      <input class="sb-input" type="email" placeholder="your@email.com"/>
+      <button class="sb-submit">Subscribe Free →</button>
+    </div>
+    <div class="sb-card reveal">
+      <div class="sb-title">🔥 Most Popular</div>
+      <div class="popular-list">
+        <div class="popular-item"><span class="popular-num">01</span><div class="popular-text"><h4>How to Think in a Foreign Language (Not Just Translate)</h4><span>🇫🇷 French · 12 min read</span></div></div>
+        <div class="popular-item"><span class="popular-num">02</span><div class="popular-text"><h4>The Shadowing Technique: Sound Like a Native in 30 Days</h4><span>🌍 All Languages · 9 min read</span></div></div>
+        <div class="popular-item"><span class="popular-num">03</span><div class="popular-text"><h4>Why Your Accent Doesn't Matter (And What Actually Does)</h4><span>🇩🇪 German · 7 min read</span></div></div>
+        <div class="popular-item"><span class="popular-num">04</span><div class="popular-text"><h4>Spaced Repetition: The Science Behind Remembering Vocabulary</h4><span>🇯🇵 Japanese · 11 min read</span></div></div>
+      </div>
+    </div>
+    <div class="sb-card reveal">
+      <div class="sb-title">🌐 Browse by Language</div>
+      <div class="lang-list">
+        <div class="lang-item"><div class="lang-left"><span class="lang-flag">🇫🇷</span><div><div class="lang-name">French</div><div class="lang-posts">14 articles</div></div></div><span class="lang-arrow">→</span></div>
+        <div class="lang-item"><div class="lang-left"><span class="lang-flag">🇩🇪</span><div><div class="lang-name">German</div><div class="lang-posts">11 articles</div></div></div><span class="lang-arrow">→</span></div>
+        <div class="lang-item"><div class="lang-left"><span class="lang-flag">🇪🇸</span><div><div class="lang-name">Spanish</div><div class="lang-posts">10 articles</div></div></div><span class="lang-arrow">→</span></div>
+        <div class="lang-item"><div class="lang-left"><span class="lang-flag">🇯🇵</span><div><div class="lang-name">Japanese</div><div class="lang-posts">7 articles</div></div></div><span class="lang-arrow">→</span></div>
+        <div class="lang-item"><div class="lang-left"><span class="lang-flag">🇮🇹</span><div><div class="lang-name">Italian</div><div class="lang-posts">6 articles</div></div></div><span class="lang-arrow">→</span></div>
+      </div>
+    </div>
+    <div class="sb-card reveal">
+      <div class="sb-title">🏷️ Popular Tags</div>
+      <div class="tag-cloud">
+        <span class="tag-pill">Fluency</span><span class="tag-pill">Grammar</span><span class="tag-pill">Vocabulary</span><span class="tag-pill">Beginner</span><span class="tag-pill">JLPT</span><span class="tag-pill">DELF</span><span class="tag-pill">Culture</span><span class="tag-pill">Pronunciation</span><span class="tag-pill">Online</span><span class="tag-pill">Study Tips</span><span class="tag-pill">Accent</span><span class="tag-pill">Memory</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="blog-cta reveal">
+  <div class="cta-ring"></div><div class="cta-ring"></div>
+  <h2>Ready to Start Your <em>Language Journey?</em></h2>
+  <p>Join 50,000+ learners who found their fluency with SpeakEasy. Your first trial class is on us.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn btn-white">Book a Free Trial →</a>
+    <a href="services.html" class="btn btn-outline-white">Browse All Courses</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
+      <div class="footer-socials">
+        <button class="social-btn">f</button><button class="social-btn">in</button><button class="social-btn">▶</button><button class="social-btn">𝕏</button><button class="social-btn">ig</button>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="service-details.html">Spanish</a><a href="service-details1.html">Arabic</a><a href="service-details2.html">Italian</a><a href="service-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Centre</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpeakEasy Academy. All rights reserved.</span>
+    <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
+  </div>
+</footer>
+
+<script src="blog.js"></script>
+</body>
+</html>
