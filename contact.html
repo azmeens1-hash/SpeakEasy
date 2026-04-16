@@ -16,23 +16,34 @@
 
 <nav>
   <a href="index.html" class="logo">Speak<span>Easy</span></a>
+
   <ul class="nav-links">
-    <li class="dropdown"><a href="index.html">Home ▾</a><div class="dropdown-menu"><a href="index.html">Home 1</a><a href="home2.html">Home 2</a></div></li>
+    <li class="dropdown">
+      <a href="index.html">Home ▾</a>
+      <div class="dropdown-menu">
+        <a href="index.html">Home 1</a>
+        <a href="home2.html">Home 2</a>
+      </div>
+    </li>
     <li><a href="about.html">About</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-    <li class="mobile-only-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-    <li class="mobile-only-item"><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="admin.html">Dashboard</a></li>
+    <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
+    
   </ul>
+
   <div class="nav-icons">
-    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><i class="fas fa-exchange-alt"></i></button>
     <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
-    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">RTL</button>
+    <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
+ 
 
 <section class="contact-hero">
   <div class="hero-ring"></div>
@@ -57,11 +68,11 @@
       <h2 class="form-title">How Can We Help?</h2>
       <p class="form-subtitle">Fill in the form below and one of our language consultants will get back to you &mdash; usually within 2 hours during business hours.</p>
       <div class="enquiry-tabs">
-        <div class="eq-tab active" onclick="setTab(this)">🏫 General Enquiry</div>
-        <div class="eq-tab" onclick="setTab(this)">🎯 Free Trial Class</div>
-        <div class="eq-tab" onclick="setTab(this)">🏆 Exam Preparation</div>
-        <div class="eq-tab" onclick="setTab(this)">🏢 Corporate Training</div>
-        <div class="eq-tab" onclick="setTab(this)">🛠 Technical Support</div>
+        <div class="eq-tab active" onclick="setTab(this)">General Enquiry</div>
+        <div class="eq-tab" onclick="setTab(this)"> Free Trial Class</div>
+        <div class="eq-tab" onclick="setTab(this)"> Exam Preparation</div>
+        <div class="eq-tab" onclick="setTab(this)">Corporate Training</div>
+        <div class="eq-tab" onclick="setTab(this)"> Technical Support</div>
       </div>
       <div class="form-grid">
         <div class="form-group"><label class="form-label">First Name <span>*</span></label><input class="form-input" id="fname" type="text" placeholder="Aanya"/></div>
@@ -75,12 +86,12 @@
       <div class="form-group" style="margin-bottom:18px;">
         <label class="form-label">Preferred Class Time (IST)</label>
         <div class="time-slots">
-          <div class="time-slot" onclick="toggleSlot(this)">🌅 Morning (6–9 AM)</div>
-          <div class="time-slot" onclick="toggleSlot(this)">☀️ Afternoon (12–3 PM)</div>
-          <div class="time-slot" onclick="toggleSlot(this)">🌇 Evening (6–9 PM)</div>
-          <div class="time-slot" onclick="toggleSlot(this)">🌙 Late Night (9–11 PM)</div>
-          <div class="time-slot" onclick="toggleSlot(this)">📅 Weekends Only</div>
-          <div class="time-slot" onclick="toggleSlot(this)">🕐 Any Time</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Morning (6–9 AM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Afternoon (12–3 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Evening (6–9 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Late Night (9–11 PM)</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Weekends Only</div>
+          <div class="time-slot" onclick="toggleSlot(this)"> Any Time</div>
         </div>
       </div>
       <div class="form-group full" style="margin-bottom:24px;"><label class="form-label">Your Message <span>*</span></label><textarea class="form-input" id="message" placeholder="Tell us more about what you&rsquo;re looking for&hellip;"></textarea></div>
@@ -98,7 +109,7 @@
 
   <aside class="contact-sidebar">
     <div class="sidebar-card reveal">
-      <div class="sc-title">🕐 Office Hours</div>
+      <div class="sc-title"> Office Hours</div>
       <div class="hours-list">
         <div class="hours-row"><span class="hours-day">Monday &ndash; Friday</span><div style="display:flex;align-items:center;"><span class="hours-time">9:00 AM &ndash; 7:00 PM IST</span><span class="hours-badge open" id="weekdayBadge">Open</span></div></div>
         <div class="hours-row"><span class="hours-day">Saturday</span><div style="display:flex;align-items:center;"><span class="hours-time">10:00 AM &ndash; 5:00 PM IST</span><span class="hours-badge open" id="satBadge">Open</span></div></div>
@@ -107,14 +118,14 @@
       </div>
     </div>
     <div class="sidebar-card reveal">
-      <div class="sc-title">📲 Follow Us</div>
+      <div class="sc-title"> Follow Us</div>
       <div class="social-grid">
-        <div class="social-card"><span class="sc-emoji">📸</span><div><span class="sc-name">Instagram</span><span class="sc-handle">@speakeasy.in</span></div></div>
-        <div class="social-card"><span class="sc-emoji">𝕏</span><div><span class="sc-name">Twitter / X</span><span class="sc-handle">@SpeakEasyAcad</span></div></div>
-        <div class="social-card"><span class="sc-emoji">💼</span><div><span class="sc-name">LinkedIn</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
-        <div class="social-card"><span class="sc-emoji">▶️</span><div><span class="sc-name">YouTube</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
-        <div class="social-card"><span class="sc-emoji">💬</span><div><span class="sc-name">WhatsApp</span><span class="sc-handle">+91 98765 43210</span></div></div>
-        <div class="social-card"><span class="sc-emoji">f</span><div><span class="sc-name">Facebook</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">Instagram</span><span class="sc-handle">@speakeasy.in</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">Twitter / X</span><span class="sc-handle">@SpeakEasyAcad</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">LinkedIn</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">YouTube</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">WhatsApp</span><span class="sc-handle">+91 98765 43210</span></div></div>
+        <div class="social-card"><span class="sc-emoji"></span><div><span class="sc-name">Facebook</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
       </div>
     </div>
   </aside>
@@ -158,8 +169,8 @@
   <h2 class="cta-title">Still Have Questions?<br>We&rsquo;re Here to Help.</h2>
   <p class="cta-sub">Our team of language consultants is standing by. Whether you&rsquo;re ready to enrol or just exploring, we&rsquo;d love to chat.</p>
   <div class="cta-btns">
-    <a href="#formContent" class="btn btn-white">💬 Send Us a Message</a>
-    <a href="#" class="btn btn-outline-white">🎯 Book a Free Trial</a>
+    <a href="#formContent" class="btn btn-white"> Send Us a Message</a>
+    <a href="#" class="btn btn-outline-white"> Book a Free Trial</a>
   </div>
 </section>
 

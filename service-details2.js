@@ -11,17 +11,32 @@
   });
 
   
-  const rtlToggle = document.getElementById('rtlToggle');
-  if (localStorage.getItem('speakeasy-rtl') === 'rtl') {
-    document.body.setAttribute('dir', 'rtl');
-  }
-  rtlToggle?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isRtl = document.body.getAttribute('dir') === 'rtl';
-    document.body.setAttribute('dir', isRtl ? 'ltr' : 'rtl');
-    localStorage.setItem('speakeasy-rtl', isRtl ? 'ltr' : 'rtl');
-  });
+  /* ---- RTL ---- */
+  var rtlToggle = document.getElementById('rtlToggle');
 
+if (rtlToggle) {
+  /* init from localStorage */
+  var savedDir = null;
+  try { savedDir = localStorage.getItem('speakeasy-rtl'); } catch(e) {}
+  if (savedDir === 'rtl') {
+    document.body.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('dir', 'rtl');
+    rtlToggle.textContent = 'LTR';
+  } else {
+    rtlToggle.textContent = 'RTL';
+  }
+
+  rtlToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var isRtl = document.body.getAttribute('dir') === 'rtl';
+    var newDir = isRtl ? 'ltr' : 'rtl';
+    document.body.setAttribute('dir', newDir);
+    document.documentElement.setAttribute('dir', newDir);
+    rtlToggle.textContent = isRtl ? 'RTL' : 'LTR';
+    try { localStorage.setItem('speakeasy-rtl', newDir); } catch(e) {}
+  });
+}
+ 
  
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.querySelector('.nav-links');

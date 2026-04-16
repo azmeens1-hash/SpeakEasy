@@ -19,19 +19,31 @@
     });
   }
 
-  /* ============================================================
-     RTL TOGGLE — matches contact.js
-  ============================================================ */
-  var rtlToggle = document.getElementById('rtlToggle');
+ 
+ var rtlToggle = document.getElementById('rtlToggle');
 
-  if (rtlToggle) {
-    rtlToggle.addEventListener('click', function () {
-      var isRtl = document.body.getAttribute('dir') === 'rtl';
-      var newDir = isRtl ? 'ltr' : 'rtl';
-      document.documentElement.dir = newDir;
-      document.body.setAttribute('dir', newDir);
-    });
+if (rtlToggle) {
+  /* init from localStorage */
+  var savedDir = null;
+  try { savedDir = localStorage.getItem('speakeasy-rtl'); } catch(e) {}
+  if (savedDir === 'rtl') {
+    document.body.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('dir', 'rtl');
+    rtlToggle.textContent = 'LTR';
+  } else {
+    rtlToggle.textContent = 'RTL';
   }
+
+  rtlToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var isRtl = document.body.getAttribute('dir') === 'rtl';
+    var newDir = isRtl ? 'ltr' : 'rtl';
+    document.body.setAttribute('dir', newDir);
+    document.documentElement.setAttribute('dir', newDir);
+    rtlToggle.textContent = isRtl ? 'RTL' : 'LTR';
+    try { localStorage.setItem('speakeasy-rtl', newDir); } catch(e) {}
+  });
+}
 
   /* ============================================================
      HAMBURGER / MOBILE NAV — matches contact.js

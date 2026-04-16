@@ -16,24 +16,34 @@
 
 <nav>
   <a href="index.html" class="logo">Speak<span>Easy</span></a>
+
   <ul class="nav-links">
-    <li class="dropdown"><a href="index.html">Home ▾</a><div class="dropdown-menu"><a href="index.html">Home 1</a><a href="home2.html">Home 2</a></div></li>
+    <li class="dropdown">
+      <a href="index.html">Home ▾</a>
+      <div class="dropdown-menu">
+        <a href="index.html">Home 1</a>
+        <a href="home2.html">Home 2</a>
+      </div>
+    </li>
     <li><a href="about.html">About</a></li>
     <li><a href="services.html">Services</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li class="mobile-only-item"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-    <li class="mobile-only-item"><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+    <li><a href="admin.html">Dashboard</a></li>
+    <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
+    
   </ul>
+
   <div class="nav-icons">
-    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><i class="fas fa-exchange-alt"></i></button>
     <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <a href="login.html" class="icon login desktop-icon" title="Login"><i class="fas fa-sign-in-alt"></i></a>
-    <a href="admin.html" class="nav-dashboard-btn desktop-icon" title="Dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
-    <div class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></div>
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">RTL</button>
+    <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
-
+ 
 <section class="blog-hero">
   <h1>The 7 Secrets French Natives Use to Sound Fluent in <em>Any Conversation</em></h1>
   <div class="meta">
@@ -79,7 +89,7 @@
 
   <aside class="sidebar">
     <div class="card reveal">
-      <h3>🔥 Popular Topics</h3>
+      <h3> Popular Topics</h3>
       <ul>
         <li>Tips &amp; Tricks</li>
         <li>Grammar Guides</li>
@@ -90,7 +100,7 @@
       </ul>
     </div>
     <div class="card subscribe reveal">
-      <h3>📩 Weekly Tips in Your Inbox</h3>
+      <h3> Weekly Tips in Your Inbox</h3>
       <p>Get language learning insights, tutor spotlights and culture deep-dives every week — free.</p>
       <input type="email" placeholder="your@email.com"/>
       <button id="subscribeBtn">Subscribe Free →</button>

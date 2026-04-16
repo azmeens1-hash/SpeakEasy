@@ -27,26 +27,30 @@
   });
  
   /* ---- RTL ---- */
-  function isRTL() { return document.body.getAttribute('dir') === 'rtl'; }
-  function setRTL(rtl) {
-    document.documentElement.dir = rtl ? 'rtl' : 'ltr';
-    document.body.setAttribute('dir', rtl ? 'rtl' : 'ltr');
-    var btn = document.getElementById('rtlToggle');
-    if (btn) {
-      btn.title = rtl ? 'Switch to LTR' : 'Switch to RTL';
-      btn.innerHTML = '<i class="fas fa-exchange-alt"></i>';
-    }
-    try { localStorage.setItem(RTL_KEY, rtl ? 'rtl' : 'ltr'); } catch(e) {}
-  }
-  (function() {
-    var saved = null;
-    try { saved = localStorage.getItem(RTL_KEY); } catch(e) {}
-    if (saved === 'rtl') setRTL(true);
-  })();
   var rtlToggle = document.getElementById('rtlToggle');
-  if (rtlToggle) {
-    rtlToggle.addEventListener('click', function(e) { e.stopPropagation(); setRTL(!isRTL()); });
+
+if (rtlToggle) {
+  /* init from localStorage */
+  var savedDir = null;
+  try { savedDir = localStorage.getItem('speakeasy-rtl'); } catch(e) {}
+  if (savedDir === 'rtl') {
+    document.body.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('dir', 'rtl');
+    rtlToggle.textContent = 'LTR';
+  } else {
+    rtlToggle.textContent = 'RTL';
   }
+
+  rtlToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var isRtl = document.body.getAttribute('dir') === 'rtl';
+    var newDir = isRtl ? 'ltr' : 'rtl';
+    document.body.setAttribute('dir', newDir);
+    document.documentElement.setAttribute('dir', newDir);
+    rtlToggle.textContent = isRtl ? 'RTL' : 'LTR';
+    try { localStorage.setItem('speakeasy-rtl', newDir); } catch(e) {}
+  });
+}
  
 
   var hamburger = document.getElementById('hamburger');
