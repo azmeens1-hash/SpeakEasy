@@ -332,7 +332,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
       rgba(10, 8, 20, 0.55) 50%,
       rgba(10, 8, 20, 0.72) 100%
     ),
-    url('Images/about-\ img.jpg') center center / cover no-repeat;
+    url('Images/about img.jpg') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
