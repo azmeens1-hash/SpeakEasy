@@ -7,103 +7,93 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@400;500;600;700;900&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="service-details.css">
+<link rel="stylesheet" href="css/service-details.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="shortcut icon" href="favicon.svg"/>
 </head>
-
+<body>
 <nav>
-  <a href="index.html" class="logo">Speak<span>Easy</span></a>
-
+  <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+    <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+      <title>SpeakEasy Language Academy logo</title>
+      <g transform="translate(36,48)">
+        <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+        <clipPath id="navGlobeClip">
+          <circle cx="0" cy="0" r="28"/>
+        </clipPath>
+        <g clip-path="url(#navGlobeClip)">
+          <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+          <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+        </g>
+        <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+      </g>
+      <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+        <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+      </text>
+    </svg>
+  </a>
   <ul class="nav-links">
-    <li class="dropdown">
-      <a href="index.html">Home ▾</a>
+    <li class="dropdown active">
+      <a href="index.html"><span class="nav-link-text">Home </span><span class="dropdown-caret">▾</span></a>
       <div class="dropdown-menu">
-        <a href="index.html">Home 1</a>
+        <a href="index.html"class="active">Home 1</a>
         <a href="home2.html">Home 2</a>
       </div>
     </li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="admin.html">Dashboard</a></li>
+    <li><a href="about.html"><span class="nav-link-text">About</span></a></li>
+    <li><a href="services.html"><span class="nav-link-text">Services</span></a></li>
+    <li><a href="blog.html"><span class="nav-link-text">Blog</span></a></li>
+    <li><a href="contact.html"><span class="nav-link-text">Contact</span></a></li>
+    <li><a href="admin.html"><span class="nav-link-text">Dashboard</span></a></li>
     <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
-    
   </ul>
-
   <div class="nav-icons">
-    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">RTL</button>
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><span id="rtlLabel">RTL</span></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
     <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
- 
 
+
+<!-- ═══════════════════════════════════════ HERO ═══ -->
 <section class="sd-hero">
-  <div class="hero-left">
-    <div class="breadcrumb">
-      <span style="color:var(--primary);">HOME</span><span class="sep">›</span>
-      <span style="color:var(--primary);">LANGUAGES</span><span class="sep">›</span>
-      <span class="current">SPANISH</span>
-    </div>
-    <div class="hero-badge">🇪🇸 Most Popular Language</div>
-    <h1 class="hero-title">Learn <em>Spanish</em><br>From Zero to Fluent.</h1>
-    <p class="hero-desc">The world's second most spoken language — taught by native Madrileñas and DELE-certified coaches. Speak confidently in Spain, Latin America, and the global business world in just 12 weeks.</p>
-    <div class="hero-meta">
-      <div class="meta-pill"><span>⏱</span> 12 Weeks</div>
-      <div class="meta-pill"><span></span> 3× per week</div>
-      <div class="meta-pill"><span></span> A1 → C2</div>
-      <div class="meta-pill"><span></span> DELE Prep</div>
-    </div>
-    <div class="hero-btns">
-      <button class="btn-primary">Start Spanish →</button>
-      <button class="btn-ghost">Download Free Sample Class</button>
-    </div>
+  <h1 class="hero-title">Learn <em>Spanish</em><br>From Zero to Fluent.</h1>
+  <p class="hero-desc">The world's second most spoken language — taught by native Madrileñas and DELE-certified coaches. Speak confidently in Spain, Latin America, and the global business world in just 12 weeks.</p>
+  <div class="hero-meta">
+    <div class="meta-pill"><i class="fa-solid fa-clock"></i> 12 Weeks</div>
+    <div class="meta-pill"><i class="fa-solid fa-calendar-days"></i> 3× per week</div>
+    <div class="meta-pill"><i class="fa-solid fa-chart-line"></i> A1 → C2</div>
+    <div class="meta-pill"><i class="fa-solid fa-graduation-cap"></i> DELE Prep</div>
   </div>
-  <div class="hero-right">
-    <div class="hero-dot"></div>
-    <div class="hero-dot"></div>
-    <div class="hero-dot"></div>
-    <div class="hero-visual-card">
-      <div class="hvc-top">
-        <div class="hvc-icon">🇪🇸</div>
-        <div>
-          <div class="hvc-label">Spanish Programme</div>
-          <div class="hvc-sub">14 courses · A1 to C2</div>
-        </div>
-      </div>
-      <div class="hvc-stats">
-        <div class="hvc-stat"><div class="hvc-num">4.9★</div><div class="hvc-slabel">Rating</div></div>
-        <div class="hvc-stat"><div class="hvc-num">4,200+</div><div class="hvc-slabel">Students</div></div>
-        <div class="hvc-stat"><div class="hvc-num">36</div><div class="hvc-slabel">Live Classes</div></div>
-        <div class="hvc-stat"><div class="hvc-num">96%</div><div class="hvc-slabel">Pass Rate</div></div>
-      </div>
-      <div class="hvc-progress">
-        <div class="hvc-prow"><span>Speaking Fluency</span><span>94%</span></div>
-        <div class="hvc-bar"><div class="hvc-fill" style="--w:94%"></div></div>
-      </div>
-      <div class="hvc-progress">
-        <div class="hvc-prow"><span>Vocabulary (1,200+ words)</span><span>89%</span></div>
-        <div class="hvc-bar"><div class="hvc-fill" style="--w:89%"></div></div>
-      </div>
-      <div class="hvc-progress">
-        <div class="hvc-prow"><span>Cultural Fluency</span><span>96%</span></div>
-        <div class="hvc-bar"><div class="hvc-fill" style="--w:96%"></div></div>
-      </div>
-    </div>
+  <div class="hero-btns">
+    <button class="btn-primary">Start Spanish →</button>
+    <button class="btn-ghost">Download Free Sample Class</button>
   </div>
 </section>
 
 
+<!-- ═══════════════════════════════════════ OVERVIEW ═══ -->
 <section class="section reveal" id="overview">
+
+  <div class="overview-header">
+    <div class="eyebrow center">Course Overview</div>
+    <h2 class="sec-title"style="margin-bottom:24px;color:var(--primary);">Why Learn <em style="color:var(--secondary);">Spanish</em> with SpeakEasy?</h2>
+  </div>
+
   <div class="overview-grid">
+
     <div class="overview-body">
-      <div class="eyebrow">Course Overview</div>
-      <h2 class="sec-title">Why Learn <em>Spanish</em> with SpeakEasy?</h2>
       <p>Spanish is spoken by <strong>560 million people</strong> across 20+ countries — making it the second most spoken native language on earth. Whether your goal is career advancement, travel, connecting with family, or personal enrichment, Spanish opens more doors than almost any other language you could choose.</p>
       <p>Our Spanish programme is built around <strong>real conversation from day one</strong>. Every session is led live by a certified native tutor — all from Spain or Latin America — in small groups of 6 students. You'll practice authentic dialogues in cafés, offices, markets, and social situations so that when you land in Madrid or Mexico City, nothing surprises you.</p>
       <div class="highlight-box">"¡Hola! In 12 weeks you'll go from your first 'hola' to holding full conversations with native speakers. That's our guarantee."<br>— Sofia Martínez, Lead Spanish Tutor</div>
@@ -117,50 +107,76 @@
         <div class="otag">Earn a CEFR-aligned certificate</div>
       </div>
     </div>
-    <div>
-      <div class="enrol-card">
-        <div class="ec-price"><sup>₹</sup>3,499</div>
-        <div class="ec-period">Per month · 12-week programme</div>
-        <div class="ec-save">Save ₹2,000 — Early Bird ends April 30</div>
-        <ul class="ec-includes">
-          <li><div class="tick">✓</div> 36 Live Spanish Classes</li>
-          <li><div class="tick">✓</div> 2 × 1-on-1 Native Tutor Sessions</li>
-          <li><div class="tick">✓</div> 24/7 AI Spanish Practice Partner</li>
-          <li><div class="tick">✓</div> Spanish Workbook + Flashcards</li>
-          <li><div class="tick">✓</div> DELE Exam Guidance Included</li>
-          <li><div class="tick">✓</div> Pronunciation AI Coach</li>
-          <li><div class="tick">✓</div> CEFR Completion Certificate</li>
-          <li><div class="tick">✓</div> Lifetime Community Access</li>
-        </ul>
-        <button class="ec-btn">Start Spanish — ₹3,499/mo →</button>
-        <button class="ec-btn-alt">Book a Free Spanish Trial Class</button>
-        <div class="ec-guarantee"> 7-day money-back guarantee — no questions asked</div>
-      </div>
+
+    <div class="enrol-card">
+      <div class="ec-price"><sup>₹</sup>3,499</div>
+      <div class="ec-period">Per month · 12-week programme</div>
+      <div class="ec-save">Save ₹2,000 — Early Bird ends April 30</div>
+      <ul class="ec-includes">
+        <li><div class="tick">✓</div> 36 Live Spanish Classes</li>
+        <li><div class="tick">✓</div> 2 × 1-on-1 Native Tutor Sessions</li>
+        <li><div class="tick">✓</div> 24/7 AI Spanish Practice Partner</li>
+        <li><div class="tick">✓</div> Spanish Workbook + Flashcards</li>
+        <li><div class="tick">✓</div> DELE Exam Guidance Included</li>
+        <li><div class="tick">✓</div> Pronunciation AI Coach</li>
+        <li><div class="tick">✓</div> CEFR Completion Certificate</li>
+        <li><div class="tick">✓</div> Lifetime Community Access</li>
+      </ul>
+      <button class="ec-btn">Start Spanish — ₹3,499/mo →</button>
+      <button class="ec-btn-alt">Book a Free Spanish Trial Class</button>
+      <div class="ec-guarantee">🛡 7-day money-back guarantee — no questions asked</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ LEARN ═══ -->
+<section class="section section-alt reveal" id="learn">
+  <div class="eyebrow">Learning Outcomes</div>
+  <h2 class="sec-title"style="color:var(--primary);">What You'll <em style="color:var(--secondary);">Master</em> in Spanish</h2>
+  <p class="sec-sub">Eight core Spanish skills developed across 12 weeks of live, native-led practice.</p>
+  <div class="learn-grid">
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-comments"></i></div>
+      <div class="li-text"><div class="li-title">Fluent Spanish Conversation</div><div class="li-body">Stop translating mentally. We drill Spanish response patterns and sentence structures until speaking feels natural — in cafés, offices, and social settings.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-earth-americas"></i></div>
+      <div class="li-text"><div class="li-title">Spain &amp; Latin American Accents</div><div class="li-body">Understand both Castilian Spanish from Spain and the major Latin American variants — Mexican, Colombian, Argentinian — at native speed.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-masks-theater"></i></div>
+      <div class="li-text"><div class="li-title">Spanish Cultural Intelligence</div><div class="li-body">Learn the social etiquette, humour, gestures, and unwritten rules that make the difference between textbook Spanish and real Spanish.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-book-open"></i></div>
+      <div class="li-text"><div class="li-title">1,200+ Spanish Words in Context</div><div class="li-body">Vocabulary is taught in natural sentences, not word lists. By week 12 you'll use 1,200+ high-frequency words instinctively.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-microphone"></i></div>
+      <div class="li-text"><div class="li-title">Spanish Pronunciation Mastery</div><div class="li-body">Perfect the rolled R, the silent H, regional vowel sounds, and liaisons between words — with AI-scored pronunciation feedback every session.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <div class="li-text"><div class="li-title">Spanish Grammar &amp; Tenses</div><div class="li-body">Master presente, pretérito, imperfecto, futuro, and subjuntivo — the tenses that unlock natural, expressive Spanish communication.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-briefcase"></i></div>
+      <div class="li-text"><div class="li-title">Business &amp; Professional Spanish</div><div class="li-body">Negotiate, present, and email professionally in Spanish. Essential for professionals working with Latin American or Spanish markets.</div></div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-certificate"></i></div>
+      <div class="li-text"><div class="li-title">DELE Exam Ready</div><div class="li-body">Finish with a live 20-minute fluency conversation and earn your CEFR certificate. Full DELE A1–C2 exam preparation included in all levels.</div></div>
     </div>
   </div>
 </section>
 
 
-<section class="section section-alt reveal" id="learn">
-  <div class="eyebrow">Learning Outcomes</div>
-  <h2 class="sec-title">What You'll <em>Master</em> in Spanish</h2>
-  <p class="sec-sub">Eight core Spanish skills developed across 12 weeks of live, native-led practice.</p>
-  <div class="learn-grid">
-    <div class="learn-item"><div class="li-icon">1</div><div><div class="li-title">Fluent Spanish Conversation</div><div class="li-body">Stop translating mentally. We drill Spanish response patterns and sentence structures until speaking feels natural — in cafés, offices, and social settings.</div></div></div>
-    <div class="learn-item"><div class="li-icon">2</div><div><div class="li-title">Spain &amp; Latin American Accents</div><div class="li-body">Understand both Castilian Spanish from Spain and the major Latin American variants — Mexican, Colombian, Argentinian — at native speed.</div></div></div>
-    <div class="learn-item"><div class="li-icon">3</div><div><div class="li-title">Spanish Cultural Intelligence</div><div class="li-body">Learn the social etiquette, humour, gestures, and unwritten rules that make the difference between textbook Spanish and real Spanish.</div></div></div>
-    <div class="learn-item"><div class="li-icon">4</div><div><div class="li-title">1,200+ Spanish Words in Context</div><div class="li-body">Vocabulary is taught in natural sentences, not word lists. By week 12 you'll use 1,200+ high-frequency words instinctively.</div></div></div>
-    <div class="learn-item"><div class="li-icon">5</div><div><div class="li-title">Spanish Pronunciation Mastery</div><div class="li-body">Perfect the rolled R, the silent H, regional vowel sounds, and liaisons between words — with AI-scored pronunciation feedback every session.</div></div></div>
-    <div class="learn-item"><div class="li-icon">6</div><div><div class="li-title">Spanish Grammar &amp; Tenses</div><div class="li-body">Master presente, pretérito, imperfecto, futuro, and subjuntivo — the tenses that unlock natural, expressive Spanish communication.</div></div></div>
-    <div class="learn-item"><div class="li-icon">7</div><div><div class="li-title">Business &amp; Professional Spanish</div><div class="li-body">Negotiate, present, and email professionally in Spanish. Essential for professionals working with Latin American or Spanish markets.</div></div></div>
-    <div class="learn-item"><div class="li-icon">8</div><div><div class="li-title">DELE Exam Ready</div><div class="li-body">Finish with a live 20-minute fluency conversation and earn your CEFR certificate. Full DELE A1–C2 exam preparation included in all levels.</div></div></div>
-  </div>
-</section>
-
-
+<!-- ═══════════════════════════════════════ CURRICULUM ═══ -->
 <section class="section reveal" id="curriculum">
   <div class="eyebrow">Course Structure</div>
-  <h2 class="sec-title">Spanish Week-by-Week <em>Curriculum</em></h2>
+  <h2 class="sec-title"style="color:var(--primary);">Spanish Week-by-Week <em style="color:var(--secondary);">Curriculum</em></h2>
   <p class="sec-sub">12 weeks structured into 4 phases — each building directly on the last, from ¡Hola! to full fluency.</p>
   <div class="curriculum-tabs">
     <button class="ctab active" onclick="switchTab(this,'phase1')">Phase 1 — Spanish Basics</button>
@@ -168,6 +184,7 @@
     <button class="ctab" onclick="switchTab(this,'phase3')">Phase 3 — Real Spain</button>
     <button class="ctab" onclick="switchTab(this,'phase4')">Phase 4 — Fluency &amp; DELE</button>
   </div>
+
   <div id="phase1" class="tab-content show">
     <div class="module-item open">
       <div class="module-header" onclick="toggleModule(this)">
@@ -202,7 +219,8 @@
       </div>
     </div>
   </div>
-  <div id="phase2" class="tab-content" style="display:none">
+
+  <div id="phase2" class="tab-content">
     <div class="module-item open">
       <div class="module-header" onclick="toggleModule(this)">
         <div class="mod-num">03</div>
@@ -235,11 +253,12 @@
       </div>
     </div>
   </div>
-  <div id="phase3" class="tab-content" style="display:none">
+
+  <div id="phase3" class="tab-content">
     <div class="module-item open">
       <div class="module-header" onclick="toggleModule(this)">
         <div class="mod-num">05</div>
-        <div class="mod-info"><div class="mod-title">Week 7: España y Latinoamérica en la Vida Real</div><div class="mod-meta">6 sessions · 3 hrs total</div></div>
+        <div class="mod-info"><div class="mod-title">Week 7–8: España y Latinoamérica en la Vida Real</div><div class="mod-meta">6 sessions · 3 hrs total</div></div>
         <div class="mod-tag">Immersion</div>
         <div class="mod-chevron">▾</div>
       </div>
@@ -269,7 +288,8 @@
       </div>
     </div>
   </div>
-  <div id="phase4" class="tab-content" style="display:none">
+
+  <div id="phase4" class="tab-content">
     <div class="module-item open">
       <div class="module-header" onclick="toggleModule(this)">
         <div class="mod-num">07</div>
@@ -306,12 +326,13 @@
 </section>
 
 
+<!-- ═══════════════════════════════════════ INSTRUCTOR ═══ -->
 <section class="section section-alt reveal" id="instructor">
   <div class="instructor-grid">
     <div class="inst-photo">
-      <img src="instructor.jpg" alt="Sofia Martínez, Lead Spanish Tutor">
+      <img src="Images/instructor.jpg" alt="Sofia Martínez, Lead Spanish Tutor">
       <div class="inst-badge">
-        <div class="inst-badge-icon"></div>
+        <div class="inst-badge-icon"><i class="fa-solid fa-medal"></i></div>
         <div>
           <div class="inst-badge-text">DELE Certified Examiner</div>
           <div class="inst-badge-sub">Instituto Cervantes Accredited</div>
@@ -320,17 +341,17 @@
     </div>
     <div class="inst-info">
       <div class="eyebrow">Your Instructor</div>
-      <div class="inst-name">Sofia Martínez</div>
+      <div class="inst-name"style="color:var(--primary);">Sofia Martínez</div>
       <div class="inst-role">Lead Spanish Tutor &amp; Programme Director</div>
-      <p class="inst-bio">Sofia is a native Madrileña with 14 years of experience teaching Spanish to learners across Asia. A certified DELE examiner accredited by the Instituto Cervantes, she has designed language curricula for corporates including Infosys, TCS, and IndiGo Airlines. Her teaching philosophy centres on confidence first, correctness second — a method that has helped 200+ students reach conversational fluency.</p>
+      <p class="inst-bio">Sofia is a native Madrileña with 14 years of experience teaching Spanish to learners across Asia. A certified DELE examiner accredited by the Instituto Cervantes, she has designed language curricula for corporates including Infosys, TCS, and IndiGo Airlines. Her teaching philosophy centres on <em>confidence first, correctness second</em> — a method that has helped 200+ students reach conversational fluency.</p>
       <div class="inst-stats">
         <div class="is-box"><div class="is-num">240</div><div class="is-label">Students Taught</div></div>
         <div class="is-box"><div class="is-num">14 yrs</div><div class="is-label">Experience</div></div>
         <div class="is-box"><div class="is-num">4.9 ★</div><div class="is-label">Average Rating</div></div>
       </div>
       <div class="inst-tags">
-        <span class="inst-tag">🇪🇸 Native Spanish</span>
-        <span class="inst-tag">🇮🇹 Italian C1</span>
+        <span class="inst-tag"><i class="fa-solid fa-language"></i> Native Spanish</span>
+        <span class="inst-tag"><i class="fa-solid fa-language"></i> Italian C1</span>
         <span class="inst-tag">DELE Examiner</span>
         <span class="inst-tag">Corporate Trainer</span>
         <span class="inst-tag">Author × 3 Books</span>
@@ -340,15 +361,34 @@
 </section>
 
 
+<!-- ═══════════════════════════════════════ SCHEDULE ═══ -->
 <section class="section reveal" id="schedule">
-  <div class="eyebrow">Schedule &amp; Format</div>
-  <h2 class="sec-title">Class <em>Schedule</em></h2>
-  <p class="sec-sub">Live sessions 3× per week in flexible time slots. All sessions are recorded — miss one and catch up at your own pace.</p>
-  <div class="schedule-grid">
-    <div class="sch-card"><div class="sch-icon">🕐</div><div class="sch-title">Flexible Time Slots</div><div class="sch-body">Morning, afternoon, and evening batches available — 7 days a week. Auto-converted to your local timezone.</div></div>
-    <div class="sch-card"><div class="sch-icon">📹</div><div class="sch-title">All Sessions Recorded</div><div class="sch-body">Every live class is recorded and available in your portal within 2 hours. Never fall behind even with a busy schedule.</div></div>
-    <div class="sch-card"><div class="sch-icon">👥</div><div class="sch-title">Small Group Format</div><div class="sch-body">Maximum 6 students per group. You'll speak in every single session — no passive observers.</div></div>
+
+  <!-- Centered heading block -->
+  <div class="schedule-header">
+    <div class="eyebrow center">Schedule &amp; Format</div>
+    <h2 class="sec-title"style="color:var(--primary);">Class <em style="color:var(--secondary);">Schedule</em></h2>
+    <p class="sec-sub">Live sessions 3× per week in flexible time slots. All sessions are recorded — miss one and catch up at your own pace.</p>
   </div>
+
+  <div class="schedule-grid">
+    <div class="sch-card">
+      <div class="sch-icon"><i class="fa-solid fa-clock"></i></div>
+      <div class="sch-title">Flexible Time Slots</div>
+      <div class="sch-body">Morning, afternoon, and evening batches available — 7 days a week. Auto-converted to your local timezone.</div>
+    </div>
+    <div class="sch-card">
+      <div class="sch-icon"><i class="fa-solid fa-video"></i></div>
+      <div class="sch-title">All Sessions Recorded</div>
+      <div class="sch-body">Every live class is recorded and available in your portal within 2 hours. Never fall behind even with a busy schedule.</div>
+    </div>
+    <div class="sch-card">
+      <div class="sch-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="sch-title">Small Group Format</div>
+      <div class="sch-body">Maximum 6 students per group. You'll speak in every single session — no passive observers.</div>
+    </div>
+  </div>
+
   <div class="schedule-table">
     <div class="st-header">
       <span>Batch</span><span>Days</span><span>Time (IST)</span><span>Starts</span><span>Availability</span>
@@ -390,12 +430,37 @@
     </div>
   </div>
 </section>
-
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <span class="logo">Speak<span>Easy</span></span>
+      <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+        <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+          <title>SpeakEasy Language Academy logo</title>
+          <g transform="translate(36,48)">
+            <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+            <clipPath id="footerGlobeClip">
+              <circle cx="0" cy="0" r="28"/>
+            </clipPath>
+            <g clip-path="url(#footerGlobeClip)">
+              <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+              <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+              <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+            </g>
+            <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+          </g>
+          <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+            <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+          </text>
+        </svg>
+      </a>
       <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
       <div class="social-links">
         <a class="social-btn" href="#">f</a>
@@ -405,37 +470,17 @@
         <a class="social-btn" href="#">✉</a>
       </div>
     </div>
-    <div class="footer-col">
-      <h5>Programs</h5>
-      <a href="service-details.html">Spanish</a>
-      <a href="service-details1.html">Arabic</a>
-      <a href="service-details2.html">Italian</a>
-      <a href="service-details3.html">Exam Preparation</a>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h5>Support</h5>
-      <a href="#">Help Center</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Refund Policy</a>
-    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="section-details.html">Spanish</a><a href="section-details1.html">Arabic</a><a href="section-details2.html">Italian</a><a href="service-details4.html">French</a><a href="section-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 SpeakEasy Academy. All rights reserved.</span>
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
     <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
   </div>
 </footer>
 
 
-<script src="service-details.js"></script>
-
+<script src="js/service-details.js"></script>
 </body>
 </html>

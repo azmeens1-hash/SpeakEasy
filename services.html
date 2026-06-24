@@ -6,63 +6,76 @@
 <title>Services — SpeakEasy Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="stylesheet" href="services.css"/>
+<link rel="stylesheet" href="css/service-details4.css"/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="shortcut icon" href="favicon.svg"/>
-
 </head>
 <body>
-
-
 <nav>
-  <a href="index.html" class="logo">Speak<span>Easy</span></a>
-
+  <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+    <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+      <title>SpeakEasy Language Academy logo</title>
+      <g transform="translate(36,48)">
+        <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+        <clipPath id="navGlobeClip">
+          <circle cx="0" cy="0" r="28"/>
+        </clipPath>
+        <g clip-path="url(#navGlobeClip)">
+          <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+          <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+        </g>
+        <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+      </g>
+      <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+        <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+      </text>
+    </svg>
+  </a>
   <ul class="nav-links">
-    <li class="dropdown">
-      <a href="index.html">Home ▾</a>
+    <li class="dropdown active">
+      <a href="index.html"><span class="nav-link-text">Home </span><span class="dropdown-caret">▾</span></a>
       <div class="dropdown-menu">
-        <a href="index.html">Home 1</a>
+        <a href="index.html"class="active">Home 1</a>
         <a href="home2.html">Home 2</a>
       </div>
     </li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="admin.html">Dashboard</a></li>
+    <li><a href="about.html"><span class="nav-link-text">About</span></a></li>
+    <li><a href="services.html"><span class="nav-link-text">Services</span></a></li>
+    <li><a href="blog.html"><span class="nav-link-text">Blog</span></a></li>
+    <li><a href="contact.html"><span class="nav-link-text">Contact</span></a></li>
+    <li><a href="admin.html"><span class="nav-link-text">Dashboard</span></a></li>
     <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
-    
   </ul>
-
   <div class="nav-icons">
-    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">RTL</button>
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><span id="rtlLabel">RTL</span></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
     <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
- 
 
+
+<!-- ═══════════════════════════════════════ PAGE BANNER ═══ -->
 <section class="page-banner">
-  <div class="banner-dots">
-    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    <div class="dot"></div><div class="dot"></div>
-  </div>
-  <div class="breadcrumb">
-    <span style="color:var(--primary)">Home</span>
-    <span class="sep">›</span>
-    <span class="current" style="color:var(--secondary)">SERVICES</span>
-  </div>
+  
   <h1 class="banner-title">12 Languages,<br><em>One Academy.</em></h1>
   <p class="banner-sub">Spanish, French, Japanese, Mandarin, German and more — all taught by certified native speakers with flexible schedules and proven results.</p>
   <div class="banner-search">
-    <input type="text" placeholder="Search a language — Spanish, French, Japanese…" aria-label="Search language">
+    <input type="text" placeholder="Search a language — Spanish, French, Japanese…" aria-label="Search language"/>
     <button>Explore →</button>
   </div>
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterCards(this,'all')">All Languages</button>
+    <button class="filter-btn active"  onclick="filterCards(this,'all')">All Languages</button>
     <button class="filter-btn" onclick="filterCards(this,'european')">European</button>
     <button class="filter-btn" onclick="filterCards(this,'asian')">Asian</button>
     <button class="filter-btn" onclick="filterCards(this,'middleeast')">Middle East</button>
@@ -71,170 +84,208 @@
     <button class="filter-btn" onclick="filterCards(this,'business')">Business Track</button>
   </div>
 </section>
- 
 
+<!-- ═══════════════════════════════════════ COURSES ═══ -->
 <section class="section reveal" id="courses">
-  <div style="text-align:center; margin-bottom:52px;">
-    <div class="eyebrow" style="justify-content:center;color:var(--secondary); display:flex;">Our Languages</div>
-    <h2 class="sec-title" style="text-align:center;">Choose Your <em>Language</em></h2>
-    <p class="sec-sub" style="margin:0 auto; text-align:center;">12 world languages taught by certified native speakers — from beginner to advanced, with exam prep and business tracks.</p>
+  <div class="sec-header center">
+    <div class="eyebrow center">Our Languages</div>
+    <h2 class="sec-title"style="color:var(--primary)">Choose Your <em style="color:var(--secondary)">Language</em></h2>
+    <p class="sec-sub">12 world languages taught by certified native speakers — from beginner to advanced, with exam prep and business tracks.</p>
   </div>
+
   <div class="services-grid">
- 
-   
+
+    <!-- Spanish (featured) -->
     <div class="srv-card featured" data-cat="european">
-      <div>
+      <div class="srv-img-wrap">
+        <img src="Images/spanish.jpg" alt="Spanish"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇪🇸</div>
         <div class="featured-badge">⭐ Most Popular</div>
-        <div class="srv-icon">🇪🇸</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Spanish</div>
         <div class="srv-desc">The world's second most spoken language. From Latin American travel to global business — Spanish opens more doors than almost any other language. Taught by native Madrileñas and DELE-certified coaches.</div>
-        <div class="srv-tags">
-          <span class="srv-tag">14 Courses</span><span class="srv-tag">DELE Prep</span>
-          <span class="srv-tag">A1 → C2</span><span class="srv-tag">Business Track</span>
-        </div>
       </div>
-      <div>
-        <div class="srv-price">₹3,499<span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.6)"> / month</span></div>
-        <div class="srv-period">3× sessions per week · All levels</div>
-        <a class="srv-link" href="service-details.html">Explore Spanish →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹3,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">3× sessions per week · All levels</div>
+        </div>
+        <a class="srv-link" href="service-details.html">Explore →</a>
       </div>
     </div>
- 
-  
+
+    <!-- French -->
     <div class="srv-card" data-cat="european">
-      <div>
-        <div class="srv-icon">🇫🇷</div>
+      <div class="srv-img-wrap">
+        <img src="Images/french.jpg" alt="French"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇫🇷</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">French</div>
         <div class="srv-desc">The language of diplomacy, culture, and cuisine. Spoken across 29 countries. Expert coaches from Paris with DELF/DALF preparation.</div>
-        <div class="srv-tags"><span class="srv-tag">12 Courses</span><span class="srv-tag">DELF Prep</span><span class="srv-tag">A1 → C2</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹3,499</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="#">Explore French →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹3,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="service-details4.html">Explore →</a>
       </div>
     </div>
- 
-    
+
+    <!-- Korean -->
     <div class="srv-card" data-cat="asian">
-      <div>
-        <div class="srv-icon">🇰🇷</div>
+      <div class="srv-img-wrap">
+        <img src="Images/korean.jpg" alt="Korean"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇰🇷</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Korean</div>
         <div class="srv-desc">Learn Hangul in just one week and progress to fluent conversation. TOPIK I &amp; II preparation with K-culture immersion.</div>
-        <div class="srv-tags"><span class="srv-tag">9 Courses</span><span class="srv-tag">TOPIK I–VI</span><span class="srv-tag">Beginner Friendly</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹3,499</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="#">Explore Korean →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹3,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="#">Explore →</a>
       </div>
     </div>
- 
-   
+
+    <!-- Italian -->
     <div class="srv-card" data-cat="european">
-      <div>
-        <div class="srv-icon">🇮🇹</div>
+      <div class="srv-img-wrap">
+        <img src="Images/italian.jpg" alt="Italian"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇮🇹</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Italian</div>
         <div class="srv-desc">The language of art, music, food, and fashion. Learn Italian for travel, creative industries, or a CILS/CELI certification.</div>
-        <div class="srv-tags"><span class="srv-tag">8 Courses</span><span class="srv-tag">CILS/CELI</span><span class="srv-tag">A1 → C1</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹3,499</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="service-details2.html">Explore Italian →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹3,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="service-details2.html">Explore →</a>
       </div>
     </div>
- 
-  
+
+    <!-- Arabic -->
     <div class="srv-card" data-cat="middleeast">
-      <div>
-        <div class="srv-icon">🇸🇦</div>
+      <div class="srv-img-wrap">
+        <img src="Images/arabic.jpg" alt="Arabic"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇸🇦</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Arabic</div>
         <div class="srv-desc">Modern Standard Arabic (MSA) and Gulf dialect options. Essential for Gulf careers, diplomatic work, or connecting with the Arab world's 400 million speakers.</div>
-        <div class="srv-tags"><span class="srv-tag">7 Courses</span><span class="srv-tag">MSA &amp; Gulf</span><span class="srv-tag">Business Track</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹3,499</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="service-details1.html">Explore Arabic →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹3,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="service-details1.html">Explore →</a>
       </div>
     </div>
- 
-    
+
+    <!-- Hindi -->
     <div class="srv-card" data-cat="asian">
-      <div>
-        <div class="srv-icon">🇮🇳</div>
+      <div class="srv-img-wrap">
+        <img src="Images/hindi.jpg" alt="Hindi"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇮🇳</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Hindi</div>
         <div class="srv-desc">India's most widely spoken language — essential for connecting with 500M+ speakers. Script, conversation, and Bollywood-based immersion.</div>
-        <div class="srv-tags"><span class="srv-tag">8 Courses</span><span class="srv-tag">Devanagari Script</span><span class="srv-tag">A1 → B2</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹2,999</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="#">Explore Hindi →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹2,999<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="#">Explore →</a>
       </div>
     </div>
- 
-  
+
+    <!-- Portuguese -->
     <div class="srv-card" data-cat="european">
-      <div>
-        <div class="srv-icon">🇧🇷</div>
+      <div class="srv-img-wrap">
+        <img src="Images/portugues.jpg" alt="Portuguese"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇧🇷</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Portuguese</div>
         <div class="srv-desc">Brazilian Portuguese for South America's largest economy and Portugal's European variant. CELPE-Bras preparation included.</div>
-        <div class="srv-tags"><span class="srv-tag">7 Courses</span><span class="srv-tag">CELPE-Bras</span><span class="srv-tag">A1 → B2</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹2,999</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="#">Explore Portuguese →</a>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹2,999<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
+        </div>
+        <a class="srv-link" href="#">Explore →</a>
       </div>
     </div>
- 
-   
+
+    <!-- Turkish -->
     <div class="srv-card" data-cat="middleeast">
-      <div>
-        <div class="srv-icon">🇹🇷</div>
+      <div class="srv-img-wrap">
+        <img src="Images/turkish.jpg" alt="Turkish"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🇹🇷</div>
+      </div>
+      <div class="srv-body">
         <div class="srv-title">Turkish</div>
         <div class="srv-desc">The gateway to Turkey's booming economy and cultural richness. Spoken by 75M people across Europe and Central Asia.</div>
-        <div class="srv-tags"><span class="srv-tag">5 Courses</span><span class="srv-tag">Beginner Friendly</span><span class="srv-tag">A1 → B1</span></div>
       </div>
-      <div>
-        <div class="srv-price">₹2,999</div>
-        <div class="srv-period">/ month · All levels</div>
-        <a class="srv-link" href="#">Explore Turkish →</a>
-      </div>
-    </div>
- 
-    
-    <div class="srv-card featured" data-cat="exam">
-      <div>
-        <div class="featured-badge">CEFR · IELTS · DELF · DELE · JLPT</div>
-        <div class="srv-icon"></div>
-        <div class="srv-title">Exam Preparation</div>
-        <div class="srv-desc">Targeted preparation for the world's most recognised language certifications. Our expert coaches have guided 10,000+ students to first-attempt success across IELTS, DELF/DALF, DELE, JLPT, HSK, TOPIK, CILS, and more.</div>
-        <div class="srv-tags">
-          <span class="srv-tag">IELTS / OET</span><span class="srv-tag">DELF / DALF</span>
-          <span class="srv-tag">DELE A1–C2</span><span class="srv-tag">JLPT N5–N1</span>
-          <span class="srv-tag">HSK 1–6</span><span class="srv-tag">TOPIK I–VI</span>
-          <span class="srv-tag">CILS / CELI</span>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹2,999<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">All levels</div>
         </div>
-      </div>
-      <div>
-        <div class="srv-price">₹4,499<span style="font-size:.9rem;font-weight:400;color:rgba(255,255,255,.6)"> / month</span></div>
-        <div class="srv-period">Intensive 8-week programme · All exams</div>
-        <a class="srv-link" href="service-details3.html">Explore Exam Prep →</a>
+        <a class="srv-link" href="#">Explore →</a>
       </div>
     </div>
- 
+
+    <!-- Exam Prep (featured) -->
+    <div class="srv-card featured" data-cat="exam">
+      <div class="srv-img-wrap">
+        <img src="Images/exam.jpg" alt="Exam Preparation"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="srv-img-placeholder" style="display:none">🎓</div>
+        <div class="featured-badge">IELTS · DELF · DELE · JLPT · HSK</div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-title">Exam Preparation</div>
+        <div class="srv-desc">Targeted preparation for the world's most recognised language certifications. 10,000+ students guided to first-attempt success across IELTS, DELF/DALF, DELE, JLPT, HSK, TOPIK, and more.</div>
+      </div>
+      <div class="srv-footer">
+        <div class="srv-price-wrap">
+          <div class="srv-price">₹4,499<small style="font-size:.75rem;font-weight:500;color:var(--text-light)"> /mo</small></div>
+          <div class="srv-period">Intensive 8-week programme</div>
+        </div>
+        <a class="srv-link" href="service-details3.html">Explore →</a>
+      </div>
+    </div>
+
   </div>
 </section>
- 
 
-<section class="section-alt reveal" id="process" style="padding:96px 0;">
-  <div style="text-align:center; max-width:1280px; margin:0 auto; padding:0 48px 56px;">
-    <div class="eyebrow" style="justify-content:center; display:flex;color:var(--secondary);">Simple Process</div>
-    <h2 class="sec-title" style="text-align:center;">How It <em>Works</em></h2>
-    <p class="sec-sub" style="margin:0 auto; text-align:center;">From sign-up to fluency in four simple steps — no complicated onboarding, no guesswork.</p>
+<!-- ═══════════════════════════════════════ PROCESS ═══ -->
+<section class="section-alt reveal" id="process">
+  <div class="sec-header center">
+    <div class="eyebrow center">Simple Process</div>
+    <h2 class="sec-title"style="color:var(--primary)">How It <em style="color:var(--secondary)">Works</em></h2>
+    <p class="sec-sub">From sign-up to fluency in four simple steps — no complicated onboarding, no guesswork.</p>
   </div>
   <div class="steps-grid">
     <div class="step-item">
@@ -259,16 +310,17 @@
     </div>
   </div>
 </section>
- 
 
+<!-- ═══════════════════════════════════════ PRICING ═══ -->
 <section class="section reveal" id="pricing">
-  <div style="text-align:center;">
-    <div class="eyebrow" style="justify-content:center; display:flex;color:var(--secondary);">Transparent Pricing</div>
-    <h2 class="sec-title" style="text-align:center;">Choose Your <em>Plan</em></h2>
-    <p class="sec-sub" style="margin:0 auto; text-align:center;">No hidden fees, no lock-ins. Scale up or down whenever you need to.</p>
+  <div class="sec-header center">
+    <div class="eyebrow center">Transparent Pricing</div>
+    <h2 class="sec-title"style="color:var(--primary)">Choose Your <em style="color:var(--secondary)">Plan</em></h2>
+    <p class="sec-sub">No hidden fees, no lock-ins. Scale up or down whenever you need to.</p>
   </div>
   <div class="pricing-grid">
-   
+
+    <!-- Starter -->
     <div class="plan-card">
       <div class="plan-name">Starter</div>
       <div class="plan-price"><span>₹</span>1,999</div>
@@ -285,8 +337,8 @@
       </ul>
       <button class="plan-btn outline">Get Started Free</button>
     </div>
- 
-    
+
+    <!-- Pro -->
     <div class="plan-card popular">
       <div class="popular-tag">⭐ Most Popular</div>
       <div class="plan-name">Pro</div>
@@ -304,8 +356,8 @@
       </ul>
       <button class="plan-btn primary">Start Pro Plan →</button>
     </div>
- 
-    
+
+    <!-- Elite -->
     <div class="plan-card">
       <div class="plan-name">Elite</div>
       <div class="plan-price"><span>₹</span>8,999</div>
@@ -322,13 +374,14 @@
       </ul>
       <button class="plan-btn outline">Go Elite →</button>
     </div>
+
   </div>
 </section>
- 
 
-<section class="section-alt reveal" id="languages" style="padding:96px 48px;">
-  <div class="eyebrow"style="color:var(--secondary);">Available Languages</div>
-  <h2 class="sec-title">12 Languages, <em>One Platform</em></h2>
+<!-- ═══════════════════════════════════════ LANGUAGES ═══ -->
+<section class="section-alt reveal" id="languages">
+  <div class="eyebrow">Available Languages</div>
+  <h2 class="sec-title"style="color:var(--primary)">12 Languages, <em style="color:var(--secondary)">One Platform</em></h2>
   <p class="sec-sub">From the most spoken languages on earth to specialist certifications — find your language below.</p>
   <div class="lang-grid">
     <div class="lang-card"><span class="lang-flag">🇪🇸</span><div class="lang-name">Spanish</div><div class="lang-count">14 courses</div><div class="lang-level">A1 → C2</div></div>
@@ -345,20 +398,20 @@
     <div class="lang-card"><span class="lang-flag">🇹🇷</span><div class="lang-name">Turkish</div><div class="lang-count">5 courses</div><div class="lang-level">A1 → B1</div></div>
   </div>
 </section>
- 
 
+<!-- ═══════════════════════════════════════ COMPARE ═══ -->
 <section class="section reveal" id="compare">
-  <div class="eyebrow" style="color:var(--secondary);">Plan Comparison</div>
-  <h2 class="sec-title">Find Your <em>Perfect Fit</em></h2>
+  <div class="eyebrow">Plan Comparison</div>
+  <h2 class="sec-title" style="color:var(--primary)">Find Your <em style="color:var(--secondary)">Perfect Fit</em></h2>
   <p class="sec-sub">Side-by-side breakdown of every feature — so you know exactly what you're getting.</p>
   <div class="compare-wrap">
     <table>
       <thead>
         <tr>
           <th style="text-align:left; width:34%;">Feature</th>
-          <th>Starter<br><small style="font-weight:400; opacity:.7">₹1,999/mo</small></th>
-          <th>Pro ⭐<br><small style="font-weight:400; opacity:.7">₹4,999/mo</small></th>
-          <th>Elite<br><small style="font-weight:400; opacity:.7">₹8,999/mo</small></th>
+          <th>Starter<br><small style="font-weight:400;opacity:.7">₹1,999/mo</small></th>
+          <th>Pro ⭐<br><small style="font-weight:400;opacity:.7">₹4,999/mo</small></th>
+          <th>Elite<br><small style="font-weight:400;opacity:.7">₹8,999/mo</small></th>
         </tr>
       </thead>
       <tbody>
@@ -377,30 +430,33 @@
     </table>
   </div>
 </section>
- 
 
-<section class="section-alt reveal" id="features" style="padding:96px 0;">
-  <div style="text-align:center; max-width:1280px; margin:0 auto; padding:0 48px 48px;">
-    <div class="eyebrow" style="justify-content:center; display:flex;color:var(--secondary);">Why SpeakEasy</div>
-    <h2 class="sec-title" style="text-align:center;">What Makes Us <em>Different</em></h2>
-    <p class="sec-sub" style="margin:0 auto; text-align:center;">Every feature we build exists for one reason: to help you reach fluency faster and enjoy the process more.</p>
+<!-- ═══════════════════════════════════════ FEATURES ═══ -->
+<section class="section-alt reveal" id="features">
+  <div class="sec-header center">
+    <div class="eyebrow center">Why SpeakEasy</div>
+    <h2 class="sec-title"style="color:var(--primary)">What Makes Us <em style="color: var(--secondary);">Different</em></h2>
+    <p class="sec-sub">Every feature we build exists for one reason: to help you reach fluency faster and enjoy the process more.</p>
   </div>
-  <div class="features-grid">
-    <div class="feat-card"><div class="feat-icon">01</div><div><div class="feat-title">Adaptive AI Lessons</div><div class="feat-body">Our engine analyses your responses in real-time and adjusts vocabulary, speed, and grammar complexity so every lesson is calibrated to your exact level.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">02</div><div><div class="feat-title">Native Cultural Context</div><div class="feat-body">We embed idioms, cultural references, and real-world scenarios so you don't just learn the language — you understand the world that speaks it.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">03</div><div><div class="feat-title">Multi-Device Access</div><div class="feat-body">Seamlessly switch between desktop, tablet, and mobile. Your progress, notes, and lesson history sync automatically across every device you own.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">04</div><div><div class="feat-title">AI Pronunciation Coach</div><div class="feat-body">Our speech-recognition AI listens to your pronunciation, gives a score, and pinpoints exactly which sounds need work — with audio comparison from a native speaker.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">05</div><div><div class="feat-title">Live Progress Dashboard</div><div class="feat-body">Track your CEFR level, vocabulary bank, streak, XP points, and weekly learning hours in a beautiful real-time dashboard available on all plans.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">06</div><div><div class="feat-title">Gamified Milestones</div><div class="feat-body">Earn badges, complete weekly challenges, and unlock achievement streaks. Language learning is more effective — and far more fun — when it feels like a game.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">07</div><div><div class="feat-title">Live Group Classes</div><div class="feat-body">Small groups of 6–10 learners mean you get real speaking practice, peer interaction, and the energy of a classroom — from anywhere in the world.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">08</div><div><div class="feat-title">Spaced Repetition System</div><div class="feat-body">Our flashcard engine uses scientifically proven spaced repetition to show you words at exactly the right time — permanently building your vocabulary bank.</div></div></div>
-    <div class="feat-card"><div class="feat-icon">09</div><div><div class="feat-title">Flexible Scheduling</div><div class="feat-body">Book sessions in 30-minute windows across morning, afternoon, and evening slots — 7 days a week. All sessions auto-converted to your local timezone.</div></div></div>
+<div class="features-grid">
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-brain"></i></div><div><div class="feat-title">Adaptive AI Lessons</div><div class="feat-body">Our engine analyses your responses in real-time and adjusts vocabulary, speed, and grammar complexity so every lesson is calibrated to your exact level.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-earth-americas"></i></div><div><div class="feat-title">Native Cultural Context</div><div class="feat-body">We embed idioms, cultural references, and real-world scenarios so you don't just learn the language — you understand the world that speaks it.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><div><div class="feat-title">Multi-Device Access</div><div class="feat-body">Seamlessly switch between desktop, tablet, and mobile. Your progress, notes, and lesson history sync automatically across every device you own.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-microphone-lines"></i></div><div><div class="feat-title">AI Pronunciation Coach</div><div class="feat-body">Our speech-recognition AI listens to your pronunciation, gives a score, and pinpoints exactly which sounds need work — with audio comparison from a native speaker.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-chart-line"></i></div><div><div class="feat-title">Live Progress Dashboard</div><div class="feat-body">Track your CEFR level, vocabulary bank, streak, XP points, and weekly learning hours in a beautiful real-time dashboard available on all plans.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-trophy"></i></div><div><div class="feat-title">Gamified Milestones</div><div class="feat-body">Earn badges, complete weekly challenges, and unlock achievement streaks. Language learning is more effective — and far more fun — when it feels like a game.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-users"></i></div><div><div class="feat-title">Live Group Classes</div><div class="feat-body">Small groups of 6–10 learners mean you get real speaking practice, peer interaction, and the energy of a classroom — from anywhere in the world.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-layer-group"></i></div><div><div class="feat-title">Spaced Repetition System</div><div class="feat-body">Our flashcard engine uses scientifically proven spaced repetition to show you words at exactly the right time — permanently building your vocabulary bank.</div></div></div>
+  <div class="feat-card"><div class="feat-icon"><i class="fa-solid fa-calendar-check"></i></div><div><div class="feat-title">Flexible Scheduling</div><div class="feat-body">Book sessions in 30-minute windows across morning, afternoon, and evening slots — 7 days a week. All sessions auto-converted to your local timezone.</div></div></div>
+</div>
   </div>
 </section>
- 
 
+<!-- ═══════════════════════════════════════ CTA ═══ -->
 <section class="cta-section reveal">
-  <div class="cta-ring"></div><div class="cta-ring"></div><div class="cta-ring"></div>
+  <div class="cta-ring"></div>
+  <div class="cta-ring"></div>
+  <div class="cta-ring"></div>
   <h2 class="cta-title">Your Fluency Journey<br>Starts Today</h2>
   <p class="cta-sub">Join 50,000+ learners who changed how they communicate with the world. The best day to start was yesterday. The second best day is now.</p>
   <div class="cta-btns">
@@ -408,51 +464,57 @@
     <a href="#pricing" class="btn btn-outline-white">View All Plans</a>
   </div>
 </section>
- 
-
-   
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+        <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+          <title>SpeakEasy Language Academy logo</title>
+          <g transform="translate(36,48)">
+            <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+            <clipPath id="footerGlobeClip">
+              <circle cx="0" cy="0" r="28"/>
+            </clipPath>
+            <g clip-path="url(#footerGlobeClip)">
+              <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+              <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+              <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+            </g>
+            <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+          </g>
+          <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+            <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+          </text>
+        </svg>
+      </a>
       <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
       <div class="social-links">
-        <a class="social-btn" aria-label="Facebook">f</a>
-        <a class="social-btn" aria-label="LinkedIn">in</a>
-        <a class="social-btn" aria-label="X / Twitter">𝕏</a>
-        <a class="social-btn" aria-label="YouTube">▶</a>
-        <a class="social-btn" aria-label="Email">✉</a>
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">𝕏</a>
+        <a class="social-btn" href="#">▶</a>
+        <a class="social-btn" href="#">✉</a>
       </div>
     </div>
-    <div class="footer-col">
-      <h5>Programs</h5>
-      <a href="service-details.html">Spanish</a>
-      <a href="service-details1.html">Arabic</a>
-      <a href="service-details2.html">Italian</a>
-      <a href="service-details3.html">Exam Preparation</a>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h5>Support</h5>
-      <a href="#">Help Center</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Refund Policy</a>
-    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="section-details.html">Spanish</a><a href="section-details1.html">Arabic</a><a href="section-details2.html">Italian</a><a href="service-details4.html">French</a><a href="section-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 SpeakEasy Academy. All rights reserved.</span>
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
     <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
   </div>
 </footer>
 
-<script src="services.js"></script>
+
+<script src="js/services.js"></script>
 </body>
 </html>

@@ -7,43 +7,65 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@400;500;600;700;900&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link rel="stylesheet" href="blog-details.css"/>
+<link rel="stylesheet" href="css/blog-details.css"/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="shortcut icon" href="favicon.svg"/>
->
+
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="logo">Speak<span>Easy</span></a>
-
+  <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+    <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+      <title>SpeakEasy Language Academy logo</title>
+      <g transform="translate(36,48)">
+        <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+        <clipPath id="navGlobeClip">
+          <circle cx="0" cy="0" r="28"/>
+        </clipPath>
+        <g clip-path="url(#navGlobeClip)">
+          <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+          <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+        </g>
+        <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+      </g>
+      <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+        <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+      </text>
+    </svg>
+  </a>
   <ul class="nav-links">
-    <li class="dropdown">
-      <a href="index.html">Home ▾</a>
+    <li class="dropdown active">
+      <a href="index.html"><span class="nav-link-text">Home </span><span class="dropdown-caret">▾</span></a>
       <div class="dropdown-menu">
-        <a href="index.html">Home 1</a>
+        <a href="index.html"class="active">Home 1</a>
         <a href="home2.html">Home 2</a>
       </div>
     </li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="admin.html">Dashboard</a></li>
+    <li><a href="about.html"><span class="nav-link-text">About</span></a></li>
+    <li><a href="services.html"><span class="nav-link-text">Services</span></a></li>
+    <li><a href="blog.html"><span class="nav-link-text">Blog</span></a></li>
+    <li><a href="contact.html"><span class="nav-link-text">Contact</span></a></li>
+    <li><a href="admin.html"><span class="nav-link-text">Dashboard</span></a></li>
     <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
-    
   </ul>
-
   <div class="nav-icons">
-    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR">RTL</button>
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><span id="rtlLabel">RTL</span></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
     <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
- 
+
 <section class="blog-hero">
   <h1>The 7 Secrets French Natives Use to Sound Fluent in <em>Any Conversation</em></h1>
   <div class="meta">
@@ -61,7 +83,7 @@
 
 <section class="blog-layout">
   <div class="blog-content reveal">
-    <img src="french.jpg" alt="Students learning French"/>
+    <img src="Images/blog-french.jpg" alt="Students learning French"/>
     <p>Most people spend years <strong>"studying"</strong> a language without becoming fluent. The truth is — fluency comes from consistency, not complexity. French natives have a set of unwritten rules they follow naturally, and once you learn them, your speech transforms overnight.</p>
     <h2>1. Practice Daily (Even 20 Minutes)</h2>
     <p>Small, consistent practice builds long-term memory far more effectively than occasional marathon sessions. Even short 20-minute bursts of active listening, speaking or writing can dramatically improve your fluency over time.</p>
@@ -107,26 +129,56 @@
     </div>
   </aside>
 </section>
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo">Speak<span>Easy</span></a>
+      <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+        <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+          <title>SpeakEasy Language Academy logo</title>
+          <g transform="translate(36,48)">
+            <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+            <clipPath id="footerGlobeClip">
+              <circle cx="0" cy="0" r="28"/>
+            </clipPath>
+            <g clip-path="url(#footerGlobeClip)">
+              <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+              <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+              <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+            </g>
+            <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+          </g>
+          <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+            <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+          </text>
+        </svg>
+      </a>
       <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
       <div class="social-links">
-        <a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">▶</a><a class="social-btn" href="#">✉</a>
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">𝕏</a>
+        <a class="social-btn" href="#">▶</a>
+        <a class="social-btn" href="#">✉</a>
       </div>
     </div>
-    <div class="footer-col"><h5>Programs</h5><a href="service-details.html">Spanish</a><a href="service-details1.html">Arabic</a><a href="service-details2.html">Italian</a><a href="service-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Programs</h5><a href="section-details.html">Spanish</a><a href="section-details1.html">Arabic</a><a href="section-details2.html">Italian</a><a href="service-details4.html">French</a><a href="section-details3.html">Exam Preparation</a></div>
     <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
     <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 SpeakEasy Academy. All rights reserved.</span>
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
     <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
   </div>
 </footer>
 
-<script src="blog-details.js"></script>
+<script src="js/blog-details.js"></script>
 </body>
 </html>

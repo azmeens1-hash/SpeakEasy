@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>French — SpeakEasy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Poppins:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/service-details4.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="shortcut icon" href="favicon.svg"/>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+    <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+      <title>SpeakEasy Language Academy logo</title>
+      <g transform="translate(36,48)">
+        <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+        <clipPath id="navGlobeClip">
+          <circle cx="0" cy="0" r="28"/>
+        </clipPath>
+        <g clip-path="url(#navGlobeClip)">
+          <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+          <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+        </g>
+        <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+      </g>
+      <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+        <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+      </text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li class="dropdown active">
+      <a href="index.html"><span class="nav-link-text">Home </span><span class="dropdown-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="index.html"class="active">Home 1</a>
+        <a href="home2.html">Home 2</a>
+      </div>
+    </li>
+    <li><a href="about.html"><span class="nav-link-text">About</span></a></li>
+    <li><a href="services.html"><span class="nav-link-text">Services</span></a></li>
+    <li><a href="blog.html"><span class="nav-link-text">Blog</span></a></li>
+    <li><a href="contact.html"><span class="nav-link-text">Contact</span></a></li>
+    <li><a href="admin.html"><span class="nav-link-text">Dashboard</span></a></li>
+    <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button class="rtl-toggle" id="rtlToggle" title="Toggle RTL/LTR"><span id="rtlLabel">RTL</span></button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
+    <a href="login.html" class="login-btn desktop-icon">LOGIN</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO ═══ -->
+<section class="sd-hero">
+  <div class="hero-left">
+    <h1 class="hero-title">Learn <em>French</em><br>From Zero to Fluent.</h1>
+    <p class="hero-desc">The language of diplomacy, culture, and cuisine — spoken across 29 countries. Taught by native Parisian coaches with DELF/DALF certification built into every level.</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><i class="fa-solid fa-book"></i> 12 Courses</div>
+      <div class="meta-pill"><i class="fa-solid fa-certificate"></i> DELF/DALF Prep</div>
+      <div class="meta-pill"><i class="fa-solid fa-layer-group"></i> A1 → C2</div>
+      <div class="meta-pill"><i class="fa-solid fa-user-tie"></i> Native Coaches</div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-primary">Start Learning French →</button>
+      <button class="btn-ghost">Free Trial Class</button>
+    </div>
+  </div>
+</section>
+<!-- ═══ OVERVIEW / ENROL ═══ -->
+<section class="section reveal" id="overview">
+  <div class="overview-grid">
+    <div class="overview-body">
+      <div class="eyebrow center">Course Overview</div>
+      <h2 class="sec-title" style="margin-bottom:24px;color:var(--primary);">Taught by <em style="color:var(--secondary);">Native Parisians</em>, Not Just Native Speakers</h2>
+      <p>There's a difference between someone who speaks French and someone who can teach it. Every coach on our French team is a native speaker <strong>and</strong> a certified language educator, trained specifically in how non-native speakers learn.</p>
+      <p>Our curriculum moves you from absolute beginner to fluent conversation through live coaching, real cultural context, and a structure aligned to the official <strong>CEFR framework</strong> — so your progress is always measurable and exam-ready.</p>
+      <div class="highlight-box">
+        "French isn't just grammar rules — it's rhythm, culture, and confidence. We teach all three from day one."
+        <span>— Camille Laurent, Lead French Coach</span>
+      </div>
+      <p>Whether you're learning for travel, career, or love of the language, our coaches will get you speaking with confidence — backed by a <strong>fluency improvement guarantee</strong>.</p>
+      <div class="outcome-tags">
+        <div class="otag">Native Parisian coaches</div>
+        <div class="otag">DELF/DALF certified track</div>
+        <div class="otag">Live conversation practice</div>
+        <div class="otag">Business French option</div>
+        <div class="otag">CEFR-aligned curriculum</div>
+        <div class="otag">Fluency guarantee</div>
+        <div class="otag">Cultural immersion content</div>
+        <div class="otag">Lifetime materials access</div>
+      </div>
+    </div>
+    <div class="enrol-card">
+      <div class="ec-tag">⭐ Most Popular Language</div>
+      <div class="ec-price"><sup>₹</sup>3,499<span style="font-size:1rem;font-weight:600;color:var(--gray);"> /mo</span></div>
+      <div class="ec-period">3× sessions per week · All levels</div>
+      <div class="ec-orig">12 Courses · A1 → C2 · DELF/DALF Prep</div>
+      <ul class="ec-includes">
+        <li><div class="tick">✓</div> 12 Live Coaching Sessions / month</li>
+        <li><div class="tick">✓</div> Native Parisian Instructors</li>
+        <li><div class="tick">✓</div> DELF/DALF Exam Track Included</li>
+        <li><div class="tick">✓</div> Business French Add-On Available</li>
+        <li><div class="tick">✓</div> Cultural Immersion Materials</li>
+        <li><div class="tick">✓</div> Progress Tracking Dashboard</li>
+        <li><div class="tick">✓</div> Fluency Improvement Guarantee</li>
+      </ul>
+      <button class="ec-btn">Enrol Now — ₹3,499/mo →</button>
+      <button class="ec-btn-alt">Book Free Trial Class</button>
+      <div class="ec-guarantee">Fluency improvement guarantee or full refund</div>
+      <div class="countdown-wrap">
+        <i class="fa-solid fa-hourglass-half cd-icon"></i>
+        <div>
+          <div class="cd-label">Next batch starts in</div>
+          <div class="cd-timer" id="countdown">4d 12h 00m 00s</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CURRICULUM ═══ -->
+<section class="section section-alt reveal" id="curriculum">
+  <div class="section-header">
+    <div class="eyebrow">Curriculum</div>
+    <h2 class="sec-title"style="color:var(--primary);">A Clear Path From <em style="color:var(--secondary);">A1 to C2</em></h2>
+    <p class="sec-sub">Six structured modules aligned to the CEFR framework, each building directly on the last.</p>
+  </div>
+
+  <div class="curriculum-tabs">
+    <button class="ctab active" data-tab="beginner">Beginner (A1–A2)</button>
+    <button class="ctab" data-tab="intermediate">Intermediate (B1–B2)</button>
+    <button class="ctab" data-tab="advanced">Advanced (C1–C2)</button>
+    <button class="ctab" data-tab="delf">DELF/DALF Prep</button>
+  </div>
+
+  <div class="tab-content show" id="beginner">
+    <div class="module-item open">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">01</div>
+        <div class="mod-info">
+          <div class="mod-title">Foundations — Greetings &amp; Basics</div>
+          <div class="mod-meta">4 weeks · 12 live sessions</div>
+        </div>
+        <div class="mod-tag">A1</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Core pronunciation, the alphabet, gender and articles, present tense of être/avoir, and everyday greetings.
+        <ul>
+          <li>Phonetics: nasal vowels, liaison, and accent basics</li>
+          <li>Numbers, dates, and telling time</li>
+          <li>Introducing yourself and basic small talk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">02</div>
+        <div class="mod-info">
+          <div class="mod-title">Everyday Life</div>
+          <div class="mod-meta">4 weeks · 12 live sessions</div>
+        </div>
+        <div class="mod-tag">A2</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Shopping, ordering food, asking directions, and describing your daily routine with confidence.
+        <ul>
+          <li>Present and near-future tense in conversation</li>
+          <li>Restaurant and café roleplay practice</li>
+          <li>Common idioms used in daily French life</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="intermediate">
+    <div class="module-item open">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">03</div>
+        <div class="mod-info">
+          <div class="mod-title">Expressing Opinions</div>
+          <div class="mod-meta">5 weeks · 15 live sessions</div>
+        </div>
+        <div class="mod-tag">B1</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Past tenses (passé composé, imparfait), debating everyday topics, and writing structured short texts.
+        <ul>
+          <li>Narrating past events fluently</li>
+          <li>Agreeing, disagreeing, and giving opinions</li>
+          <li>Reading short French news articles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">04</div>
+        <div class="mod-info">
+          <div class="mod-title">Professional &amp; Abstract French</div>
+          <div class="mod-meta">5 weeks · 15 live sessions</div>
+        </div>
+        <div class="mod-tag">B2</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Subjunctive mood, conditional structures, and confident handling of abstract or hypothetical conversation.
+        <ul>
+          <li>Email and written correspondence etiquette</li>
+          <li>Workplace meetings and presentations</li>
+          <li>Understanding French radio and podcasts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="advanced">
+    <div class="module-item open">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">05</div>
+        <div class="mod-info">
+          <div class="mod-title">Fluency &amp; Nuance</div>
+          <div class="mod-meta">6 weeks · 18 live sessions</div>
+        </div>
+        <div class="mod-tag">C1</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Idiomatic expression, register shifting between formal and casual French, and literary text analysis.
+        <ul>
+          <li>Reading excerpts from contemporary French literature</li>
+          <li>Debating complex social and cultural topics</li>
+          <li>Refining accent and intonation to near-native level</li>
+        </ul>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">06</div>
+        <div class="mod-info">
+          <div class="mod-title">Mastery</div>
+          <div class="mod-meta">6 weeks · 18 live sessions</div>
+        </div>
+        <div class="mod-tag">C2</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        Near-native command of French across all registers — academic, professional, and creative writing.
+        <ul>
+          <li>Academic essay and argumentative writing</li>
+          <li>Simultaneous comprehension of fast native speech</li>
+          <li>Capstone project: a presentation entirely in French</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="delf">
+    <div class="module-item open">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="mod-num">★</div>
+        <div class="mod-info">
+          <div class="mod-title">DELF / DALF Exam Preparation</div>
+          <div class="mod-meta">6 weeks · intensive · all levels</div>
+        </div>
+        <div class="mod-tag">A1–C2</div>
+        <i class="fa-solid fa-chevron-down mod-chevron"></i>
+      </div>
+      <div class="module-body">
+        A focused track for anyone sitting the official DELF or DALF exam, run by certified examiners.
+        <ul>
+          <li>Full timed mock exams at your target level</li>
+          <li>Written and oral exam technique coaching</li>
+          <li>Marking-rubric breakdown so you know exactly what scores points</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══ LEARNING OUTCOMES ═══ -->
+<section class="section reveal" id="learn">
+  <div class="section-header">
+    <div class="eyebrow">Why French?</div>
+    <h2 class="sec-title"style="color:var(--primary);">What You'll<em style="color:var(--secondary);"> Walk Away With</em></h2>
+    <p class="sec-sub">From your first bonjour to confident, native-level conversation — every course builds toward real fluency, not just textbook French.</p>
+  </div>
+  <div class="learn-grid">
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-comments"></i></div>
+      <div class="li-text">
+        <div class="li-title">Real Conversation Skills</div>
+        <div class="li-body">Speak from lesson one. Every class is built around live conversation practice with native coaches, not rote memorisation.</div>
+      </div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-certificate"></i></div>
+      <div class="li-text">
+        <div class="li-title">DELF / DALF Certification</div>
+        <div class="li-body">Every level maps directly onto the official French government certification framework, so you're always exam-ready.</div>
+      </div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-utensils"></i></div>
+      <div class="li-text">
+        <div class="li-title">Culture &amp; Cuisine</div>
+        <div class="li-body">Learn the language through French film, music, and food culture — context that makes vocabulary stick.</div>
+      </div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-briefcase"></i></div>
+      <div class="li-text">
+        <div class="li-title">Business French Track</div>
+        <div class="li-body">An optional professional track covering emails, meetings, and negotiation French for international careers.</div>
+      </div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-microphone"></i></div>
+      <div class="li-text">
+        <div class="li-title">Authentic Accent Training</div>
+        <div class="li-body">Phonetics coaching from day one means you sound natural, not textbook-stiff — a common gap in self-taught French.</div>
+      </div>
+    </div>
+    <div class="learn-item">
+      <div class="li-icon"><i class="fa-solid fa-plane"></i></div>
+      <div class="li-text">
+        <div class="li-title">Travel-Ready Fast Track</div>
+        <div class="li-body">A condensed 6-week conversational track for travellers who need practical French before a trip to France.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SCHEDULE ═══ -->
+<section class="section section-alt reveal" id="schedule">
+  <div class="section-header">
+    <div class="eyebrow">Schedule &amp; Format</div>
+    <h2 class="sec-title"style="color:var(--primary);">Class <em style="color:var(--secondary);">Schedule</em></h2>
+    <p class="sec-sub">Live sessions 3× per week in flexible time slots. All sessions recorded — catch up anytime.</p>
+  </div>
+  <div class="schedule-grid">
+    <div class="sch-card"><div class="sch-icon"><i class="fa-solid fa-calendar-days"></i></div><div class="sch-title">Flexible Time Slots</div><div class="sch-body">Morning, afternoon, and evening batches — 7 days a week. Auto-converted to your local timezone.</div></div>
+    <div class="sch-card"><div class="sch-icon"><i class="fa-solid fa-video"></i></div><div class="sch-title">All Sessions Recorded</div><div class="sch-body">Every live class available in your portal within 2 hours. Never fall behind even with a busy schedule.</div></div>
+    <div class="sch-card"><div class="sch-icon"><i class="fa-solid fa-users"></i></div><div class="sch-title">Small Group Format</div><div class="sch-body">Maximum 6 students per group. Maximum speaking time, maximum tutor attention, maximum results.</div></div>
+  </div>
+  <div class="schedule-table">
+    <div class="st-header"><span>Batch</span><span>Days</span><span>Time (IST)</span><span>Starts</span><span>Availability</span></div>
+    <div class="st-row"><span class="batch">Morning A</span><span>Mon / Wed / Fri</span><span>7:00 – 8:00 AM</span><span>April 7, 2025</span><span><span class="avail few">3 seats left</span></span></div>
+    <div class="st-row"><span class="batch">Afternoon B</span><span>Tue / Thu / Sat</span><span>2:00 – 3:00 PM</span><span>April 7, 2025</span><span><span class="avail open">Open</span></span></div>
+    <div class="st-row"><span class="batch">Evening C</span><span>Mon / Wed / Fri</span><span>7:30 – 8:30 PM</span><span>April 14, 2025</span><span><span class="avail few">2 seats left</span></span></div>
+    <div class="st-row"><span class="batch">Weekend D</span><span>Sat / Sun</span><span>10:00 – 11:30 AM</span><span>April 12, 2025</span><span><span class="avail full">Full</span></span></div>
+    <div class="st-row"><span class="batch">Evening E</span><span>Tue / Thu / Sat</span><span>8:00 – 9:00 PM</span><span>April 21, 2025</span><span><span class="avail open">Open</span></span></div>
+  </div>
+</section>
+
+<!-- ═══ INSTRUCTOR ═══ -->
+<section class="section reveal" id="instructor">
+  <div class="instructor-grid">
+    <div class="inst-photo">
+      <img src="Images/french ins.jpg" alt="Camille Laurent, Lead French Coach"/>
+      <div class="inst-badge">
+        <i class="fa-solid fa-award inst-badge-icon"></i>
+        <div>
+          <div class="inst-badge-text">DALF C2 Certified</div>
+          <div class="inst-badge-sub">France Éducation International</div>
+        </div>
+      </div>
+    </div>
+    <div class="inst-info">
+      <div class="eyebrow">Lead Instructor</div>
+      <div class="inst-name">Camille Laurent</div>
+      <div class="inst-role">Lead French Coach &amp; Curriculum Director</div>
+      <p class="inst-bio">Camille is a native Parisian with a Master's in French as a Foreign Language (FLE) from the Sorbonne. With 12 years of teaching experience across Europe and Asia, she's trained over 4,000 students and designed SpeakEasy's CEFR-aligned curriculum from the ground up. Her philosophy — <em>French is a language you feel before you grammar-check</em> — shapes every lesson she teaches.</p>
+      <div class="inst-stats">
+        <div class="is-box"><div class="is-num">4,000+</div><div class="is-label">Students Taught</div></div>
+        <div class="is-box"><div class="is-num">12 yrs</div><div class="is-label">Experience</div></div>
+        <div class="is-box"><div class="is-num">4.9 ★</div><div class="is-label">Average Rating</div></div>
+      </div>
+      <div class="inst-tags">
+        <span class="inst-tag"><i class="fa-solid fa-certificate"></i>DALF C2 Certified</span>
+        <span class="inst-tag"><i class="fa-solid fa-graduation-cap"></i>Sorbonne FLE</span>
+        <span class="inst-tag"><i class="fa-solid fa-language"></i>Native Parisian</span>
+        <span class="inst-tag"><i class="fa-solid fa-briefcase"></i>Business French</span>
+        <span class="inst-tag"><i class="fa-solid fa-book-open"></i>Curriculum Designer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section reveal">
+  <div class="cta-ring"></div><div class="cta-ring"></div>
+  <h2 class="cta-title">Your French Fluency Is<br><em>Closer Than You Think</em></h2>
+  <p class="cta-sub">Join thousands of students learning French with SpeakEasy. Next batch starts in 4 days — limited seats per group.</p>
+  <div class="cta-btns">
+    <a href="#overview" class="btn-cta-primary">Enrol Now — ₹3,499/mo →</a>
+    <a href="#overview" class="btn-cta-outline">Book Free Trial Class</a>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+        <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+          <title>SpeakEasy Language Academy logo</title>
+          <g transform="translate(36,48)">
+            <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+            <clipPath id="footerGlobeClip">
+              <circle cx="0" cy="0" r="28"/>
+            </clipPath>
+            <g clip-path="url(#footerGlobeClip)">
+              <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+              <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+              <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+              <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+            </g>
+            <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+            <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+          </g>
+          <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+            <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+          </text>
+        </svg>
+      </a>
+      <p class="footer-desc">The world's most effective online language academy. Join 50,000+ learners achieving fluency with expert tutors and AI-powered tools.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">𝕏</a>
+        <a class="social-btn" href="#">▶</a>
+        <a class="social-btn" href="#">✉</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Programs</h5><a href="section-details.html">Spanish</a><a href="section-details1.html">Arabic</a><a href="section-details2.html">Italian</a><a href="service-details4.html">French</a><a href="section-details3.html">Exam Preparation</a></div>
+    <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Refund Policy</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpeakEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
+  </div>
+</footer>
+
+
+<script src="js/service-details4.js"></script>
+</body>
+</html>

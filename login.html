@@ -15,11 +15,11 @@
 
 :root {
   --primary:     #6c3fc5;
-  --secondary:   #c8993a;
+  --secondary: #1a1207;
   --accent:      #9b6de8;
-  --gradient:    linear-gradient(135deg, #6c3fc5 0%, #c8993a 100%);
-  --bg:          #faf7f2;
-  --bg-section:  #f3ede3;
+  --gradient:    linear-gradient(135deg, #6c3fc5 0%,#1a1207 100%);
+  --bg:          #ffffff;
+  --bg-section:  #f7f7f8;
   --bg-card:     #ffffff;
   --ink:         #1a1207;
   --text-main:   #2e2416;
@@ -33,13 +33,13 @@
   --shadow-lg:   0 20px 60px rgba(108,63,197,0.2);
 }
 body.dark {
-  --primary:     #9b6de8;
-  --secondary:   #e8b84b;
-  --accent:      #c4a0f5;
-  --gradient:    linear-gradient(135deg, #7c52d4 0%, #d4a83a 100%);
-  --bg:          #0d0e1a;
-  --bg-section:  #13152a;
-  --bg-card:     #1a1d35;
+  --primary:     #6c3fc5;
+  --secondary:    #eeeaf8;
+  --accent:       #9b6de8;
+  --gradient:    linear-gradient(135deg, #7c52d4 0%, #1a1207 100%);
+  --bg:          #0a0a0a;
+  --bg-section:  #1a1a1a;
+  --bg-card:     #222222;
   --ink:         #eeeaf8;
   --text-main:   #ddd8f5;
   --text-light:  #a89fcc;
@@ -98,19 +98,24 @@ body.dark .auth-page {
 }
 body[dir="rtl"] .ctrl-row { right: auto; left: 16px; }
 
-.ctrl-btn {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--bg-card);
-  color: var(--ink);
-  font-size: 0.85rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow-sm);
-  font-family: 'Poppins', sans-serif; font-weight: 700; padding: 0;
+/* theme + rtl toggles — same shape/behaviour as dashboard.html */
+.theme-toggle {
+  width:38px; height:38px; min-width:38px; border-radius:50%;
+  border:1.5px solid var(--border); background:var(--primary); color:#fff;
+  font-size:1.05rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  padding:0;
 }
-.ctrl-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-.ctrl-btn i { font-size: 13px; }
+.theme-toggle:hover { background:var(--gradient); }
+
+.rtl-toggle {
+  width:38px; height:38px; min-width:38px; border-radius:50%;
+  border:1.5px solid var(--border-a); background:var(--primary); color:#fff;
+  font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  padding:0;
+}
+.rtl-toggle:hover { background:var(--gradient); }
+body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
 
 
 .auth-card {
@@ -139,14 +144,14 @@ body[dir="rtl"] .ctrl-row { right: auto; left: 16px; }
 
 .auth-logo {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem; font-weight: 900;
-  color: var(--ink); text-align: center;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--primary); text-align: center;
   margin-bottom: 4px; display: block;
-  cursor: pointer;
+  
   text-decoration: none;
 }
-.auth-logo span { color: var(--primary); }
-.auth-logo:hover span { opacity: 0.8; }
+.auth-logo span { color: var(--ink); }
+
 
 .auth-subtitle {
   text-align: center; color: var(--gray);
@@ -169,6 +174,60 @@ body[dir="rtl"] .ctrl-row { right: auto; left: 16px; }
 }
 
 
+.auth-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.auth-divider span { font-size: 0.74rem; color: var(--gray); white-space: nowrap; }
+
+
+.auth-field { margin-bottom: 12px; }
+.auth-field label {
+  display: block; font-size: 0.78rem; font-weight: 600;
+  color: var(--text-main); margin-bottom: 5px;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg); color: var(--text-main);
+  font-family: 'DM Sans', sans-serif; font-size: 0.87rem;
+  outline: none; box-sizing: border-box;
+}
+body[dir="rtl"] .auth-field input { text-align: right; }
+.auth-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.auth-field input::placeholder { color: var(--gray); }
+
+
+.auth-forgot {
+  display: block; text-align: right;
+  font-size: 0.78rem; color: var(--primary);
+  margin-top: -6px; margin-bottom: 14px; cursor: pointer;
+}
+body[dir="rtl"] .auth-forgot { text-align: left; }
+
+
+.auth-btn {
+  width: 100%; padding: 12px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; font-weight: 700; cursor: pointer;
+  box-shadow: var(--shadow-md);
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  margin-bottom: 14px;
+}
+.auth-btn:hover { opacity: 0.92; }
+
+
 .auth-social {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 10px; margin-bottom: 14px;
@@ -189,67 +248,6 @@ body[dir="rtl"] .ctrl-row { right: auto; left: 16px; }
 .g-logo { width: 15px; height: 15px; flex-shrink: 0; }
 
 
-.auth-divider {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 14px;
-}
-.auth-divider::before, .auth-divider::after {
-  content: ''; flex: 1; height: 1px; background: var(--border);
-}
-.auth-divider span { font-size: 0.74rem; color: var(--gray); white-space: nowrap; }
-
-
-.auth-field { margin-bottom: 12px; }
-.auth-field label {
-  display: block; font-size: 0.78rem; font-weight: 600;
-  color: var(--text-main); margin-bottom: 5px;
-}
-.auth-field .input-wrap { position: relative; }
-.auth-field .input-wrap i {
-  position: absolute; left: 14px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--gray); font-size: 12px; pointer-events: none;
-}
-body[dir="rtl"] .auth-field .input-wrap i { left: auto; right: 14px; }
-
-.auth-field input {
-  width: 100%;
-  padding: 10px 12px 10px 38px;
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg); color: var(--text-main);
-  font-family: 'DM Sans', sans-serif; font-size: 0.87rem;
-  outline: none; box-sizing: border-box;
-}
-body[dir="rtl"] .auth-field input { padding: 10px 38px 10px 12px; text-align: right; }
-.auth-field input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-.auth-field input::placeholder { color: var(--gray); }
-
-
-.auth-forgot {
-  display: block; text-align: right;
-  font-size: 0.78rem; color: var(--primary);
-  margin-top: -6px; margin-bottom: 14px; cursor: pointer;
-}
-body[dir="rtl"] .auth-forgot { text-align: left; }
-
-
-.auth-btn {
-  width: 100%; padding: 12px;
-  background: var(--gradient); color: #fff;
-  border: none; border-radius: 40px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.92rem; font-weight: 700; cursor: pointer;
-  box-shadow: var(--shadow-md);
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-  margin-bottom: 14px;
-}
-.auth-btn:hover { opacity: 0.92; }
-
-
 .auth-switch { text-align: center; font-size: 0.83rem; color: var(--gray); }
 .auth-switch a { color: var(--primary); font-weight: 600; cursor: pointer; }
 
@@ -259,7 +257,7 @@ body[dir="rtl"] .auth-forgot { text-align: left; }
   .auth-title   { font-size: 1.4rem; }
   .auth-social  { grid-template-columns: 1fr; gap: 8px; }
   .ctrl-row     { top: 12px; right: 12px; gap: 6px; }
-  .ctrl-btn     { width: 36px; height: 36px; font-size: 0.75rem; }
+  .theme-toggle, .rtl-toggle { width: 36px; height: 36px; font-size: 0.75rem; }
   body[dir="rtl"] .ctrl-row { right: auto; left: 12px; }
 }
 </style>
@@ -268,10 +266,8 @@ body[dir="rtl"] .auth-forgot { text-align: left; }
 
 
 <div class="ctrl-row">
-  <button class="ctrl-btn" id="rtlToggle" title="Toggle RTL/LTR">
-    <i class="fas fa-exchange-alt"></i>
-  </button>
-  <button class="ctrl-btn" id="themeToggle" title="Toggle theme">🌙</button>
+  <button class="rtl-toggle" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR"><span id="rtlLabel">RTL</span></button>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
 </div>
 
 
@@ -291,7 +287,24 @@ body[dir="rtl"] .auth-forgot { text-align: left; }
 
     <h2 class="auth-title">Welcome Back</h2>
 
-  
+    <div class="auth-field">
+      <label>Email Address</label>
+      <input type="email" placeholder="you@example.com"/>
+    </div>
+
+    <div class="auth-field">
+      <label>Password</label>
+      <input type="password" placeholder="Enter your password"/>
+    </div>
+
+    <a href="#" class="auth-forgot">Forgot password?</a>
+
+    <button class="auth-btn">
+      <i class="fas fa-sign-in-alt"></i> Sign In
+    </button>
+
+    <div class="auth-divider"><span>or continue with</span></div>
+
     <div class="auth-social">
 
       <button class="auth-social-btn google" onclick="socialLogin('Google')">
@@ -305,37 +318,12 @@ body[dir="rtl"] .auth-forgot { text-align: left; }
       </button>
 
       <button class="auth-social-btn apple" onclick="socialLogin('Apple')">
-        <svg width="14" height="14" viewBox="0 0 814 1000" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-          <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 483.9 35.9 332.8 84.6 220.9c28.4-63.4 79.2-109.2 140.4-109.2s95.9 40.8 164 40.8 100.8-40.8 176-40.8c57.6 0 119 30.1 157.6 81.1zm-220.8-107.8c31.4-37.6 54.2-89.9 54.2-142.2 0-7.1-.6-14.3-1.9-20.1-51.5 2-112.3 34.5-148.8 75.8-28.5 32.4-55.1 83.8-55.1 136.8 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 46.5 0 102.5-30.7 136.1-69.7z" fill="currentColor"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;" aria-hidden="true" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
         </svg>
         Apple
       </button>
-
     </div>
-
-    <div class="auth-divider"><span>or continue with email</span></div>
-
-    <div class="auth-field">
-      <label>Email Address</label>
-      <div class="input-wrap">
-        <i class="fas fa-envelope"></i>
-        <input type="email" placeholder="you@example.com"/>
-      </div>
-    </div>
-
-    <div class="auth-field">
-      <label>Password</label>
-      <div class="input-wrap">
-        <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Enter your password"/>
-      </div>
-    </div>
-
-    <a href="#" class="auth-forgot">Forgot password?</a>
-
-    <button class="auth-btn">
-      <i class="fas fa-sign-in-alt"></i> Sign In
-    </button>
 
     <p class="auth-switch">
       Don't have an account? <a href="signup.html">Sign up free</a>
@@ -345,67 +333,51 @@ body[dir="rtl"] .auth-forgot { text-align: left; }
 </div>
 
 <script>
-(function () {
-  'use strict';
-
-  var MOON      = '🌙';
-  var SUN       = '☀️';
-  var THEME_KEY = 'speakeasy-theme';
-  var RTL_KEY   = 'speakeasy-rtl';
-
- 
-  function isDark() { return document.body.classList.contains('dark'); }
-
-  function syncTheme(dark) {
-    var btn = document.getElementById('themeToggle');
-    if (btn) {
-      btn.textContent = dark ? SUN : MOON;
-      btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
-    }
-  }
-
-  function setTheme(dark) {
-    document.body.classList.toggle('dark', dark);
-    syncTheme(dark);
-    try { localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light'); } catch (e) {}
-  }
-
-  (function () {
-    var s = null;
-    try { s = localStorage.getItem(THEME_KEY); } catch (e) {}
-    if (!s) s = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    setTheme(s === 'dark');
-  })();
-
-  document.getElementById('themeToggle').addEventListener('click', function (e) {
-    e.stopPropagation(); setTheme(!isDark());
-  });
-
-  function isRTL() { return document.body.getAttribute('dir') === 'rtl'; }
-
-  function setRTL(rtl) {
-    document.documentElement.dir = rtl ? 'rtl' : 'ltr';
-    document.body.setAttribute('dir', rtl ? 'rtl' : 'ltr');
-    var btn = document.getElementById('rtlToggle');
-    if (btn) btn.title = rtl ? 'Switch to LTR' : 'Switch to RTL';
-    try { localStorage.setItem(RTL_KEY, rtl ? 'rtl' : 'ltr'); } catch (e) {}
-  }
-
-  (function () {
-    var s = null;
-    try { s = localStorage.getItem(RTL_KEY); } catch (e) {}
-    if (s === 'rtl') setRTL(true);
-  })();
-
-  document.getElementById('rtlToggle').addEventListener('click', function (e) {
-    e.stopPropagation(); setRTL(!isRTL());
-  });
-
-  window.socialLogin = function (provider) {
-    alert('Redirecting to ' + provider + ' OAuth…\n(Wire up your handler here.)');
-  };
-
+/* ── THEME ── (same pattern as dashboard.html) */
+let dark = false;
+function applyTheme(d) {
+  const icon = document.getElementById('themeIcon');
+  document.body.classList.toggle('dark', d);
+  if (icon) icon.className = d ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+}
+function toggleTheme() {
+  dark = !dark;
+  applyTheme(dark);
+  try { localStorage.setItem('speakeasy-theme', dark ? 'dark' : 'light'); } catch(e) {}
+}
+(function() {
+  let s = null;
+  try { s = localStorage.getItem('speakeasy-theme'); } catch(e) {}
+  if (!s) s = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  dark = s === 'dark';
+  applyTheme(dark);
 })();
+
+/* ── RTL ── (same pattern as dashboard.html) */
+let rtlOn = false;
+function toggleRTL() {
+  rtlOn = !rtlOn;
+  document.documentElement.dir = rtlOn ? 'rtl' : 'ltr';
+  document.body.setAttribute('dir', rtlOn ? 'rtl' : 'ltr');
+  const lbl = document.getElementById('rtlLabel');
+  if (lbl) lbl.textContent = rtlOn ? 'LTR' : 'RTL';
+  try { localStorage.setItem('speakeasy-rtl', rtlOn ? 'rtl' : 'ltr'); } catch(e) {}
+}
+(function() {
+  let r = null;
+  try { r = localStorage.getItem('speakeasy-rtl'); } catch(e) {}
+  if (r === 'rtl') {
+    rtlOn = true;
+    document.documentElement.dir = 'rtl';
+    document.body.setAttribute('dir', 'rtl');
+    const lbl = document.getElementById('rtlLabel');
+    if (lbl) lbl.textContent = 'LTR';
+  }
+})();
+
+window.socialLogin = function (provider) {
+  alert('Redirecting to ' + provider + ' OAuth…\n(Wire up your handler here.)');
+};
 </script>
 </body>
 </html>
