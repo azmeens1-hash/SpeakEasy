@@ -65,6 +65,7 @@ body.dark {
   --coral: #f07050;
 }
 
+/* ── Standard 4-tier breakpoint scale: <640 / 640-1023 / 1024-1279 / >=1280 ── */
 @media (min-width:1024px) and (max-width:1279px) { :root { --side-pad:40px; --sw:230px; } }
 @media (min-width:640px)  and (max-width:1023px) { :root { --side-pad:24px; } }
 @media (max-width:639px)                          { :root { --side-pad:16px; } }
@@ -114,6 +115,17 @@ body.dark .sb-head { border-bottom-color:rgba(255,255,255,.08); }
   transition:opacity .2s, width .2s, color .4s; cursor:pointer;color:var(--primary);
  
 }
+.logo svg {
+  height: 30px;
+  width: auto;
+  display: block;
+  direction: ltr;      /* logo wordmark/icon must never mirror with page RTL */
+  unicode-bidi: bidi-override;}
+
+
+  .logo-easy-text { fill: var(--ink); transition: fill .4s; }
+body.dark .logo-easy-text { fill: #ffffff; }
+
 body.dark .sb-logo { color:var(--primary); }
 .sb-logo span { color:var(--secondary); }
 .sb.col .sb-logo { opacity:0; width:0; }
@@ -513,26 +525,56 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
 @keyframes toutRTL { to { transform:translateX(-110%); opacity:0; } }
 
 /* ═══════════════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — standardized 4-tier scale:
+   tier 1  <640        (mobile)
+   tier 2  640–1023     (tablet)
+   tier 3  1024–1279    (small desktop)
+   tier 4  >=1280       (desktop)
 ═══════════════════════════════════════════════════════ */
-@media (min-width:1281px) {
+
+/* ── Tier 4: >=1280 — full desktop layout ── */
+@media (min-width:1280px) {
   .stats-row { grid-template-columns:repeat(4,1fr); }
+  .grid-main { grid-template-columns:1fr 330px; }
   .grid-bot  { grid-template-columns:1fr 1fr 1fr 1fr; }
   .grid-wide { grid-template-columns:1fr 1fr; }
   .ach-row   { grid-template-columns:repeat(4,1fr); }
   .tutor-row { grid-template-columns:repeat(3,1fr); }
   .dhero-r   { display:flex; }
 }
-@media (max-width:1280px) {
+
+/* ── Tier 3: 1024–1279 — small desktop ── */
+@media (min-width:1024px) and (max-width:1279px) {
   .stats-row { grid-template-columns:repeat(2,1fr); }
+  .grid-main { grid-template-columns:1fr; }
   .grid-bot  { grid-template-columns:1fr 1fr; }
+  .grid-wide { grid-template-columns:1fr 1fr; }
   .ach-row   { grid-template-columns:repeat(2,1fr); }
   .tutor-row { grid-template-columns:repeat(2,1fr); }
+  .dhero-r   { display:none; }
 }
-@media (max-width:1100px) { .grid-main { grid-template-columns:1fr; } .dhero-r { display:none; } }
-@media (max-width:1023px) { .grid-wide { grid-template-columns:1fr; } .grid-bot { grid-template-columns:1fr; } .tutor-row { grid-template-columns:1fr 1fr; } }
-@media (max-width:900px)  { .tutor-row { grid-template-columns:1fr; } }
-@media (max-width:768px) {
+
+/* ── Tier 2: 640–1023 — tablet ── */
+@media (min-width:640px) and (max-width:1023px) {
+  .sb { transform:translateX(-100%); width:var(--sw) !important; }
+  [dir="rtl"] .sb { transform:translateX(100%); right:0; left:auto; }
+  .sb.mob-on { transform:translateX(0); }
+  .sb.col { transform:translateX(-100%); }
+  [dir="rtl"] .sb.col { transform:translateX(100%); }
+  .main { margin-left:0 !important; margin-right:0 !important; }
+  .mob-ham { display:flex; }
+  .tb-srch { display:none; }
+  .dhero-r { display:none; }
+  .stats-row { grid-template-columns:repeat(2,1fr); }
+  .grid-main { grid-template-columns:1fr; }
+  .grid-bot  { grid-template-columns:1fr 1fr; }
+  .grid-wide { grid-template-columns:1fr; }
+  .ach-row   { grid-template-columns:repeat(2,1fr); }
+  .tutor-row { grid-template-columns:1fr 1fr; }
+}
+
+/* ── Tier 1: <640 — mobile ── */
+@media (max-width:639px) {
   .sb { transform:translateX(-100%); width:var(--sw) !important; }
   [dir="rtl"] .sb { transform:translateX(100%); right:0; left:auto; }
   .sb.mob-on { transform:translateX(0); }
@@ -542,28 +584,20 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
   .mob-ham { display:flex; }
   .tb-srch { display:none; }
   .tb-ttl { font-size:.98rem; }
-  .page { padding:18px 16px; }
-  .dhero { padding:24px 20px; flex-direction:column; align-items:flex-start; }
+  .page { padding:14px 12px; }
+  .dhero { padding:20px 16px; border-radius:18px; flex-direction:column; align-items:flex-start; }
   .dhero-r { display:none; }
   .dbtn-o { display:none; }
-  .dhero-h { font-size:clamp(1.3rem,5vw,1.8rem); }
-  .dhero-sub { font-size:.84rem; margin-bottom:18px; }
-  .grid-main { grid-template-columns:1fr; }
-  .stats-row { grid-template-columns:repeat(2,1fr); }
-  .grid-bot  { grid-template-columns:1fr; }
-  .grid-wide { grid-template-columns:1fr; }
-  .ach-row   { grid-template-columns:repeat(2,1fr); }
-  .tutor-row { grid-template-columns:1fr; }
-}
-@media (max-width:639px) {
-  .page { padding:14px 12px; }
-  .dhero { padding:20px 16px; border-radius:18px; }
   .dhero-h { font-size:clamp(1.2rem,5.5vw,1.55rem); }
-  .dhero-sub { font-size:.82rem; }
+  .dhero-sub { font-size:.82rem; margin-bottom:18px; }
+  .grid-main { grid-template-columns:1fr; }
   .stats-row { grid-template-columns:1fr 1fr; gap:11px; }
   .stat-card { padding:16px 14px; }
   .stat-val  { font-size:1.5rem; }
+  .grid-bot  { grid-template-columns:1fr; }
+  .grid-wide { grid-template-columns:1fr; }
   .ach-row   { grid-template-columns:repeat(2,1fr); gap:11px; }
+  .tutor-row { grid-template-columns:1fr; }
   .sb-tog, .mob-ham { width:32px; height:32px; }
 }
 
@@ -580,7 +614,33 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
 <!-- ═══════════════════════ SIDEBAR ═══════════════════════ -->
 <aside class="sb" id="sb">
   <div class="sb-head">
-    <a href="index.html" class="sb-logo">Speak<span>Easy</span></a>
+    <a href="index.html" class="logo" aria-label="SpeakEasy Language Academy">
+    <svg viewBox="7.2 15.2 329.2 65.6" role="img">
+      <title>SpeakEasy Language Academy logo</title>
+      <g transform="translate(36,48)">
+        <circle cx="0" cy="0" r="28" fill="#6c3fc5"/>
+        <clipPath id="navGlobeClip">
+          <circle cx="0" cy="0" r="28"/>
+        </clipPath>
+        <g clip-path="url(#navGlobeClip)">
+          <path d="M-24 -12 q5 -4 10 -1 q2 2 -1 4 q-4 2 -1 5 q2 2 -4 4 q-5 1 -5 -4 q1 -4 -3 -4 q-3 -1 4 -4 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M-19 2 q5 -2 7 2 q2 3 -2 4 q-4 1 -2 4 q2 3 -4 3 q-4 0 -4 -4 q1 -3 -2 -4 q-2 -1 7 -5 Z" fill="#ffffff" opacity="0.88"/>
+          <path d="M-3 -19 q8 -2 11 4 q2 4 -4 4 q-5 0 -4 4 q1 4 -5 3 q-5 -1 -3 -7 q2 -4 -2 -5 q-3 -1 7 -3 Z" fill="#ffffff" opacity="0.92"/>
+          <path d="M6 -6 q7 -2 10 3 q2 3 -3 4 q-5 1 -3 5 q1 4 -5 3 q-5 -1 -4 -6 q1 -4 -4 -5 q-3 -1 9 -4 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M8 8 q9 -2 13 4 q3 4 -4 6 q-6 2 -5 6 q1 4 -5 3 q-6 -1 -4 -7 q2 -5 -4 -7 q-4 -1 9 -5 Z" fill="#ffffff" opacity="0.9"/>
+          <path d="M-13 14 q5 -2 8 2 q2 3 -3 4 q-4 1 -2 4 q2 3 -4 2 q-5 -1 -3 -5 q1 -3 -2 -4 q-3 -1 6 -3 Z" fill="#ffffff" opacity="0.85"/>
+          <path d="M18 -17 q5 -1 6 3 q1 3 -3 3 q-4 1 -2 4 q1 3 -4 2 q-4 -1 -3 -5 q1 -3 -2 -3 q-2 -1 8 -4 Z" fill="#ffffff" opacity="0.85"/>
+        </g>
+        <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <ellipse cx="0" cy="0" rx="13" ry="28" fill="none" stroke="#1a1207" stroke-width="1.2"/>
+        <line x1="-28" y1="0" x2="28" y2="0" stroke="#1a1207" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1a1207" stroke-width="1.6"/>
+      </g>
+      <text x="76" y="58" font-family="'Poppins', Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="0.3">
+        <tspan fill="#6c3fc5">Speak</tspan><tspan class="logo-easy-text" fill="#1a1207">Easy</tspan>
+      </text>
+    </svg>
+  </a>
     <button class="sb-tog" id="sbTog" onclick="toggleSb()"><i class="fa-solid fa-angle-left"></i></button>
   </div>
   <div class="sb-profile">
@@ -774,7 +834,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
     <!-- ═══ AI PRACTICE ═══ -->
     <div class="sec-page" id="view-aipractice">
       <div class="sec-hd fu d1"><div class="sec-hd-ttl">AI Practice Partner</div><span class="card-act" onclick="navTo('dashboard')">&larr; Back to Dashboard</span></div>
-      <div class="grid-main fu d2" style="grid-template-columns:1fr 330px;">
+      <div class="grid-main fu d2">
         <div class="card">
           <div class="card-hd"><div><div class="card-ttl">Conversation Practice</div><div class="card-sub">Spanish B2 &middot; Free-form chat</div></div></div>
           <div class="ai-msgs" id="aiChatFull" style="max-height:430px;">

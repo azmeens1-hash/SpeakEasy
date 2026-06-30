@@ -42,17 +42,17 @@
     </svg>
   </a>
   <ul class="nav-links">
-    <li class="dropdown active">
+    <li class="dropdown ">
       <a href="index.html"><span class="nav-link-text">Home </span><span class="dropdown-caret">▾</span></a>
       <div class="dropdown-menu">
-        <a href="index.html"class="active">Home 1</a>
+        <a href="index.html">Home 1</a>
         <a href="home2.html">Home 2</a>
       </div>
     </li>
     <li><a href="about.html"><span class="nav-link-text">About</span></a></li>
     <li><a href="services.html"><span class="nav-link-text">Services</span></a></li>
     <li><a href="blog.html"><span class="nav-link-text">Blog</span></a></li>
-    <li><a href="contact.html"><span class="nav-link-text">Contact</span></a></li>
+    <li><a href="contact.html"class="active"><span class="nav-link-text">Contact</span></a></li>
     <li><a href="admin.html"><span class="nav-link-text">Dashboard</span></a></li>
     <li class="mobile-only-item"><a href="login.html" class="mobile-login-btn">LOGIN</a></li>
   </ul>
@@ -86,13 +86,7 @@
     <div id="formContent">
       <h2 class="form-title">How Can We Help?</h2>
       <p class="form-subtitle">Fill in the form below and one of our language consultants will get back to you &mdash; usually within 2 hours during business hours.</p>
-      <div class="enquiry-tabs">
-        <div class="eq-tab active" onclick="setTab(this)">General Enquiry</div>
-        <div class="eq-tab" onclick="setTab(this)"> Free Trial Class</div>
-        <div class="eq-tab" onclick="setTab(this)"> Exam Preparation</div>
-        <div class="eq-tab" onclick="setTab(this)">Corporate Training</div>
-        <div class="eq-tab" onclick="setTab(this)"> Technical Support</div>
-      </div>
+
       <div class="form-grid">
         <div class="form-group"><label class="form-label">First Name <span>*</span></label><input class="form-input" id="fname" type="text" placeholder="Aanya"/></div>
         <div class="form-group"><label class="form-label">Last Name <span>*</span></label><input class="form-input" id="lname" type="text" placeholder="Sharma"/></div>
@@ -147,6 +141,11 @@
         <div class="social-card"><span class="sc-emoji"><i class="fa-brands fa-facebook-f"></i></span><div><span class="sc-name">Facebook</span><span class="sc-handle">SpeakEasy Academy</span></div></div>
       </div>
     </div>
+    <div class="sidebar-card sidebar-cta reveal">
+      <div class="sc-title"><i class="fa-solid fa-graduation-cap"></i> Ready to Start?</div>
+      <p>Book a free 30-minute trial class with a certified native tutor — no credit card required.</p>
+      <button class="sidebar-cta-btn"><a href="contact.html">Book a Free Trial </a></button>
+    </div>
   </aside>
 </div>
 
@@ -156,7 +155,6 @@
       <h2 class="map-title">Visit Us in <em>Hyderabad</em></h2>
       <p class="map-sub">Our main campus is in Jubilee Hills, Hyderabad &mdash; a short drive from the city centre.</p>
     </div>
-    
   </div>
   <div class="map-container">
     <iframe class="map-iframe" id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15232.240163316537!2d78.36076299!3d17.36436761517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95dcbdb5bd09%3A0x6c1da9b214b25536!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1774764673690!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SpeakEasy Academy, Jubilee Hills, Hyderabad"></iframe>
@@ -237,7 +235,7 @@
     <span>Made with ❤️ in Hyderabad, India 🇮🇳</span>
   </div>
 </footer>
-   
+
 <script src="js/contact.js"></script>
 </body>
 </html>

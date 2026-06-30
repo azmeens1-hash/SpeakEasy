@@ -12,6 +12,12 @@
   --ink:         #1a1207;
   --text-main:   #2e2416;
   --text-light:  #6b5a47;
+  /* --text-2 was used throughout this file (sec-sub, overview body copy,
+     learning-outcome text, module text, instructor bio, schedule cards) but
+     never defined anywhere, in either :root or body.dark. Aliased to
+     --text-light, the equivalent variable used for this exact role
+     everywhere else in the SpeakEasy design system. */
+  --text-2:      #6b5a47;
   --gray:        #9e8a76;
   --border:      rgba(108,63,197,0.15);
   --border-a:    rgba(108,63,197,0.30);
@@ -25,6 +31,13 @@
   --nav-h:       68px;
   --gold:        #c8993a;
   --side:        72px;
+  /* --side-pad / --section-v are used throughout this file (nav, hero,
+     sections, footer) but were never defined at the base :root — only
+     inside the tablet/laptop/mobile media queries below. That left every
+     section with broken/invalid spacing at desktop widths (≥1280px).
+     Defined here now so desktop has correct, intentional spacing too. */
+  --side-pad:    72px;
+  --section-v:   100px;
   --tl-slide:    6px;
 }
 body.dark {
@@ -38,6 +51,7 @@ body.dark {
   --ink:         #eeeaf8;
   --text-main:   #ddd8f5;
   --text-light:  #a89fcc;
+  --text-2:      #a89fcc;
   --gray:        #7a7499;
   --border:      rgba(155,109,232,0.2);
   --border-a:    rgba(155,109,232,0.40);
@@ -48,8 +62,16 @@ body.dark {
   --gold:        #e8b84b;
 }
 
-
-@media (min-width:1024px) and (max-width:1280px) { :root { --side-pad:36px; --section-v:80px; } }
+/* ── Breakpoint scale used consistently across this file ──
+   mobile:   max-width: 639px
+   tablet:   min-width: 640px  and max-width: 1023px
+   laptop:   min-width: 1024px and max-width: 1279px
+   desktop:  min-width: 1280px
+   (Previously the hero used "min-width:1281px" for desktop and
+   "max-width:1280px" for laptop, while the nav used "min-width:1280px" /
+   "max-width:1279px" — two different desktop cut points in the same file,
+   with a 1px overlap zone. Standardized everywhere to the same scale.) */
+@media (min-width:1024px) and (max-width:1279px) { :root { --side-pad:36px; --section-v:80px; } }
 @media (min-width:640px)  and (max-width:1023px) { :root { --side-pad:24px; --section-v:64px; } }
 @media (max-width:639px)                         { :root { --side-pad:16px; --section-v:48px; } }
 
@@ -64,8 +86,6 @@ body {
 }
 body[dir="rtl"] { direction: rtl; }
 body[dir="rtl"] .footer-grid { direction: rtl; }
-body[dir="rtl"] nav .nav-icons { margin-left: 0; margin-right: 0; }
-body[dir="rtl"] nav .logo { margin-right: 0; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { display: block; max-width: 100%; height: auto; }
@@ -99,8 +119,19 @@ body.dark nav { background:rgba(19,21,42,0.95); }
   height: 30px;
   width: auto;
   display: block;
+  direction: ltr;      /* logo wordmark/icon must never mirror with page RTL */
+  unicode-bidi: bidi-override;
 }
 .logo span { color:var(--secondary); }
+
+/* body[dir="rtl"] sets direction:rtl which inherits into the inline SVG and
+   flips the <text> glyph-run direction inside the logo's viewBox — pin it
+   back to LTR explicitly so the wordmark renders correctly in both modes. */
+body[dir="rtl"] .logo svg,
+body[dir="rtl"] .logo svg text {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
 
 /* Easy text defaults to ink in light mode, switches to white in dark mode */
 .logo-easy-text { fill: var(--ink); transition: fill .4s; }
@@ -144,7 +175,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
   height: 2.5px;
   margin-top: 4px;
   border-radius: 2px;
-  background: var(--gradient);
+  background: var(--primary);
   transform: translateX(-50%);
 }
 .nav-links > li > a.active:hover,
@@ -153,7 +184,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
   color: var(--primary);
 }
 .nav-links > li > a.active:hover .nav-link-text::after,
-.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--gradient); }
+.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--primary); }
 
 /* Active item inside an open dropdown menu */
 .dropdown-menu a.active {
@@ -177,7 +208,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .mobile-only-item { display:none !important; }
 .nav-icons { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
-/* theme + rtl toggles — same circular shape/behaviour as dashboard.html */
+/* theme + rtl toggles — same circular shape/behaviour, sized identically by default */
 .theme-toggle {
   width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border); background:var(--primary); color:#fff;
@@ -188,14 +219,26 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .theme-toggle:hover { background:var(--gradient); }
 
 .rtl-toggle {
-  width:38px; height:38px; min-width:35px; border-radius:50%;
+  width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border-a); background:var(--primary); color:#fff;
   font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  transition:background .2s; padding:0;
+  transition:background .2s, transform .2s; padding:0;
 }
 .rtl-toggle:hover { background:var(--gradient); }
-body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
+
+/* RTL toggle reflects the *current direction state*, not just a hover style —
+   gradient fill + a subtle flip animation so it's obvious the toggle is "on". */
+body[dir="rtl"] .rtl-toggle {
+  background: var(--gradient);
+  transform: scaleX(-1);
+}
+/* keep the label glyph readable (un-mirror the text inside the mirrored button) */
+body[dir="rtl"] .rtl-toggle span,
+body[dir="rtl"] .rtl-toggle #rtlLabel {
+  display: inline-block;
+  transform: scaleX(-1);
+}
 
 .login-btn {
   display:inline-flex; align-items:center; justify-content:center;
@@ -220,6 +263,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
 }
 .mobile-login-btn:hover { opacity:.88; }
 
+/* ── Desktop: > 1280px ── */
 @media (min-width:1280px) {
   nav { padding:0 72px; }
   .hamburger        { display:none !important; }
@@ -227,6 +271,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
+/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
   nav { padding:0 36px; }
   .logo svg { height: 29px; }
@@ -238,6 +283,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
+/* ── Tablet: 640px – 1023px ── */
 @media (min-width:640px) and (max-width:1023px) {
   nav { padding:0 24px; }
   .logo svg { height: 27px; }
@@ -248,6 +294,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-icons   { gap:10px; margin-left:auto; }
   .theme-toggle,.rtl-toggle { width:36px; height:36px; min-width:36px; }
 }
+/* ── Mobile: < 640px ── */
 @media (max-width:639px) {
   nav { padding:0 12px; }
   .nav-links   { display:none; }
@@ -258,6 +305,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .theme-toggle { width:30px; height:30px; min-width:30px; font-size:.85rem; }
   .rtl-toggle   { width:30px; height:30px; min-width:30px; font-size:0.6rem; }
 }
+/* ── Shared mobile-menu rules: < 1024px (tablet + mobile) ── */
 @media (max-width:1023px) {
   html,body { overflow-x:hidden; }
   .nav-links.open {
@@ -317,6 +365,14 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-links.open .mobile-only-item:first-of-type { margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
 }
 
+/* ── RTL: keep icon row visually mirrored, not just text-direction-flipped ──
+   Without this, the hamburger/theme/rtl buttons stay in LTR order on the
+   right side while everything else mirrors. The .logo is intentionally left
+   untouched here — reversing the whole nav previously dragged the logo into
+   the mirror and broke its rendering, so only the icon cluster mirrors. */
+body[dir="rtl"] nav .nav-icons { flex-direction: row-reverse; margin-left:0; margin-right:0; }
+body[dir="rtl"] .hamburger { align-items: flex-end; }
+
 
 
 
@@ -362,7 +418,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
 /* HERO — full-bleed centered */
 .sd-hero {
   background-color: #07030f;
-  background-image: url('Images/french.jpg');
+  background-image: url('Images/blog-french.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -418,13 +474,13 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
 }
 .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.55); }
 
-@media (min-width: 1281px)  { .sd-hero { padding: 130px 72px 110px; } }
-@media (min-width: 1024px) and (max-width: 1280px) { .sd-hero { padding: 100px 36px 80px; min-height: 500px; } }
-@media (min-width: 640px)  and (max-width: 1023px) {
+@media (min-width:1280px) { .sd-hero { padding: 130px 72px 110px; } }
+@media (min-width:1024px) and (max-width:1279px) { .sd-hero { padding: 100px 36px 80px; min-height: 500px; } }
+@media (min-width:640px) and (max-width:1023px) {
   .sd-hero { padding: 80px 24px 64px; min-height: 420px; }
   .hero-title { font-size: clamp(2rem, 5.5vw, 3.2rem); }
 }
-@media (max-width: 639px) {
+@media (max-width:639px) {
   .sd-hero { padding: 60px 16px 48px; min-height: 360px; }
   .hero-title { font-size: clamp(1.8rem, 8.5vw, 2.6rem); }
   .hero-desc  { font-size: 0.9rem; }
@@ -438,7 +494,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: 52px;
-  align-items:start;
+  align-items: start;
 }
 .overview-body p { font-size: 0.96rem; color: var(--text-2); line-height: 1.9; margin-bottom: 22px; }
 .overview-body p strong { color: var(--ink); font-weight: 600; }
@@ -723,68 +779,65 @@ footer {
   font-size: 0.8rem; color: var(--gray); flex-wrap: wrap; gap: 10px;
 }
 
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — consolidated, non-overlapping 4-tier scale
+   (Previously this section duplicated/overrode component rules defined
+   earlier in the file using a different, overlapping breakpoint boundary.
+   Also dropped two orphaned ".inst-flag-stripe" rules that had no base
+   definition anywhere in this file and no matching HTML element on this
+   page — dead CSS left over from copy-pasting between sibling pages.)
+═══════════════════════════════════════════════════════ */
+
+/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
-  footer { padding: 56px 40px 28px; }
-  .footer-grid { gap: 36px; }
-  .footer-desc { max-width: 220px; }
-}
-@media (min-width:640px) and (max-width:1023px) {
-  footer { padding: 52px 24px 24px; }
-  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 36px; }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-desc  { max-width: 100%; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-}
-@media (max-width:639px) {
-  footer { padding: 40px 16px 18px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
-  .footer-desc  { max-width: 100%; }
-  .footer-col h5 { margin-bottom: 12px; }
-  .footer-col a  { font-size: .79rem; }
-  .social-links  { justify-content: center; gap: 8px; }
-  .social-btn    { width: 30px; height: 30px; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; font-size: .74rem; padding-top: 16px; }
-}
-
-
-
-
-
-/* RESPONSIVE */
-@media (min-width: 1024px) and (max-width: 1279px) {
   .section { padding: 88px 48px; }
   .overview-grid { grid-template-columns: 1fr 300px; gap: 36px; }
-  .enrol-card { padding: 22px 20px; } .ec-price { font-size: 2rem; }
+  .enrol-card { padding: 22px 20px; }
+  .ec-price { font-size: 2rem; }
   .instructor-grid { grid-template-columns: 260px 1fr; gap: 40px; }
   .schedule-grid { gap: 14px; }
   .cta-section { padding: 80px 48px; }
-  footer { padding: 56px 48px 28px; } .footer-grid { gap: 36px; }
+  footer { padding: 56px 48px 28px; }
+  .footer-grid { gap: 36px; }
 }
-@media (min-width: 640px) and (max-width: 1023px) {
+
+/* ── Tablet: 640px – 1023px — centered footer ── */
+@media (min-width:640px) and (max-width:1023px) {
   .section { padding: 64px 24px; }
   .sec-title { font-size: clamp(1.9rem, 4vw, 2.5rem); }
   .sec-sub { margin-bottom: 36px; }
   .overview-grid { grid-template-columns: 1fr; gap: 32px; }
+  .enrol-card { position: static; max-width: 540px; margin: 0 auto; }
   .learn-grid { grid-template-columns: 1fr; gap: 14px; }
   .curriculum-tabs { gap: 6px; }
   .ctab { padding: 7px 14px; font-size: 0.78rem; }
   .module-body { padding-left: 22px; }
   .instructor-grid { grid-template-columns: 1fr; gap: 40px; }
   .inst-photo { max-width: 300px; margin: 0 auto; }
-  .inst-flag-stripe { border-radius: 24px 24px 0 0; }
   .inst-badge { white-space: normal; }
   .schedule-grid { grid-template-columns: 1fr; gap: 12px; }
   .st-header, .st-row { grid-template-columns: 1fr 1.2fr 1.2fr; font-size: 0.78rem; }
   .st-header span:nth-child(4), .st-header span:nth-child(5),
   .st-row span:nth-child(4), .st-row span:nth-child(5) { display: none; }
   .cta-section { padding: 72px 24px; }
-  footer { padding: 52px 24px 24px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-brand { grid-column: span 2; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  footer { padding: 52px 24px 24px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px; margin-bottom: 36px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc { max-width: 420px; margin: 0 auto; text-align: center; }
   .social-links { justify-content: center; }
+  .footer-col { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { justify-content: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; justify-content: center; }
 }
-@media (max-width: 639px) {
+
+/* ── Mobile: < 640px — centered footer ── */
+@media (max-width:639px) {
   .section { padding: 52px 16px; }
   .sec-title { font-size: clamp(1.6rem, 7.5vw, 2.2rem); }
   .sec-sub { font-size: 0.85rem; margin-bottom: 28px; }
@@ -809,28 +862,33 @@ footer {
   .learn-grid { grid-template-columns: 1fr; gap: 10px; }
   .learn-item { padding: 16px 14px; gap: 12px; border-radius: 14px; }
   .li-icon { width: 40px; height: 40px; font-size: 1.2rem; }
-  .li-title { font-size: 0.86rem; } .li-body { font-size: 0.78rem; }
+  .li-title { font-size: 0.86rem; }
+  .li-body { font-size: 0.78rem; }
   .curriculum-tabs { gap: 5px; margin-bottom: 20px; }
   .ctab { padding: 6px 10px; font-size: 0.72rem; }
   .module-header { padding: 13px 14px; gap: 8px; }
   .mod-num { font-size: 0.9rem; width: 24px; }
-  .mod-title { font-size: 0.82rem; } .mod-meta { font-size: 0.66rem; }
+  .mod-title { font-size: 0.82rem; }
+  .mod-meta { font-size: 0.66rem; }
   .mod-tag { display: none; }
   .module-body { padding: 0 14px 16px; font-size: 0.8rem; }
   .module-body ul { padding-left: 14px; }
   .module-body ul li { font-size: 0.77rem; }
   .instructor-grid { grid-template-columns: 1fr; gap: 44px; }
   .inst-photo { max-width: 240px; margin: 0 auto; }
-  .inst-flag-stripe { border-radius: 18px 18px 0 0; }
   .inst-badge { white-space: normal; left: 10px; right: 10px; transform: none; text-align: center; justify-content: center; }
-  .inst-name { font-size: 1.5rem; } .inst-role { font-size: 0.74rem; }
+  .inst-name { font-size: 1.5rem; }
+  .inst-role { font-size: 0.74rem; }
   .inst-bio { font-size: 0.84rem; }
-  .inst-stats { gap: 10px; } .is-box { padding: 10px 14px; min-width: auto; } .is-num { font-size: 1.1rem; }
+  .inst-stats { gap: 10px; }
+  .is-box { padding: 10px 14px; min-width: auto; }
+  .is-num { font-size: 1.1rem; }
   .inst-tag { font-size: 0.7rem; padding: 4px 10px; }
   .schedule-grid { grid-template-columns: 1fr; gap: 10px; }
   .sch-card { padding: 20px 16px; }
   .sch-icon { width: 46px; height: 46px; font-size: 1.1rem; margin-bottom: 10px; }
-  .sch-title { font-size: 0.88rem; } .sch-body { font-size: 0.78rem; }
+  .sch-title { font-size: 0.88rem; }
+  .sch-body { font-size: 0.78rem; }
   .st-header, .st-row { grid-template-columns: 1.1fr 1.2fr; padding: 11px 13px; font-size: 0.75rem; }
   .st-header span:nth-child(3), .st-header span:nth-child(4), .st-header span:nth-child(5),
   .st-row span:nth-child(3), .st-row span:nth-child(4), .st-row span:nth-child(5) { display: none; }
@@ -840,13 +898,20 @@ footer {
   .cta-sub { font-size: 0.88rem; margin-bottom: 28px; }
   .cta-btns { flex-direction: column; align-items: center; gap: 10px; }
   .btn-cta-primary, .btn-cta-outline { width: 100%; max-width: 100%; justify-content: center; padding: 13px 20px; font-size: 0.88rem; }
-  footer { padding: 40px 16px 20px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .footer-brand { grid-column: span 1; }
-  .footer-brand .logo { font-size: 1.4rem; }
-  .footer-desc { max-width: 100%; font-size: 0.82rem; }
-  .footer-col h5 { font-size: 0.84rem; margin-bottom: 12px; }
-  .footer-col a { font-size: 0.79rem; margin-bottom: 7px; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; font-size: 0.75rem; padding-top: 16px; }
-  .social-links { gap: 8px; } .social-btn { width: 30px; height: 30px; }
+
+  footer { padding: 40px 16px 18px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px; margin-bottom: 32px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc { max-width: 100%; margin: 0 auto; text-align: center; font-size: 0.82rem; }
+  .footer-col { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { margin-bottom: 12px; justify-content: center; font-size: 0.84rem; }
+  .footer-col a { font-size: 0.79rem; text-align: center; margin-bottom: 7px; }
+  .social-links { justify-content: center; gap: 8px; }
+  .social-btn { width: 30px; height: 30px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; justify-content: center; font-size: 0.75rem; padding-top: 16px; }
 }

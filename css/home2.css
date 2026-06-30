@@ -43,6 +43,13 @@ body.dark {
   --shadow-md:   0 8px 32px rgba(0,0,0,0.45);
   --shadow-lg:   0 20px 60px rgba(0,0,0,0.55);
 }
+
+/* ── Breakpoint scale used consistently across this file ──
+   mobile:   max-width: 639px
+   tablet:   min-width: 640px  and max-width: 1023px
+   laptop:   min-width: 1024px and max-width: 1279px
+   desktop:  min-width: 1280px
+*/
 @media (min-width:1024px) and (max-width:1279px) { :root { --sp:40px; --sv:90px; } }
 @media (min-width:640px)  and (max-width:1023px) { :root { --sp:24px; --sv:72px; } }
 @media (max-width:639px)                         { :root { --sp:16px; --sv:56px; } }
@@ -91,8 +98,19 @@ body.dark nav { background:rgba(19,21,42,0.95); }
   height: 30px;
   width: auto;
   display: block;
+  direction: ltr;      /* logo wordmark/icon must never mirror with page RTL */
+  unicode-bidi: bidi-override;
 }
 .logo span { color:var(--secondary); }
+
+/* body[dir="rtl"] sets direction:rtl which inherits into the inline SVG and
+   flips the <text> glyph-run direction inside the logo's viewBox — pin it
+   back to LTR explicitly so the wordmark renders correctly in both modes. */
+body[dir="rtl"] .logo svg,
+body[dir="rtl"] .logo svg text {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
 
 /* Easy text defaults to ink in light mode, switches to white in dark mode */
 .logo-easy-text { fill: var(--ink); transition: fill .4s; }
@@ -136,7 +154,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
   height: 2.5px;
   margin-top: 4px;
   border-radius: 2px;
-  background: var(--gradient);
+  background: var(--primary);
   transform: translateX(-50%);
 }
 .nav-links > li > a.active:hover,
@@ -145,7 +163,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
   color: var(--primary);
 }
 .nav-links > li > a.active:hover .nav-link-text::after,
-.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--gradient); }
+.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--primary); }
 
 /* Active item inside an open dropdown menu */
 .dropdown-menu a.active {
@@ -169,7 +187,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .mobile-only-item { display:none !important; }
 .nav-icons { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
-/* theme + rtl toggles — same circular shape/behaviour as dashboard.html */
+/* theme + rtl toggles — same circular shape/behaviour, sized identically by default */
 .theme-toggle {
   width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border); background:var(--primary); color:#fff;
@@ -180,14 +198,26 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .theme-toggle:hover { background:var(--gradient); }
 
 .rtl-toggle {
-  width:38px; height:38px; min-width:35px; border-radius:50%;
+  width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border-a); background:var(--primary); color:#fff;
   font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  transition:background .2s; padding:0;
+  transition:background .2s, transform .2s; padding:0;
 }
 .rtl-toggle:hover { background:var(--gradient); }
-body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
+
+/* RTL toggle reflects the *current direction state*, not just a hover style —
+   gradient fill + a subtle flip animation so it's obvious the toggle is "on". */
+body[dir="rtl"] .rtl-toggle {
+  background: var(--gradient);
+  transform: scaleX(-1);
+}
+/* keep the label glyph readable (un-mirror the text inside the mirrored button) */
+body[dir="rtl"] .rtl-toggle span,
+body[dir="rtl"] .rtl-toggle #rtlLabel {
+  display: inline-block;
+  transform: scaleX(-1);
+}
 
 .login-btn {
   display:inline-flex; align-items:center; justify-content:center;
@@ -212,6 +242,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
 }
 .mobile-login-btn:hover { opacity:.88; }
 
+/* ── Desktop: > 1280px ── */
 @media (min-width:1280px) {
   nav { padding:0 72px; }
   .hamburger        { display:none !important; }
@@ -219,6 +250,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
+/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
   nav { padding:0 36px; }
   .logo svg { height: 29px; }
@@ -230,6 +262,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
+/* ── Tablet: 640px – 1023px ── */
 @media (min-width:640px) and (max-width:1023px) {
   nav { padding:0 24px; }
   .logo svg { height: 27px; }
@@ -240,6 +273,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-icons   { gap:10px; margin-left:auto; }
   .theme-toggle,.rtl-toggle { width:36px; height:36px; min-width:36px; }
 }
+/* ── Mobile: < 640px ── */
 @media (max-width:639px) {
   nav { padding:0 12px; }
   .nav-links   { display:none; }
@@ -250,6 +284,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .theme-toggle { width:30px; height:30px; min-width:30px; font-size:.85rem; }
   .rtl-toggle   { width:30px; height:30px; min-width:30px; font-size:0.6rem; }
 }
+/* ── Shared mobile-menu rules: < 1024px (tablet + mobile) ── */
 @media (max-width:1023px) {
   html,body { overflow-x:hidden; }
   .nav-links.open {
@@ -308,6 +343,14 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-links.open .mobile-only-item { display:list-item !important; }
   .nav-links.open .mobile-only-item:first-of-type { margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
 }
+
+/* ── RTL: keep icon row visually mirrored, not just text-direction-flipped ──
+   Without this, the hamburger/theme/rtl buttons stay in LTR order on the
+   right side while everything else mirrors. The .logo is intentionally left
+   untouched here — reversing the whole nav previously dragged the logo into
+   the mirror and broke its rendering, so only the icon cluster mirrors. */
+body[dir="rtl"] nav .nav-icons { flex-direction: row-reverse; margin-left:0; margin-right:0; }
+body[dir="rtl"] .hamburger { align-items: flex-end; }
 
 
 
@@ -386,8 +429,6 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   display:flex; gap:40px; padding-top:32px;
   border-top:1px solid var(--border);
 }
-.stat-num   { font-family:'Poppins',sans-serif; font-size:1.8rem; font-weight:600; color:var(--primary); }
-.stat-label { font-size:0.78rem; color:var(--gray); margin-top:3px; }
 
 .hero-img-wrap { position:relative; border-radius:20px; overflow:hidden; }
 .hero-img      { width:100%; height:420px; object-fit:cover; display:block; }
@@ -420,7 +461,7 @@ body.dark .f-card { background:rgba(26,29,53,.92); color:var(--ink); }
   .hero-desc   { font-size:.93rem; max-width:100%; }
   .hero-img    { height:220px; }
   .hero-stats  { gap:20px; flex-wrap:wrap; }
-  .stat-num    { font-size:1.5rem; }
+ 
   .btn-group   { gap:10px; }
   .btn-primary,.btn-outline { padding:11px 22px; font-size:.85rem; }
 }
@@ -437,6 +478,10 @@ body.dark .f-card { background:rgba(26,29,53,.92); color:var(--ink); }
 }
 .strip-item:last-child { border-right:none; }
 .strip-item span { font-size:1.1rem; }
+@media (min-width:640px) and (max-width:1023px) {
+  .features-strip { padding:16px 24px; }
+  .strip-item     { padding:6px 18px; font-size:.83rem; }
+}
 @media (max-width:639px) {
   .features-strip { padding:14px 12px; }
   .strip-item     { padding:5px 12px; font-size:.78rem; }
@@ -711,30 +756,49 @@ footer {
   font-size: 0.8rem; color: var(--gray); flex-wrap: wrap; gap: 10px;
 }
 
+/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
   footer { padding: 56px 40px 28px; }
   .footer-grid { gap: 36px; }
   .footer-desc { max-width: 220px; }
 }
+
+/* ── Tablet: 640px – 1023px — centered footer ── */
 @media (min-width:640px) and (max-width:1023px) {
-  footer { padding: 52px 24px 24px; }
-  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 36px; }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-desc  { max-width: 100%; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  footer { padding: 52px 24px 24px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px; margin-bottom: 36px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc  { max-width: 420px; margin: 0 auto; text-align: center; }
+  .social-links { justify-content: center; }
+  .footer-col   { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { justify-content: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; justify-content: center; }
 }
+
+/* ── Mobile: < 640px — centered footer ── */
 @media (max-width:639px) {
-  footer { padding: 40px 16px 18px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
-  .footer-desc  { max-width: 100%; }
-  .footer-col h5 { margin-bottom: 12px; }
-  .footer-col a  { font-size: .79rem; }
+  footer { padding: 40px 16px 18px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px; margin-bottom: 32px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc  { max-width: 100%; margin: 0 auto; text-align: center; }
+  .footer-col   { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { margin-bottom: 12px; justify-content: center; }
+  .footer-col a  { font-size: .79rem; text-align: center; }
   .social-links  { justify-content: center; gap: 8px; }
   .social-btn    { width: 30px; height: 30px; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; font-size: .74rem; padding-top: 16px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; justify-content: center; font-size: .74rem; padding-top: 16px; }
 }
 
 
 /* ── RTL ── */
 body[dir="rtl"] .footer-grid  { direction:rtl; }
-body[dir="rtl"] nav .nav-icons { margin-left:0; margin-right:0; }
