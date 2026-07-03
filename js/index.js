@@ -98,13 +98,35 @@
     });
   }
 
-  /* ── Dropdown ── */
+  /* ── Dropdown ──
+     Two distinct interaction modes share the same markup:
+       - Mobile/tablet (<1024px, hamburger menu open): CSS has no hover
+         affordance (touch devices don't hover reliably), so the trigger
+         link's click toggles the submenu open/closed via the JS-driven
+         `.open` class, and must NOT navigate away.
+       - Desktop (>=1024px, .nav-links always visible): the CSS
+         `.dropdown:hover .dropdown-menu` rule shows the submenu on hover
+         with no JS involvement at all. But the trigger is still a real
+         `<a href>` — left untouched, a click on it would navigate to that
+         link's href immediately (closing/reloading the page) before a
+         person can interact with the revealed submenu items. Desktop
+         clicks on the trigger should toggle/keep the submenu open instead
+         of navigating, exactly like a disclosure control. */
   document.querySelectorAll('.dropdown > a').forEach(function (link) {
     link.addEventListener('click', function (e) {
-      if (navLinks && navLinks.classList.contains('open')) {
+      var dropdown = link.closest('.dropdown');
+      if (!dropdown) return;
+
+      var mobileMenuOpen = navLinks && navLinks.classList.contains('open');
+      var isDesktopHoverMode = !mobileMenuOpen && window.innerWidth >= 1024;
+
+      if (mobileMenuOpen || isDesktopHoverMode) {
         e.preventDefault();
-        link.closest('.dropdown').classList.toggle('open');
+        dropdown.classList.toggle('open');
       }
+      // Below 1024px with the mobile menu closed, the hamburger hasn't
+      // been opened yet, so there's no submenu to toggle — let the link
+      // navigate normally in that case.
     });
   });
 

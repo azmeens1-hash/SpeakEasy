@@ -44,6 +44,12 @@ body.dark {
   --shadow-lg:   0 20px 60px rgba(0,0,0,0.55);
 }
 
+/* ── Breakpoint scale used consistently across this file ──
+   mobile:   max-width: 639px
+   tablet:   min-width: 640px  and max-width: 1023px
+   laptop:   min-width: 1024px and max-width: 1279px
+   desktop:  min-width: 1280px
+*/
 @media (min-width:1024px) and (max-width:1279px) {
   :root { --side-pad:40px; --section-v:90px; --card-gap:18px; }
 }
@@ -92,9 +98,6 @@ nav {
 }
 body.dark nav { background:rgba(19,21,42,0.95); }
 
-/* ── Logo (inline SVG, small globe icon + large legible wordmark) ──
-   Sits as a flex sibling alongside .nav-links and .nav-icons inside <nav>,
-   so align-items:center on nav keeps all three vertically centred together. */
 .logo {
   display: flex;
   align-items: center;
@@ -105,14 +108,20 @@ body.dark nav { background:rgba(19,21,42,0.95); }
   height: 30px;
   width: auto;
   display: block;
+  direction: ltr;
+  unicode-bidi: bidi-override;
 }
 .logo span { color:var(--secondary); }
 
-/* Easy text defaults to ink in light mode, switches to white in dark mode */
+body[dir="rtl"] .logo svg,
+body[dir="rtl"] .logo svg text {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
+
 .logo-easy-text { fill: var(--ink); transition: fill .4s; }
 body.dark .logo-easy-text { fill: #ffffff; }
 
-/* Footer brand logo height override (alignment handled in the footer section below) */
 .footer-brand .logo svg { height: 27px; }
 
 @media (max-width:639px) {
@@ -134,7 +143,6 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .nav-link-text { position:relative; display:inline-block; line-height:1.3; }
 .dropdown-caret { font-size:0.7em; line-height:1; position:relative; top:1px; }
 
-/* ── Active nav state — underline centred under the word itself ── */
 .nav-links > li > a.active,
 .nav-links > .dropdown.active > a {
   color: var(--primary);
@@ -150,7 +158,7 @@ body.dark .logo-easy-text { fill: #ffffff; }
   height: 2.5px;
   margin-top: 4px;
   border-radius: 2px;
-  background: var(--gradient);
+  background: var(--primary);
   transform: translateX(-50%);
 }
 .nav-links > li > a.active:hover,
@@ -159,9 +167,8 @@ body.dark .logo-easy-text { fill: #ffffff; }
   color: var(--primary);
 }
 .nav-links > li > a.active:hover .nav-link-text::after,
-.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--gradient); }
+.nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--primary); }
 
-/* Active item inside an open dropdown menu */
 .dropdown-menu a.active {
   color: var(--primary);
   font-weight: 700;
@@ -178,12 +185,19 @@ body.dark .logo-easy-text { fill: #ffffff; }
 }
 .dropdown-menu a { display:block; padding:10px 18px; font-size:0.83rem; color:var(--text-light); transition:.2s; }
 .dropdown-menu a:hover { background:var(--primary); color:#fff; }
-.dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+
+/* Desktop (hover): pure-CSS reveal via :hover.
+   Desktop (click): the dropdown trigger is a real <a href>, so JS calls
+   preventDefault() on click and toggles this same .open class instead of
+   navigating away — this rule is what makes that click-toggle actually
+   visible at >=1024px, where the mobile-menu .open styling below doesn't
+   apply (it's scoped to max-width:1023px for the hamburger-driven layout). */
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
 
 .mobile-only-item { display:none !important; }
 .nav-icons { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
-/* theme + rtl toggles — same circular shape/behaviour as dashboard.html */
 .theme-toggle {
   width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border); background:var(--primary); color:#fff;
@@ -194,14 +208,23 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .theme-toggle:hover { background:var(--gradient); }
 
 .rtl-toggle {
-  width:38px; height:38px; min-width:35px; border-radius:50%;
+  width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border-a); background:var(--primary); color:#fff;
   font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  transition:background .2s; padding:0;
+  transition:background .2s, transform .2s; padding:0;
 }
 .rtl-toggle:hover { background:var(--gradient); }
-body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
+
+body[dir="rtl"] .rtl-toggle {
+  background: var(--gradient);
+  transform: scaleX(-1);
+}
+body[dir="rtl"] .rtl-toggle span,
+body[dir="rtl"] .rtl-toggle #rtlLabel {
+  display: inline-block;
+  transform: scaleX(-1);
+}
 
 .login-btn {
   display:inline-flex; align-items:center; justify-content:center;
@@ -284,11 +307,10 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-links.open > li > a:hover,
   .nav-links.open > li.dropdown > a:hover { background:var(--primary); color:#fff !important; }
 
-  /* Active state — mobile menu uses a left accent bar instead of underline */
   .nav-links.open > li > a.active,
   .nav-links.open > li.dropdown.active > a {
     color: var(--primary) !important;
-    font-weight: 700;
+    font-weight: 600;
     background: var(--accent-soft);
   }
   .nav-links.open > li > a.active::before,
@@ -305,7 +327,7 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   }
   .nav-links.open .dropdown-menu a.active {
     color: var(--primary) !important;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .nav-links.open .dropdown-menu {
@@ -323,7 +345,8 @@ body[dir="rtl"] .rtl-toggle { background:var(--gradient); }
   .nav-links.open .mobile-only-item:first-of-type { margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
 }
 
-
+body[dir="rtl"] nav .nav-icons { flex-direction: row-reverse; margin-left:0; margin-right:0; }
+body[dir="rtl"] .hamburger { align-items: flex-end; }
 
 
 
@@ -509,6 +532,10 @@ body.dark #h2-hero .hero-bg::after {
   color: var(--ink); opacity: .6; letter-spacing: -0.5px; transition: all .3s; cursor: pointer;
 }
 .partner-logo:hover { opacity: 1; color: var(--primary); }
+@media (min-width:640px) and (max-width:1023px) {
+  .partners-section { padding: 42px 24px; }
+  .partners-logos   { gap: 24px; }
+}
 @media (max-width:639px) {
   .partners-section { padding: 36px 16px; }
   .partners-logos   { gap: 16px; }
@@ -1119,27 +1146,74 @@ footer {
   font-size: 0.8rem; color: var(--gray); flex-wrap: wrap; gap: 10px;
 }
 
+/* ── Footer Contact column — address / email / phone / hours with icons ──
+   Reuses the same font-size and color rhythm as .footer-col a so it sits
+   visually consistent with the Programs/Company columns beside it. */
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  text-align: left;
+}
+.footer-contact-item:last-child { margin-bottom: 0; }
+.footer-contact-item i {
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  color: var(--primary);
+  text-align: center;
+}
+.footer-contact-item a { color: var(--text-light); transition: color .2s; }
+.footer-contact-item a:hover { color: var(--primary); }
+
+/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
   footer { padding: 56px 40px 28px; }
   .footer-grid { gap: 36px; }
   .footer-desc { max-width: 220px; }
 }
+
+/* ── Tablet: 640px – 1023px — centered footer ── */
 @media (min-width:640px) and (max-width:1023px) {
-  footer { padding: 52px 24px 24px; }
-  .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 36px; }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-desc  { max-width: 100%; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  footer { padding: 52px 24px 24px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px; margin-bottom: 36px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc  { max-width: 420px; margin: 0 auto; text-align: center; }
+  .social-links { justify-content: center; }
+  .footer-col   { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { justify-content: center; }
+  .footer-contact-item { justify-content: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; justify-content: center; }
 }
+
+/* ── Mobile: < 640px — centered footer ── */
 @media (max-width:639px) {
-  footer { padding: 40px 16px 18px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
-  .footer-desc  { max-width: 100%; }
-  .footer-col h5 { margin-bottom: 12px; }
-  .footer-col a  { font-size: .79rem; }
+  footer { padding: 40px 16px 18px; text-align: center; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px; margin-bottom: 32px;
+    justify-items: center; text-align: center;
+  }
+  .footer-brand { display: flex; flex-direction: column; align-items: center; }
+  .footer-brand .logo { justify-content: center; }
+  .footer-desc  { max-width: 100%; margin: 0 auto; text-align: center; }
+  .footer-col   { display: flex; flex-direction: column; align-items: center; }
+  .footer-col h5 { margin-bottom: 12px; justify-content: center; }
+  .footer-col a  { font-size: .79rem; text-align: center; }
+  .footer-contact-item { justify-content: center; font-size: .79rem; max-width: 280px; }
   .social-links  { justify-content: center; gap: 8px; }
   .social-btn    { width: 30px; height: 30px; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; font-size: .74rem; padding-top: 16px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; justify-content: center; font-size: .74rem; padding-top: 16px; }
 }
 
 
@@ -1149,4 +1223,3 @@ footer {
 body[dir="rtl"]                { direction: rtl; }
 body[dir="rtl"] .footer-grid  { direction: rtl; }
 body[dir="rtl"] .path-step:hover { transform: translateX(-6px); }
-body[dir="rtl"] nav .nav-icons { margin-left: 0; margin-right: 0; }
