@@ -26,12 +26,7 @@
   --nav-h:       68px;
   --gold:        #c8993a;
   --side:        72px;
-  /* --side-pad / --section-v are the page-layout spacing variables used
-     throughout this file (nav, sections, footer). They were referenced
-     everywhere but never defined at the base :root — only inside the
-     tablet/mobile media queries below — which meant every section had
-     broken/zero side padding and vertical spacing at desktop widths.
-     Defined here now so desktop has correct, intentional spacing too. */
+  
   --side-pad:    72px;
   --section-v:   100px;
   --tl-slide:    6px;
@@ -40,7 +35,7 @@ body.dark {
   --primary:     #6c3fc5;
   --secondary:   #eeeaf8;
   --accent:      #9b6de8;
-  --gradient:    linear-gradient(135deg, #7c52d4 0%, #1a1207 100%);
+  --gradient:    linear-gradient(135deg, #6c3fc5 0%, #1a1207 100%);
   --bg:          #0a0a0a;
   --bg-section:  #1a1a1a;
   --bg-card:     #222222;
@@ -57,15 +52,7 @@ body.dark {
   --gold:        #e8b84b;
 }
 
-/* ── Breakpoint scale used consistently across this file ──
-   mobile:   max-width: 639px
-   tablet:   min-width: 640px  and max-width: 1023px
-   laptop:   min-width: 1024px and max-width: 1279px
-   desktop:  min-width: 1280px
-   (Previously several rules used "max-width:1280px" for the laptop tier,
-   which overlapped the "min-width:1280px" desktop tier by 1px and made
-   both queries apply simultaneously at exactly 1280px. Standardized to
-   max-width:1279px everywhere so tiers never overlap.) */
+
 @media (min-width:1024px) and (max-width:1279px) { :root { --side-pad:36px; --section-v:80px; } }
 @media (min-width:640px)  and (max-width:1023px) { :root { --side-pad:24px; --section-v:64px; } }
 @media (max-width:639px)                         { :root { --side-pad:16px; --section-v:48px; } }
@@ -419,8 +406,31 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .page-banner { background-color:#07030f; background-image:url('Images/services.jpg'); background-size:cover; background-position:center center; background-repeat:no-repeat; border-bottom:1px solid var(--border); position:relative; overflow:hidden; padding:100px var(--side-pad) 80px; display:flex; flex-direction:column; align-items:center; text-align:center; min-height:520px; justify-content:center; }
 .page-banner::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(7,3,18,0.30) 0%,rgba(7,3,18,0.52) 50%,rgba(7,3,18,0.75) 100%); z-index:0; }
 .page-banner > * { position:relative; z-index:1; }
-.banner-title { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:600; line-height:1.08; color:#ffffff; margin-bottom:20px; max-width:800px; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
-.banner-title em { color:var(--primary); font-style:italic; }
+.banner-title {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
+  max-width: 800px;
+
+  /* ── glassmorphism box ── */
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 18px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.banner-title em {
+  color: #ffffff;
+  font-style: italic;
+  
+}
+
 .banner-sub { font-size:1.05rem; color:rgba(255,255,255,0.80); line-height:1.7; max-width:560px; margin-bottom:36px; }
 .banner-search { display:flex; width:100%; max-width:520px; margin-bottom:36px; }
 .banner-search input { flex:1; min-width:0; padding:14px 20px; border:2px solid rgba(255,255,255,0.25); border-right:none; border-radius:var(--radius-sm) 0 0 var(--radius-sm); background:rgba(255,255,255,0.12); color:#fff; font-family:'DM Sans',sans-serif; font-size:0.93rem; outline:none; transition:border-color .2s; backdrop-filter:blur(8px); }
@@ -433,8 +443,8 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .filter-btn:hover,.filter-btn.active { background:var(--primary); color:#fff; border-color:var(--primary); }
 @media (min-width:1280px) { .page-banner { padding:110px 72px 90px; } }
 @media (min-width:1024px) and (max-width:1279px) { .page-banner { padding:90px 36px 72px; } }
-@media (min-width:640px) and (max-width:1023px) { .page-banner { padding:72px 24px 56px; min-height:420px; } .banner-title { font-size:clamp(2rem,5vw,3rem); } }
-@media (max-width:639px) { .page-banner { padding:60px 16px 48px; min-height:360px; } .banner-title { font-size:clamp(1.8rem,8vw,2.4rem); } .banner-sub { font-size:0.93rem; max-width:100%; } .banner-search { flex-direction:column; gap:10px; max-width:100%; } .banner-search input { border-right:2px solid rgba(255,255,255,0.25); border-radius:var(--radius-sm); width:100%; } .banner-search button { border-radius:var(--radius-sm); width:100%; display:flex; justify-content:center; } .filter-btn { padding:7px 13px; font-size:0.74rem; } }
+@media (min-width:640px) and (max-width:1023px) { .page-banner { padding:72px 24px 56px; min-height:420px; } .banner-title { font-size:clamp(1.7rem,3.5vw,2.4rem); padding:16px 26px; } }
+@media (max-width:639px) { .page-banner { padding:60px 16px 48px; min-height:360px; } .banner-title { font-size:clamp(1.5rem,6vw,2rem); padding:14px 18px; } .banner-sub { font-size:0.93rem; max-width:100%; } .banner-search { flex-direction:column; gap:10px; max-width:100%; } .banner-search input { border-right:2px solid rgba(255,255,255,0.25); border-radius:var(--radius-sm); width:100%; } .banner-search button { border-radius:var(--radius-sm); width:100%; display:flex; justify-content:center; } .filter-btn { padding:7px 13px; font-size:0.74rem; } }
 
 /* ═══════════════════════════════════════════════════════
    SERVICE CARDS
@@ -445,7 +455,7 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .srv-img-wrap { width:100%; aspect-ratio:16/9; overflow:hidden; position:relative; flex-shrink:0; background:linear-gradient(135deg,rgba(108,63,197,.10) 0%,rgba(200,153,58,.08) 100%); }
 .srv-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform .45s ease; }
 .srv-card:hover .srv-img-wrap img { transform:scale(1.05); }
-.srv-img-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,rgba(108,63,197,.08) 0%,rgba(200,153,58,.08) 100%); }
+.srv-img-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:800; color:var(--primary); background:linear-gradient(135deg,rgba(108,63,197,.08) 0%,rgba(200,153,58,.08) 100%); }
 .featured-badge { position:absolute; top:12px; left:12px; display:inline-flex; align-items:center; gap:6px; background:var(--primary); color:#fff; font-size:0.68rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:5px 12px; border-radius:20px; white-space:nowrap; z-index:1; box-shadow:0 2px 8px rgba(108,63,197,.35); }
 .srv-body { padding:20px 22px 0; flex:1; display:flex; flex-direction:column; text-align:left; }
 .srv-icon { display:none; }
@@ -507,15 +517,18 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 ═══════════════════════════════════════════════════════ */
 #languages { padding:var(--section-v) var(--side-pad) !important; }
 .lang-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:40px; }
-.lang-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px 16px; text-align:center; transition:transform .3s,box-shadow .3s,border-color .3s; }
+.lang-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:20px 16px; text-align:center; transition:transform .3s,box-shadow .3s,border-color .3s;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
 .lang-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--primary); }
-.lang-flag { font-size:2rem; display:block; margin-bottom:8px; }
-.lang-name { font-size:0.88rem; font-weight:600; color:var(--ink); margin-bottom:4px; }
-.lang-count { font-size:0.72rem; color:var(--text-light); margin-bottom:2px; }
-.lang-level { font-size:0.7rem; font-weight:600; color:var(--primary); font-family:'Space Mono',monospace; }
+.lang-flag { font-family:'Playfair Display','Poppins',serif; font-size:1.9rem; font-weight:600; color:var(--ink); display:block; line-height:1; margin-bottom:10px; }
+.lang-name { font-size:0.88rem; font-weight:600; color:var(--primary); margin-bottom:4px; }
+.lang-count { font-size:0.72rem; color:var(--text-light); }
 @media (min-width:1024px) and (max-width:1279px) { .lang-grid { gap:12px; } .lang-card { padding:16px 12px; } }
 @media (min-width:640px) and (max-width:1023px) { .lang-grid { grid-template-columns:repeat(4,1fr); gap:12px; } }
-@media (max-width:639px) { .lang-grid { grid-template-columns:repeat(3,1fr); gap:10px; } .lang-card { padding:14px 10px; } .lang-flag { font-size:1.6rem; } .lang-name { font-size:0.8rem; } .lang-count { font-size:0.68rem; } .lang-level { font-size:0.64rem; } }
+@media (max-width:639px) { .lang-grid { grid-template-columns:repeat(3,1fr); gap:10px; } .lang-card { padding:14px 10px; } .lang-flag { font-size:1.6rem; margin-bottom:7px; } .lang-name { font-size:0.8rem; } .lang-count { font-size:0.68rem; } }
 
 /* ═══════════════════════════════════════════════════════
    COMPARE TABLE

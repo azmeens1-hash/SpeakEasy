@@ -5,6 +5,7 @@
   --primary:     #6c3fc5;
   --secondary:   #1a1207;
   --gradient:    linear-gradient(135deg, #6c3fc5 0%, #1a1207 100%);
+  --accent:      #9b6de8;
   --bg:          #ffffff;
   --bg-section:  #f7f7f8;
   --bg-card:     #ffffff;
@@ -29,6 +30,7 @@ body.dark {
   --primary:     #6c3fc5;
   --secondary:  #eeeaf8;
   --gradient:    linear-gradient(135deg, #7c52d4 0%, #1a1207 100%);
+  --accent:      #9b6de8;
   --bg:          #0a0a0a;
   --bg-section:  #1a1a1a;
   --bg-card:     #222222;
@@ -186,12 +188,6 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .dropdown-menu a { display:block; padding:10px 18px; font-size:0.83rem; color:var(--text-light); transition:.2s; }
 .dropdown-menu a:hover { background:var(--primary); color:#fff; }
 
-/* Desktop (hover): pure-CSS reveal via :hover.
-   Desktop (click): the dropdown trigger is a real <a href>, so JS calls
-   preventDefault() on click and toggles this same .open class instead of
-   navigating away — this rule is what makes that click-toggle actually
-   visible at >=1024px, where the mobile-menu .open styling below doesn't
-   apply (it's scoped to max-width:1023px for the hamburger-driven layout). */
 .dropdown:hover .dropdown-menu,
 .dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
 
@@ -407,6 +403,7 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
   display: block !important;
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   margin-top: calc(-1 * var(--nav-h));
   padding: 0 !important;
   overflow: hidden;
@@ -429,6 +426,7 @@ body.dark #h2-hero .hero-bg::after {
 #h2-hero .h2-left {
   position: relative; z-index: 2;
   min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100dvh - var(--nav-h));
   margin-top: var(--nav-h); width: 100%;
   padding: 60px var(--side-pad);
   display: flex; flex-direction: column;
@@ -451,6 +449,7 @@ body.dark #h2-hero .hero-bg::after {
 }
 #h2-hero .h2-title .word-rotate {
   display: inline-block; color: var(--primary); font-style: italic;
+  
 }
 #h2-hero .h2-desc {
   color: rgba(255,255,255,0.78); text-align: center;
@@ -526,20 +525,83 @@ body.dark #h2-hero .hero-bg::after {
   font-size: 0.75rem; color: var(--ink); font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
 }
-.partners-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+
+/* ── stacked, box-free layout: icon/mark on top, name below ── */
+.partners-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
 .partner-logo {
-  font-family: 'Poppins',sans-serif; font-size: 1.1rem; font-weight: 800;
-  color: var(--ink); opacity: .6; letter-spacing: -0.5px; transition: all .3s; cursor: pointer;
+  font-family: 'DM Sans',sans-serif;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px;
+  cursor: pointer; transition: transform .3s ease;
 }
-.partner-logo:hover { opacity: 1; color: var(--primary); }
+.partner-logo:hover { transform: translateY(-4px); }
+
+.partner-icon {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.1rem; line-height: 1; flex-shrink: 0;
+  transition: transform .3s ease;
+}
+.partner-logo:hover .partner-icon { transform: scale(1.08); }
+
+.partner-name {
+  font-size: 0.85rem; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* real Font Awesome brand icons, shown in their actual brand color */
+.partner-logo .fa-google        { color: #4285F4; }
+.partner-logo .fa-microsoft     { color: #00A4EF; }
+.partner-logo .fa-amazon        { color: #FF9900; }
+
+/* ── Monogram-style marks for brands without a Font Awesome icon ──
+   Real logo artwork can't be reproduced here, so these use a simple
+   circular monogram in the brand's color to match the visual weight
+   of a real icon, paired with an original wordmark treatment below
+   that nods to each brand's identity (case, weight) without copying
+   their logo files. */
+.partner-mono {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.1rem;
+  color: #fff; flex-shrink: 0;
+}
+.brand-infosys  .partner-mono { background: #007cc3; }
+.brand-tcs      .partner-mono { background: #004c97; }
+.brand-wipro    .partner-mono { background: #341f65; }
+.brand-deloitte .partner-mono { background: #86bc25; color: var(--ink); }
+
+/* Infosys — mixed-case, medium-bold sans, brand blue */
+.brand-infosys .partner-name { color: #007cc3; font-weight: 700; }
+
+/* TCS — heavy, uppercase, wide tracking, navy */
+.brand-tcs .partner-name { color: #004c97; font-weight: 800; letter-spacing: 1.2px; }
+
+/* Wipro — lowercase, lighter weight, purple */
+.brand-wipro .partner-name { color: #341f65; font-weight: 500; text-transform: lowercase; }
+
+/* Deloitte — real mark is black wordmark + green accent dot, not
+   solid green text, so we reproduce that colour relationship */
+.brand-deloitte .partner-name { color: var(--ink); font-weight: 700; }
+.brand-deloitte .partner-name::after { content: '.'; color: #86bc25; }
+
+body.dark .brand-infosys .partner-name  { color: #4db8f0; }
+body.dark .brand-tcs .partner-name      { color: #6fa8dc; }
+body.dark .brand-wipro .partner-name    { color: #b39ddb; }
+body.dark .brand-deloitte .partner-name { color: var(--ink); }
+body.dark .brand-deloitte .partner-name::after { color: #a3d160; }
+
 @media (min-width:640px) and (max-width:1023px) {
   .partners-section { padding: 42px 24px; }
-  .partners-logos   { gap: 24px; }
+  .partners-logos   { gap: 32px; }
 }
 @media (max-width:639px) {
   .partners-section { padding: 36px 16px; }
-  .partners-logos   { gap: 16px; }
-  .partner-logo     { font-size: .9rem; }
+  .partners-logos   { gap: 22px 20px; }
+  .partner-icon     { width: 36px; height: 36px; font-size: 1.6rem; }
+  .partner-mono     { width: 36px; height: 36px; font-size: .92rem; }
+  .partner-name     { font-size: .76rem; }
 }
 
 
@@ -611,8 +673,8 @@ body.dark #h2-hero .hero-bg::after {
   flex-direction: column;
 }
 .bento-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--gradient); border-radius: 24px 24px 0 0;
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient); border-radius: 0 0 24px 24px;
   transform: scaleX(0); transform-origin: left; transition: transform .4s;
   z-index: 1;
 }
@@ -830,16 +892,41 @@ body.dark #h2-hero .hero-bg::after {
    LIVE CLASSES
 ═══════════════════════════════════════════════════════ */
 .live-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
 }
+.live-header-center { text-align: center; }
+.live-header-right { display: flex; justify-content: flex-end; }
+.live-header-spacer { display: block; }
+
+@media (max-width:1023px) {
+  .live-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .live-header-spacer { display: none; }
+  .live-header-right { justify-content: center; }
+}
+
 .live-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--card-gap); }
 .live-card {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 20px; overflow: hidden;
   box-shadow: var(--shadow-sm); transition: all .3s; cursor: pointer;
+  position: relative;
+}
+.live-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0); transform-origin: left; transition: transform .4s;
+  z-index: 2;
 }
 .live-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.live-card:hover::after { transform: scaleX(1); }
 .live-banner { position: relative; overflow: hidden; }
 .live-img { width: 100%; height: 200px; object-fit: cover; display: block; }
 .live-label {
@@ -909,7 +996,7 @@ body.dark #h2-hero .hero-bg::after {
 }
 body.dark .app-btn { background: var(--bg-card); color: var(--ink); border-color: var(--border); }
 .app-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.app-btn-icon { font-size: 1.6rem; }
+.app-btn-icon { font-size: 1.6rem; width: 1.6rem; text-align: center; flex-shrink: 0; }
 .app-btn-text small { display: block; font-size: 0.65rem; opacity: .7; font-weight: 400; }
 
 .app-right { position: relative; display: flex; justify-content: center; align-items: center; }
@@ -920,10 +1007,10 @@ body.dark .app-btn { background: var(--bg-card); color: var(--ink); border-color
   padding: 28px 20px; position: relative; overflow: hidden;
   animation: phoneFloat 4s ease-in-out infinite;
 }
-body.dark .phone-mockup { border-color: var(--bg-card); }
+body.dark .phone-mockup { border: 8px solid var(--primary); box-shadow: var(--shadow-lg), 0 0 80px rgba(83,9,230,.4); }
 @keyframes phoneFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
 .phone-notch { width: 80px; height: 18px; background: var(--ink); border-radius: 0 0 14px 14px; margin-bottom: 20px; }
-body.dark .phone-notch { background: var(--bg); }
+body.dark .phone-notch { background: var(--primary); }
 .phone-screen     { width: 100%; flex: 1; border-radius: 16px; overflow: hidden; background: var(--bg-section); }
 .phone-header     { background: var(--gradient); padding: 14px; color: #fff; font-size: 0.78rem; font-weight: 700; text-align: center; }
 .phone-lesson     { padding: 12px; }
@@ -1003,39 +1090,45 @@ body.dark .phone-notch { background: var(--bg); }
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
   transition: box-shadow .3s, border-color .3s, transform .3s;
+}
+.testi2-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0); transform-origin: left; transition: transform .4s;
 }
 .testi2-card:hover {
   box-shadow: var(--shadow-lg);
   border-color: var(--primary);
   transform: translateY(-4px);
 }
+.testi2-card:hover::after { transform: scaleX(1); }
 .testi2-card:nth-child(1),
 .testi2-card:nth-child(2) {
   border-color: var(--border-a);  /* subtle highlight on top row */
 }
 
-/* stars + time */
+/* top row — just the timestamp, right aligned */
 .testi2-top-row {
   display: flex; align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+  justify-content: flex-end;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
 }
-.t2-stars { color: #f59e0b; font-size: 0.9rem; letter-spacing: 2px; }
 .t2-time  { font-size: 0.7rem; color: var(--gray); }
-
-/* opening quote */
-.testi2-quote {
-  font-size: 2.8rem; color: var(--primary); opacity: .15;
-  font-family: 'Playfair Display', serif;
-  line-height: .8; margin-bottom: 10px;
-}
 
 /* review text */
 .testi2-text {
   font-size: 0.87rem; line-height: 1.78;
   color: var(--text-light);
   font-style: italic;
+  text-align: left;
   flex: 1;               /* pushes author to bottom */
   margin-bottom: 20px;
 }
@@ -1051,7 +1144,11 @@ body.dark .phone-notch { background: var(--bg); }
   box-shadow: 0 3px 10px rgba(108,63,197,.22);
 }
 .t2-flag   { position: absolute; bottom: -3px; right: -4px; font-size: 0.88rem; line-height: 1; }
-.t2-name   { font-weight: 700; font-size: .87rem; color: var(--ink); margin-bottom: 2px; }
+
+/* name + stars sit together on one row */
+.t2-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
+.t2-name   { font-weight: 700; font-size: .87rem; color: var(--ink); }
+.t2-stars  { color: #f59e0b; font-size: 0.68rem; letter-spacing: 1px; }
 .t2-lang   { font-size: .71rem; color: var(--gray); }
 
 /* responsive */
@@ -1061,13 +1158,10 @@ body.dark .phone-notch { background: var(--bg); }
 }
 @media (min-width:640px) and (max-width:1023px) {
   .testi2-track          { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .reviews-header        { align-items: flex-start; }
 }
 @media (max-width:639px) {
   #reviews               { padding: calc(var(--section-v) * 0.75) var(--side-pad); }
   .testi2-track          { grid-template-columns: 1fr; gap: 14px; }
-  .testi2-quote          { font-size: 2.2rem; }
-  .reviews-header        { flex-direction: column; align-items: flex-start; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1096,12 +1190,15 @@ body.dark .phone-notch { background: var(--bg); }
 .nl-btn {
   padding: 14px 28px; border-radius: 40px; border: none;
   background: var(--primary); color: #fff;
-  font-weight: 700; font-size: .9rem; cursor: pointer;
+  font-weight: 600; font-size: .9rem; cursor: pointer;
   transition: all .3s; font-family: 'DM Sans',sans-serif; white-space: nowrap;
 }
-.nl-btn:hover { transform: translate(-2px);
+.nl-btn:hover { transform: translate(-2px);background: var(--accent);
   box-shadow: 0 8px 20px rgba(0,0,0,.2); }
-.nl-note { font-size: 0.75rem; color: rgba(255,255,255,.6); margin-top: 10px; }
+.nl-note {
+  font-size: 0.75rem; color: rgba(255,255,255,.6);
+  margin-top: 12px; text-align: left; padding-left: 20px;
+}
 
 @media (min-width:1024px) and (max-width:1279px) { .newsletter-section { gap: 40px; padding: 80px 40px; } }
 @media (min-width:640px) and (max-width:1023px) { .newsletter-section { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; } }
@@ -1110,6 +1207,7 @@ body.dark .phone-notch { background: var(--bg); }
   .nl-form  { flex-direction: column; gap: 10px; }
   .nl-input { border-radius: 12px; }
   .nl-btn   { border-radius: 12px; }
+  .nl-note  { text-align: center; padding-left: 0; margin-top: 10px; }
 }
 
 
@@ -1146,9 +1244,7 @@ footer {
   font-size: 0.8rem; color: var(--gray); flex-wrap: wrap; gap: 10px;
 }
 
-/* ── Footer Contact column — address / email / phone / hours with icons ──
-   Reuses the same font-size and color rhythm as .footer-col a so it sits
-   visually consistent with the Programs/Company columns beside it. */
+/* ── Footer Contact column — address / email / phone / hours with icons ── */
 .footer-contact-item {
   display: flex;
   align-items: flex-start;

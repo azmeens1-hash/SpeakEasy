@@ -69,8 +69,9 @@
 </nav>
 <section class="blog-hero">
   <div class="blog-hero-inner">
-    
-    <h1>Stories, Tips &amp; <em>Insights</em></h1>
+    <div class="hero-title-glass">
+      <h1>Stories, Tips &amp; <em>Insights</em></h1>
+    </div>
     <p>Practical language learning advice, cultural deep-dives, tutor spotlights and learner success stories — all in one place.</p>
     <div class="hero-search">
       <input type="text" placeholder="Search articles, tips, languages…"/>
@@ -78,16 +79,6 @@
     </div>
   </div>
 </section>
-
-<div class="category-strip">
-  <button class="cat-btn active" onclick="filterCat(this,'all')">All Posts <span class="cat-count">52</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'language-tips')">Language Tips <span class="cat-count">14</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'culture')">Culture &amp; Travel <span class="cat-count">9</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'grammar')">Grammar <span class="cat-count">11</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'success')">Success Stories <span class="cat-count">7</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'tutor')">Tutor Spotlight <span class="cat-count">5</span></button>
-  <button class="cat-btn" onclick="filterCat(this,'exam')">Exam Prep <span class="cat-count">6</span></button>
-</div>
 
 <div class="blog-layout">
   <div class="posts-column">
@@ -100,10 +91,12 @@
         <p>From elision to liaisons, we break down the hidden patterns that textbooks never teach — and show you how to practise them in just 15 minutes a day.</p>
         <div class="post-meta">
           <div class="post-author"><div class="author-avatar">A</div><span class="author-name">Aditi Sharma</span></div>
-          <span class="meta-dot"></span><span class="post-date">Mar 28, 2026</span>
-          <span class="meta-dot"></span><span class="post-read">8 min read</span>
+          <div class="post-meta-right">
+            <span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 28, 2026</span>
+            <span class="meta-dot"></span>
+            <span class="post-read"><i class="fa-solid fa-clock"></i> 8 min read</span>
+          </div>
         </div>
-        <div class="post-tags"><span class="tag">French</span><span class="tag">Fluency</span><span class="tag">Beginner</span></div>
         <a class="read-more" href="blog-details.html">Read Article →</a>
       </div>
     </article>
@@ -115,7 +108,7 @@
           <div class="post-tags"><span class="tag">German</span><span class="tag">Grammar</span></div>
           <h3>Mastering German Cases: A Visual Map That Finally Makes Sense</h3>
           <p>Nominative, accusative, dative — stop memorising tables and start seeing the patterns.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">RS</div><span class="author-name">Rahul S.</span></div><span class="post-date">Mar 22, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">RS</div><span class="author-name">Rahul S.</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 22, 2026</span></div>
         </div>
       </article>
       <article class="post-card reveal">
@@ -124,7 +117,7 @@
           <div class="post-tags"><span class="tag">Spanish</span><span class="tag">Culture</span></div>
           <h3>Why Learning Spanish Changed How I See Food, Family &amp; Fiestas</h3>
           <p>A learner's first-hand account of how language unlocked an entirely new worldview in Seville.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">PK</div><span class="author-name">Priya K.</span></div><span class="post-date">Mar 18, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">PK</div><span class="author-name">Priya K.</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 18, 2026</span></div>
         </div>
       </article>
       <article class="post-card reveal">
@@ -133,7 +126,7 @@
           <div class="post-tags"><span class="tag">Japanese</span><span class="tag">JLPT</span></div>
           <h3>JLPT N3 in 90 Days: The Study Plan That Actually Worked for Me</h3>
           <p>A strict but sustainable schedule, the right resources, and the mindset shifts that made all the difference.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">MN</div><span class="author-name">Meena N.</span></div><span class="post-date">Mar 14, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">MN</div><span class="author-name">Meena N.</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 14, 2026</span></div>
         </div>
       </article>
       <article class="post-card reveal">
@@ -142,7 +135,7 @@
           <div class="post-tags"><span class="tag">Italian</span><span class="tag">Vocabulary</span></div>
           <h3>1000 Italian Words That Cover 85% of Daily Conversation</h3>
           <p>Pareto's principle applied to vocabulary — focus on the 1,000 highest-frequency words and watch fluency skyrocket.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">LP</div><span class="author-name">Lorenzo P.</span></div><span class="post-date">Mar 10, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">LP</div><span class="author-name">Lorenzo P.</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 10, 2026</span></div>
         </div>
       </article>
       <article class="post-card reveal">
@@ -151,7 +144,7 @@
           <div class="post-tags"><span class="tag">Tutor</span><span class="tag">Spotlight</span></div>
           <h3>Meet Sofia: The Polyglot Who Speaks 7 Languages &amp; Teaches with Joy</h3>
           <p>From Buenos Aires to Hyderabad, Sofia's story is proof that language is the ultimate superpower.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">SE</div><span class="author-name">SpeakEasy</span></div><span class="post-date">Mar 6, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">SE</div><span class="author-name">SpeakEasy</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Mar 6, 2026</span></div>
         </div>
       </article>
       <article class="post-card reveal">
@@ -160,7 +153,7 @@
           <div class="post-tags"><span class="tag">Korean</span><span class="tag">TOPIK</span></div>
           <h3>From Zero to TOPIK II in One Year: Anjali's Remarkable Journey</h3>
           <p>How a software engineer in Hyderabad learned Korean through drama, music and sheer determination.</p>
-          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">AV</div><span class="author-name">Anjali V.</span></div><span class="post-date">Feb 28, 2026</span></div>
+          <div class="post-footer"><div class="post-author"><div class="author-avatar" style="font-size:.7rem;">AV</div><span class="author-name">Anjali V.</span></div><span class="post-date"><i class="fa-solid fa-calendar-days"></i> Feb 28, 2026</span></div>
         </div>
       </article>
     </div>

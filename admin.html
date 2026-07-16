@@ -67,8 +67,8 @@ body.dark {
 
 /* ── Standard 4-tier breakpoint scale: <640 / 640-1023 / 1024-1279 / >=1280 ── */
 @media (min-width:1024px) and (max-width:1279px) { :root { --side-pad:40px; --sw:230px; } }
-@media (min-width:640px)  and (max-width:1023px) { :root { --side-pad:24px; } }
-@media (max-width:639px)                          { :root { --side-pad:16px; --sw:min(78vw,280px); } }
+@media (min-width:640px) and (max-width:1023px) { :root { --side-pad:24px; } }
+@media (max-width:639px) { :root { --side-pad:16px; --sw:min(78vw,280px); } }
 
 /* ═══════════════════════════════════════════════════════
    RESET & BASE
@@ -143,6 +143,7 @@ body.dark .sb-profile { border-bottom-color:rgba(255,255,255,.08); }
   flex-shrink:0; display:flex; align-items:center; justify-content:center;
   font-weight:700; font-size:.95rem; color:#fff; position:relative;
 }
+
 .sb-av-dot {
   position:absolute; bottom:-1px; right:-1px; width:10px; height:10px;
   border-radius:50%; background:var(--teal); border:2px solid #fff;
@@ -175,7 +176,7 @@ body.dark .sb-sec { color:rgba(255,255,255,.24); }
   border-radius:11px; font-size:.86rem; font-weight:500; color:rgba(0,0,0,.62);
   cursor:pointer; transition:all .15s; white-space:nowrap; position:relative;
 }
-body.dark .sb-lnk { color:rgba(255,255,255,.46); }
+body.dark .sb-lnk { color:#fff; }
 .sb-lnk:hover { background:rgba(0,0,0,.05); color:#1a1207; }
 body.dark .sb-lnk:hover { background:rgba(255,255,255,.07); color:rgba(255,255,255,.88); }
 .sb-lnk.on { background:var(--primary); color:#fff; }
@@ -226,6 +227,7 @@ body.dark .sb-xp-t { background:rgba(255,255,255,.09); }
 }
 .tb-ttl { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .tb-ttl em { color:var(--primary); font-style:italic; }
+body.dark .tb-ttl em { color:#fff; }
 .tb-srch {
   display:flex; align-items:center; gap:8px; background:var(--bg-section);
   border:1.5px solid var(--border); border-radius:11px; padding:8px 15px;
@@ -390,11 +392,11 @@ body.dark .up { background:rgba(32,180,154,.15); }
 .stst-n { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:var(--primary); }
 .stst-l { font-size:.68rem; color:var(--text-light); margin-top:3px; }
 
-.grid-bot { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:22px; margin-bottom:26px; }
+.grid-bot { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:22px; margin-bottom:26px; align-items:start; }
 .cls-row { display:flex; align-items:center; gap:12px; padding:12px 22px; border-bottom:1px solid var(--border); transition:background .15s; cursor:pointer; }
 .cls-row:last-child { border-bottom:none; }
 .cls-row:hover { background:var(--accent-soft); }
-.cls-time { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700; color:var(--primary); width:58px; flex-shrink:0; }
+.cls-time { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700; color:var(--ink); width:58px; flex-shrink:0; }
 .cls-ico { width:32px; height:32px; border-radius:9px; background:var(--accent-soft); color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:.88rem; flex-shrink:0; }
 .cls-body { flex:1; min-width:0; }
 .cls-name { font-size:.85rem; font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -403,19 +405,19 @@ body.dark .up { background:rgba(32,180,154,.15); }
 .cls-join:hover { background:var(--accent); }
 .cls-soon { background:rgba(200,153,58,.14); color:#D4A853; padding:5px 12px; border-radius:8px; font-size:.71rem; font-weight:700; flex-shrink:0; }
 
-.vocab-body { padding:22px 24px; flex:1; display:flex; flex-direction:column; }
-.voc-word { font-family:'Playfair Display',serif; font-size:2.05rem; font-weight:800; color:var(--primary); line-height:1; margin-bottom:4px; }
+.vocab-body { padding:22px 24px; display:flex; flex-direction:column; }
+.voc-word { font-family:'Playfair Display',serif; font-size:2.05rem; font-weight:600; color:var(--ink); line-height:1; margin-bottom:4px; }
 .voc-phon { font-family:monospace; font-size:.72rem; color:var(--text-light); margin-bottom:12px; }
 .voc-def { font-size:.86rem; color:var(--text-main); line-height:1.65; margin-bottom:14px; }
 .voc-ex { background:var(--accent-soft); border-left:3px solid var(--primary); border-radius:0 10px 10px 0; padding:11px 15px; font-size:.81rem; font-style:italic; color:var(--text-light); line-height:1.6; margin-bottom:15px; }
 [dir="rtl"] .voc-ex { border-left:none; border-right:3px solid var(--primary); border-radius:10px 0 0 10px; }
 .voc-btns { display:flex; gap:9px; }
-.voc-btn { flex:1; padding:9px; border-radius:10px; font-size:.79rem; font-weight:700; border:1.5px solid var(--border); background:var(--bg-section); color:var(--text-main); transition:all .2s; display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+.voc-btn { flex:1; padding:9px; border-radius:10px; font-size:.79rem; font-weight:600; border:1.5px solid var(--border); background:var(--bg-section); color:var(--text-main); transition:all .2s; display:inline-flex; align-items:center; justify-content:center; gap:6px; }
 .voc-btn:hover, .voc-btn.pr { background:var(--primary); color:#fff; border-color:var(--primary); }
-.voc-foot { text-align:center; font-size:.7rem; color:var(--text-light); margin-top:auto; padding-top:11px; }
+.voc-foot { text-align:center; font-size:.7rem; color:var(--text-light); margin-top:11px; padding-top:11px; }
 .voc-foot span { color:var(--primary); font-weight:700; }
 
-.ai-msgs { padding:15px 19px; max-height:215px; flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:11px; }
+.ai-msgs { padding:15px 19px; max-height:215px; overflow-y:auto; display:flex; flex-direction:column; gap:11px; }
 .ai-msg { display:flex; gap:10px; align-items:flex-end; }
 .ai-msg.me { flex-direction:row-reverse; }
 [dir="rtl"] .ai-msg.me { flex-direction:row; }
@@ -429,7 +431,7 @@ body.dark .up { background:rgba(32,180,154,.15); }
 .ai-send { width:38px; height:38px; border-radius:11px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.92rem; transition:background .2s; flex-shrink:0; }
 .ai-send:hover { background:var(--accent); }
 
-.goal-list { padding:6px 0; flex:1; }
+.goal-list { padding:6px 0; }
 .goal-row { display:flex; align-items:center; gap:13px; padding:12px 22px; border-bottom:1px solid var(--border); transition:background .15s; }
 .goal-row:last-child { border-bottom:none; }
 .goal-row:hover { background:var(--accent-soft); }
@@ -485,20 +487,20 @@ body.dark .up { background:rgba(32,180,154,.15); }
 body.dark .ach-earn { background:rgba(32,180,154,.13); }
 .ach-lock { display:inline-flex; align-items:center; gap:5px; background:var(--border); color:var(--gray); font-size:.64rem; font-weight:700; padding:3px 10px; border-radius:7px; margin-top:9px; }
 
-.tutor-row { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:26px; }
+.tutor-row { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:8px; }
 .tutor-card { background:var(--bg-card); border:1px solid var(--border); border-radius:18px; overflow:hidden; transition:all .3s; cursor:pointer; min-width:0; }
 .tutor-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--border-a); }
 .tutor-banner { height:58px; background:var(--gradient); position:relative; }
-.tutor-av { position:absolute; bottom:-19px; left:21px; width:44px; height:44px; border-radius:13px; border:3px solid var(--bg-card); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem; color:#fff; }
-[dir="rtl"] .tutor-av { left:auto; right:21px; }
-.tutor-body { padding:30px 21px 19px; }
-.tutor-name { font-family:'Playfair Display',serif; font-size:.97rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.tutor-av { position:absolute; bottom:-19px; left:50%; transform:translateX(-50%); width:44px; height:44px; border-radius:13px; border:3px solid var(--bg-card); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem; color:#fff; }
+[dir="rtl"] .tutor-av { left:50%; right:auto; transform:translateX(-50%); }
+.tutor-body { padding:30px 21px 19px; text-align:center; }
+.tutor-name { font-family:'Playfair Display',serif; font-size:.97rem; font-weight:600; color:var(--ink); margin-bottom:3px; }
 .tutor-role { font-size:.72rem; color:var(--text-light); margin-bottom:11px; }
-.tutor-stats { display:flex; gap:17px; }
+.tutor-stats { display:flex; justify-content:center; gap:17px; }
 .tutor-stat-n { font-family:'Playfair Display',serif; font-size:1.02rem; font-weight:700; color:var(--primary); }
 .tutor-stat-l { font-size:.64rem; color:var(--text-light); margin-top:2px; }
-.tutor-tag { display:inline-flex; align-items:center; gap:5px; background:var(--accent-soft); color:var(--primary); font-size:.64rem; font-weight:700; padding:3px 9px; border-radius:7px; margin-top:11px; }
-.book-btn { display:flex; align-items:center; justify-content:center; gap:7px; background:var(--primary); color:#fff; font-size:.78rem; font-weight:700; padding:9px; border-radius:10px; margin:13px 21px 19px; transition:all .2s; }
+.tutor-tag { display:inline-flex; align-items:center; gap:5px; background:var(--accent-soft); color:var(--ink); font-size:.64rem; font-weight:700; padding:3px 9px; border-radius:7px; margin:11px auto 0; }
+.book-btn { display:flex; align-items:center; justify-content:center; gap:7px; background:var(--primary); color:#fff; font-size:.78rem; font-weight:700; padding:9px 22px; border-radius:10px; width:fit-content; margin:13px auto 19px; transition:all .2s; }
 .book-btn:hover { background:var(--accent); }
 
 .pg-foot { text-align:center; padding:14px 0 6px; font-size:.74rem; color:var(--gray); }
@@ -543,22 +545,22 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
 @media (min-width:1280px) {
   .stats-row { grid-template-columns:repeat(4,1fr); }
   .grid-main { grid-template-columns:1fr 330px; }
-  .grid-bot  { grid-template-columns:1fr 1fr 1fr 1fr; }
+  .grid-bot { grid-template-columns:1fr 1fr ; }
   .grid-wide { grid-template-columns:1fr 1fr; }
-  .ach-row   { grid-template-columns:repeat(4,1fr); }
-  .tutor-row { grid-template-columns:repeat(3,1fr); }
-  .dhero-r   { display:flex; }
+  .ach-row { grid-template-columns:repeat(4,1fr); }
+  .tutor-row { grid-template-columns:repeat(2,1fr); }
+  .dhero-r { display:flex; }
 }
 
 /* ── Tier 3: 1024–1279 — small desktop ── */
 @media (min-width:1024px) and (max-width:1279px) {
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .grid-main { grid-template-columns:1fr; }
-  .grid-bot  { grid-template-columns:1fr 1fr; }
+  .grid-bot { grid-template-columns:1fr 1fr; }
   .grid-wide { grid-template-columns:1fr 1fr; }
-  .ach-row   { grid-template-columns:repeat(2,1fr); }
+  .ach-row { grid-template-columns:repeat(2,1fr); }
   .tutor-row { grid-template-columns:repeat(2,1fr); }
-  .dhero-r   { display:none; }
+  .dhero-r { display:none; }
 }
 
 /* ── Tier 2: 640–1023 — tablet ── */
@@ -575,9 +577,9 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
   .dhero-r { display:none; }
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .grid-main { grid-template-columns:1fr; }
-  .grid-bot  { grid-template-columns:1fr 1fr; }
+  .grid-bot { grid-template-columns:1fr 1fr; }
   .grid-wide { grid-template-columns:1fr; }
-  .ach-row   { grid-template-columns:repeat(2,1fr); }
+  .ach-row { grid-template-columns:repeat(2,1fr); }
   .tutor-row { grid-template-columns:1fr 1fr; }
 }
 
@@ -608,10 +610,10 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
   .grid-main { grid-template-columns:1fr; }
   .stats-row { grid-template-columns:1fr 1fr; gap:11px; }
   .stat-card { padding:16px 14px; }
-  .stat-val  { font-size:1.5rem; }
-  .grid-bot  { grid-template-columns:1fr; }
+  .stat-val { font-size:1.5rem; }
+  .grid-bot { grid-template-columns:1fr; }
   .grid-wide { grid-template-columns:1fr; }
-  .ach-row   { grid-template-columns:repeat(2,1fr); gap:11px; }
+  .ach-row { grid-template-columns:repeat(2,1fr); gap:11px; }
   .tutor-row { grid-template-columns:1fr; }
   .mob-ham { width:32px; height:32px; }
 
@@ -625,7 +627,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
 .reveal.visible { opacity:1; transform:none; }
 </style>
 </head>
-<body class="dark">
+<body>
 <div id="tc"></div>
 <div class="mob-ov" id="mobOv" onclick="closeMobSb()"></div>
 <div class="shell">
@@ -681,7 +683,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
     <div class="sb-sec">Learning</div>
     <div class="sb-lnk" data-view="vocab"><div class="sb-ico"><i class="fa-solid fa-comments"></i></div><span class="sb-lbl">Vocabulary</span><div class="sb-tip">Vocabulary</div></div>
     <div class="sb-lnk" data-view="progress"><div class="sb-ico"><i class="fa-solid fa-chart-line"></i></div><span class="sb-lbl">My Progress</span><div class="sb-tip">My Progress</div></div>
-    <div class="sb-lnk" data-view="certificates"><div class="sb-ico"><i class="fa-solid fa-file-certificate"></i></div><span class="sb-lbl">Certificates</span><div class="sb-tip">Certificates</div></div>
+    <div class="sb-lnk" data-view="certificates"><div class="sb-ico"><i class="fa-solid fa-certificate"></i></div><span class="sb-lbl">Certificates</span><div class="sb-tip">Certificates</div></div>
     <div class="sb-lnk" data-view="community"><div class="sb-ico"><i class="fa-solid fa-globe"></i></div><span class="sb-lbl">Community</span><div class="sb-tip">Community</div></div>
     <div class="sb-sec">Account</div>
     <div class="sb-lnk" data-view="settings"><div class="sb-ico"><i class="fa-solid fa-gear"></i></div><span class="sb-lbl">Settings</span><div class="sb-tip">Settings</div></div>
@@ -773,7 +775,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
           <div class="cls-row"><div class="cls-time">7:00 AM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish Speaking Practice</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 6 students</div></div><span class="cls-soon">Soon</span></div>
           <div class="cls-row"><div class="cls-time">7:00 PM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish B2 Grammar Deep Dive</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 5 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
           <div class="cls-row"><div class="cls-time">Wed 6 PM</div><div class="cls-ico"><i class="fa-solid fa-language"></i></div><div class="cls-body"><div class="cls-name">French A1 &mdash; Bonjour!</div><div class="cls-tutor">Pierre Dubois &middot; 4 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
-          <div class="cls-row"><div class="cls-time">Thu 8 PM</div><div class="cls-ico"><i class="fa-solid fa-file-certificate"></i></div><div class="cls-body"><div class="cls-name">DELE B2 Mock Exam</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 8 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
+          <div class="cls-row"><div class="cls-time">Thu 8 PM</div><div class="cls-ico"><i class="fa-solid fa-certificate"></i></div><div class="cls-body"><div class="cls-name">DELE B2 Mock Exam</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 8 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
           <div class="cls-row"><div class="cls-time">Fri 6 PM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish Listening &amp; Culture</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 6 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
         </div>
         <div class="card">
@@ -810,7 +812,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
       <div class="ach-row fu d8">
         <div class="ach-card" onclick="toast('Streak Master &mdash; unlocked!','s')"><div class="ach-ico"><i class="fa-solid fa-fire"></i></div><div class="ach-name">Streak Master</div><div class="ach-desc">Maintained a 14-day learning streak without missing a day.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
         <div class="ach-card" onclick="toast('Conversationalist &mdash; unlocked!','s')"><div class="ach-ico"><i class="fa-solid fa-comments"></i></div><div class="ach-name">Conversationalist</div><div class="ach-desc">Completed 10 live speaking sessions with certified native tutors.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
-        <div class="ach-card locked"><div class="ach-ico"><i class="fa-solid fa-file-certificate"></i></div><div class="ach-name">Exam Ready</div><div class="ach-desc">Complete the DELE B2 full mock exam with a score of 80% or above.</div><div class="ach-lock"><i class="fa-solid fa-lock"></i> Locked</div></div>
+        <div class="ach-card" onclick="toast('Exam Ready &mdash; unlocked!','s')"><div class="ach-ico"><i class="fa-solid fa-certificate"></i></div><div class="ach-name">Exam Ready</div><div class="ach-desc">Complete the DELE B2 full mock exam with a score of 80% or above.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
         <div class="ach-card locked"><div class="ach-ico"><i class="fa-solid fa-earth-americas"></i></div><div class="ach-name">Polyglot</div><div class="ach-desc">Reach A2 level proficiency in a second language on the platform.</div><div class="ach-lock"><i class="fa-solid fa-lock"></i> Locked</div></div>
       </div>
 
@@ -850,7 +852,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
         <div class="cls-row"><div class="cls-time">7:00 AM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish Speaking Practice</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 6 students</div></div><span class="cls-soon">Soon</span></div>
         <div class="cls-row"><div class="cls-time">7:00 PM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish B2 Grammar Deep Dive</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 5 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
         <div class="cls-row"><div class="cls-time">Wed 6 PM</div><div class="cls-ico"><i class="fa-solid fa-language"></i></div><div class="cls-body"><div class="cls-name">French A1 &mdash; Bonjour!</div><div class="cls-tutor">Pierre Dubois &middot; 4 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
-        <div class="cls-row"><div class="cls-time">Thu 8 PM</div><div class="cls-ico"><i class="fa-solid fa-file-certificate"></i></div><div class="cls-body"><div class="cls-name">DELE B2 Mock Exam</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 8 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
+        <div class="cls-row"><div class="cls-time">Thu 8 PM</div><div class="cls-ico"><i class="fa-solid fa-certificate"></i></div><div class="cls-body"><div class="cls-name">DELE B2 Mock Exam</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 8 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
         <div class="cls-row"><div class="cls-time">Fri 6 PM</div><div class="cls-ico"><i class="fa-solid fa-comments"></i></div><div class="cls-body"><div class="cls-name">Spanish Listening &amp; Culture</div><div class="cls-tutor">Sofia Mart&iacute;nez &middot; 6 students</div></div><button class="cls-join" onclick="toast('Joining class&hellip;','s')">Join</button></div>
       </div>
     </div>
@@ -922,7 +924,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
       <div class="ach-row fu d4">
         <div class="ach-card"><div class="ach-ico"><i class="fa-solid fa-fire"></i></div><div class="ach-name">Streak Master</div><div class="ach-desc">Maintained a 14-day learning streak without missing a day.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
         <div class="ach-card"><div class="ach-ico"><i class="fa-solid fa-comments"></i></div><div class="ach-name">Conversationalist</div><div class="ach-desc">Completed 10 live speaking sessions with certified native tutors.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
-        <div class="ach-card locked"><div class="ach-ico"><i class="fa-solid fa-file-certificate"></i></div><div class="ach-name">Exam Ready</div><div class="ach-desc">Complete the DELE B2 full mock exam with a score of 80% or above.</div><div class="ach-lock"><i class="fa-solid fa-lock"></i> Locked</div></div>
+        <div class="ach-card" onclick="toast('Exam Ready &mdash; unlocked!','s')"><div class="ach-ico"><i class="fa-solid fa-certificate"></i></div><div class="ach-name">Exam Ready</div><div class="ach-desc">Complete the DELE B2 full mock exam with a score of 80% or above.</div><div class="ach-earn"><i class="fa-solid fa-check"></i> Earned</div></div>
         <div class="ach-card locked"><div class="ach-ico"><i class="fa-solid fa-earth-americas"></i></div><div class="ach-name">Polyglot</div><div class="ach-desc">Reach A2 level proficiency in a second language on the platform.</div><div class="ach-lock"><i class="fa-solid fa-lock"></i> Locked</div></div>
       </div>
     </div>
@@ -933,7 +935,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
       <div class="sec-hd fu d1"><div class="sec-hd-ttl">Certificates</div><span class="card-act" onclick="navTo('dashboard')">&larr; Back to Dashboard</span></div>
       <div class="card fu d2">
         <div class="card-hd"><div><div class="card-ttl">Earned Certificates</div><div class="card-sub">1 certificate</div></div></div>
-        <div class="c-row" onclick="toast('Opening certificate&hellip;','i')"><div class="c-ico"><i class="fa-solid fa-file-certificate"></i></div><div class="c-body"><div class="c-name">Spanish A1&ndash;A2 Foundation Certificate</div><div class="c-meta"><span><i class="fa-solid fa-calendar"></i> Issued Nov 2025</span></div></div><div class="c-right"><button class="c-btn"><i class="fa-solid fa-download"></i> Download</button></div></div>
+        <div class="c-row" onclick="toast('Opening certificate&hellip;','i')"><div class="c-ico"><i class="fa-solid fa-certificate"></i></div><div class="c-body"><div class="c-name">Spanish A1&ndash;A2 Foundation Certificate</div><div class="c-meta"><span><i class="fa-solid fa-calendar"></i> Issued Nov 2025</span></div></div><div class="c-right"><button class="c-btn"><i class="fa-solid fa-download"></i> Download</button></div></div>
       </div>
       <div class="ph-wrap fu d3">
         <div class="ph-ico"><i class="fa-solid fa-medal"></i></div>
@@ -1011,7 +1013,7 @@ body.dark .ach-earn { background:rgba(32,180,154,.13); }
 
 <script>
 /* ── THEME ── */
-let dark = true;
+let dark = false;
 function applyTheme(d) {
   const icon = document.getElementById('themeIcon');
   document.body.classList.toggle('dark', d);
@@ -1020,11 +1022,11 @@ function applyTheme(d) {
 function toggleTheme() {
   dark = !dark;
   applyTheme(dark);
-  try { localStorage.setItem('se-db-theme', dark ? 'dark' : 'light'); } catch(e) {}
+  try { localStorage.setItem('speakeasy-theme', dark ? 'dark' : 'light'); } catch(e) {}
 }
 (function() {
   try {
-    const s = localStorage.getItem('se-db-theme');
+    const s = localStorage.getItem('speakeasy-theme');
     if (s) dark = s === 'dark';
   } catch(e) {}
   applyTheme(dark);
@@ -1227,11 +1229,11 @@ function toggleRTL() {
   document.body.setAttribute('dir', rtlOn ? 'rtl' : 'ltr');
   const lbl = document.getElementById('rtlLabel');
   if (lbl) lbl.textContent = rtlOn ? 'LTR' : 'RTL';
-  try { localStorage.setItem('se-db-rtl', rtlOn ? 'rtl' : 'ltr'); } catch(e) {}
+  try { localStorage.setItem('speakeasy-rtl', rtlOn ? 'rtl' : 'ltr'); } catch(e) {}
 }
 (function() {
   try {
-    const r = localStorage.getItem('se-db-rtl');
+    const r = localStorage.getItem('speakeasy-rtl');
     if (r === 'rtl') {
       rtlOn = true;
       document.body.setAttribute('dir', 'rtl');

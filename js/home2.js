@@ -2,19 +2,18 @@
   'use strict';
 
   /* ============================================================
-     THEME — same localStorage key as before ('theme'),
-     now using the dashboard's icon-swap treatment
-     (Font Awesome fa-sun / fa-moon instead of emoji)
+     THEME — shared key across the whole site
   ============================================================ */
   var themeToggle = document.getElementById('themeToggle');
   var themeIcon   = document.getElementById('themeIcon');
+  var THEME_KEY   = 'speakeasy-theme';
 
   function applyThemeIcon(isDark) {
     if (themeIcon) themeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
     if (themeToggle) themeToggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
   }
 
-  var startDark = localStorage.getItem('theme') === 'dark';
+  var startDark = localStorage.getItem(THEME_KEY) === 'dark';
   if (startDark) document.body.classList.add('dark');
   applyThemeIcon(startDark);
 
@@ -22,13 +21,12 @@
     themeToggle.addEventListener('click', function () {
       var isDark = document.body.classList.toggle('dark');
       applyThemeIcon(isDark);
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
     });
   }
 
   /* ============================================================
-     RTL — same localStorage key as before ('speakeasy-rtl'),
-     now using the dashboard's circular button + text-swap treatment
+     RTL — shared key across the whole site
   ============================================================ */
   var rtlToggle = document.getElementById('rtlToggle');
   var rtlLabel  = document.getElementById('rtlLabel');
@@ -36,12 +34,13 @@
   if (rtlToggle) {
     var savedDir = null;
     try { savedDir = localStorage.getItem('speakeasy-rtl'); } catch (e) {}
-    var isRtlInit = savedDir === 'rtl';
-    if (isRtlInit) {
+    if (savedDir === 'rtl') {
       document.body.setAttribute('dir', 'rtl');
       document.documentElement.setAttribute('dir', 'rtl');
+      if (rtlLabel) rtlLabel.textContent = 'LTR';
+    } else {
+      if (rtlLabel) rtlLabel.textContent = 'RTL';
     }
-    if (rtlLabel) rtlLabel.textContent = isRtlInit ? 'LTR' : 'RTL';
 
     rtlToggle.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -50,6 +49,7 @@
       document.body.setAttribute('dir', newDir);
       document.documentElement.setAttribute('dir', newDir);
       if (rtlLabel) rtlLabel.textContent = isRtl ? 'RTL' : 'LTR';
+      rtlToggle.title = isRtl ? 'Switch to RTL' : 'Switch to LTR';
       try { localStorage.setItem('speakeasy-rtl', newDir); } catch (e2) {}
     });
   }

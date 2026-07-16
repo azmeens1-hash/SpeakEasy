@@ -135,3 +135,25 @@
   };
 
 })();
+  // Curriculum tab switching — wired directly here since the tabs use
+  // data-tab attributes rather than onclick="switchTab(...)" like the
+  // sibling language pages, so this doesn't depend on what's defined
+  // (or missing) in service-details4.js.
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabButtons = document.querySelectorAll('#curriculum .ctab[data-tab]');
+    var tabPanels = document.querySelectorAll('#curriculum .tab-content');
+
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.getAttribute('data-tab');
+        var targetPanel = document.getElementById(targetId);
+        if (!targetPanel) return;
+
+        tabButtons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        tabPanels.forEach(function (p) { p.classList.remove('show'); });
+        targetPanel.classList.add('show');
+      });
+    });
+  });

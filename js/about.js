@@ -4,7 +4,7 @@
   /* ── Theme Toggle — icon-swap treatment (Font Awesome fa-sun / fa-moon) ── */
   var themeToggle = document.getElementById('themeToggle');
   var themeIcon   = document.getElementById('themeIcon');
-  var THEME_KEY   = 'theme';
+  var THEME_KEY   = 'speakeasy-theme';
 
   function applyThemeIcon(isDark) {
     if (themeIcon) themeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';

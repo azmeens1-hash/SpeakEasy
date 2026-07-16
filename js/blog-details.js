@@ -1,19 +1,20 @@
 const themeToggle = document.getElementById('themeToggle');
   const themeIcon   = document.getElementById('themeIcon');
+  const THEME_KEY   = 'speakeasy-theme';
 
   function applyThemeIcon(isDark) {
     if (themeIcon) themeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
     if (themeToggle) themeToggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
   }
 
-  const startDark = localStorage.getItem('theme') === 'dark';
+  const startDark = localStorage.getItem(THEME_KEY) === 'dark';
   if (startDark) document.body.classList.add('dark');
   applyThemeIcon(startDark);
 
   themeToggle?.addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
     applyThemeIcon(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
   });
 
  

@@ -410,16 +410,7 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .meta span { display: flex; align-items: center; gap: 6px; }
 .meta i { color: var(--primary); font-size: 0.82rem; }
 
-.hero-tags {
-  display: flex; gap: 8px; justify-content: center;
-  flex-wrap: wrap; margin-top: 20px;
-  position: relative; z-index: 1;
-}
-.hero-tag {
-  background: var(--accent-soft); color: var(--primary);
-  font-size: 0.72rem; font-weight: 700;
-  padding: 4px 14px; border-radius: 20px; border: 1px solid var(--border-a);
-}
+
 
 @media (min-width:1024px) and (max-width:1279px) { .blog-hero { padding: 52px 40px; } }
 @media (min-width:640px) and (max-width:1023px) {

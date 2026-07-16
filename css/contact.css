@@ -440,21 +440,44 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600;
-  line-height: 1.1; color: #fff; margin-bottom: 18px;
+  line-height: 1.1; color: #fff; margin: 0 auto 24px;
+  /* ── Glassmorphism panel ──
+     Frosted glass card sitting on top of the hero photo/gradient: soft
+     translucent fill, blurred backdrop, thin light border, subtle inner
+     highlight + outer shadow for depth, and a bit of breathing room since
+     the text now needs to read as a distinct panel, not bare copy on the
+     photo. max-width keeps it from stretching edge-to-edge on wide hero. */
+  display: inline-block;
+  max-width: 780px;
+  padding: 28px 40px;
+  background: rgba(255,255,255,0.10);
+  /* Two-layer border: a bright 2px white edge so the panel is unmistakably
+     outlined against the busy photo, plus a second 1px violet ring just
+     outside it (via box-shadow) so the edge still reads as tied to the
+     brand palette rather than a generic white outline. */
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.25),
+    0 0 0 3px rgba(155,109,232,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.25);
 }
-.hero-title em { color: var(--accent); font-style: italic; }
+.hero-title em { color: #ffffff; font-style: italic; }
 .hero-sub { font-size: 1.02rem; color: rgba(255,255,255,0.85); line-height: 1.75; max-width: 520px; margin: 0 auto; }
 
 @media (min-width:1024px) and (max-width:1279px) { .contact-hero-inner { padding: 52px 24px 64px; } }
 @media (min-width:640px) and (max-width:1023px) {
   .contact-hero       { min-height: 360px; }
   .contact-hero-inner { padding: 44px 20px 56px; }
+  .hero-title         { padding: 22px 28px; }
   .hero-sub           { font-size: 0.95rem; }
 }
 @media (max-width:639px) {
   .contact-hero       { min-height: 320px; }
   .contact-hero-inner { padding: 36px 16px 48px; }
-  .hero-title         { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .hero-title         { font-size: clamp(1.9rem, 8vw, 2.4rem); padding: 18px 20px; border-radius: var(--radius-md); }
   .hero-sub           { font-size: 0.88rem; }
   .hero-ring          { width: 560px; height: 560px; top: -260px; }
 }
@@ -512,18 +535,18 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
    CONTACT MAIN — form + sidebar
 ═══════════════════════════════════════════════════════ */
 .contact-main {
-  display: grid; grid-template-columns: 1fr 420px;
-  gap: 60px; padding: 80px 72px; align-items: stretch;
+  display: grid; grid-template-columns: 1fr 360px;
+  gap: 36px; padding: 80px 72px; align-items: start;
   background: var(--bg); transition: background .4s;
 }
 
 .form-card {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 24px; padding: 52px 48px;
+  border-radius: 18px; padding: 28px 32px;
   box-shadow: var(--shadow-md); transition: background .4s;
 }
-.form-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--primary); margin-bottom: 10px; text-align: center;}
-.form-subtitle { font-size: 0.92rem; color: var(--text-2); line-height: 1.65; margin-bottom: 40px; }
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; text-align: center;}
+.form-subtitle { font-size: 0.85rem; color: var(--text-2); line-height: 1.55; margin-bottom: 22px; text-align: center; }
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
 .form-group { display: flex; flex-direction: column; gap: 7px; }
@@ -660,20 +683,20 @@ textarea.form-input { resize: vertical; min-height: 130px; line-height: 1.65; }
 
 /* ── Contact main responsive ── */
 @media (min-width:1024px) and (max-width:1279px) {
-  .contact-main { padding: 64px 40px; gap: 40px; grid-template-columns: 1fr 360px; align-items: stretch; }
-  .form-card    { padding: 40px 36px; }
+  .contact-main { padding: 64px 40px; gap: 28px; grid-template-columns: 1fr 320px; align-items: start; }
+  .form-card    { padding: 26px 26px; }
 }
 @media (min-width:640px) and (max-width:1023px) {
-  .contact-main { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; align-items: start; }
-  .form-card    { padding: 36px 28px; }
-  .form-title   { font-size: 1.7rem; }
+  .contact-main { grid-template-columns: 1fr; padding: 56px 24px; gap: 28px; align-items: start; }
+  .form-card    { padding: 26px 24px; }
+  .form-title   { font-size: 1.4rem; }
   .social-grid  { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width:639px) {
-  .contact-main   { grid-template-columns: 1fr; padding: 40px 16px; gap: 24px; align-items: start; }
-  .form-card      { padding: 26px 20px; border-radius: 18px; }
-  .form-title     { font-size: 1.45rem; }
-  .form-subtitle  { font-size: 0.86rem; margin-bottom: 24px; }
+  .contact-main   { grid-template-columns: 1fr; padding: 40px 16px; gap: 22px; align-items: start; }
+  .form-card      { padding: 20px 18px; border-radius: 14px; }
+  .form-title     { font-size: 1.3rem; }
+  .form-subtitle  { font-size: 0.82rem; margin-bottom: 18px; }
   .form-grid      { grid-template-columns: 1fr; gap: 14px; }
   .time-slots     { gap: 8px; }
   .time-slot      { font-size: 0.76rem; padding: 7px 13px; }
@@ -686,10 +709,18 @@ textarea.form-input { resize: vertical; min-height: 130px; line-height: 1.65; }
 /* ═══════════════════════════════════════════════════════
    MAP SECTION
 ═══════════════════════════════════════════════════════ */
-.map-section { padding: 0; position: relative; width: 100%; overflow: hidden; }
+/* map-section now shares the same side padding (var(--side-pad)) as every
+   other section on the page (contact-main, faq-section, cta-section) so
+   the map card lines up with the form/sidebar/FAQ edges instead of
+   running full-bleed edge-to-edge. */
+.map-section {
+  padding: 0 0 var(--section-v);
+  position: relative; width: 100%; overflow: hidden;
+  background: var(--bg-section); transition: background .4s;
+}
 .map-header {
-  padding: 60px 72px 40px; background: var(--bg-section);
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 60px var(--side-pad) 40px; background: var(--bg-section);
+  border-top: 1px solid var(--border);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; gap: 12px; transition: background .4s;
 }
@@ -702,7 +733,15 @@ textarea.form-input { resize: vertical; min-height: 130px; line-height: 1.65; }
 .map-title em { color: var(--ink); font-style: italic; }
 .map-sub { font-size: 0.92rem; color: var(--text-2); line-height: 1.7; max-width: 500px; text-align: center; margin: 0 auto; }
 
-.map-container { position: relative; width: 100%; height: 460px; overflow: hidden; background: var(--bg-dark); margin: 0; padding: 0; }
+.map-container {
+  position: relative; width: auto; height: 460px; overflow: hidden;
+  background: var(--bg-dark); margin: 0 var(--side-pad); padding: 0;
+  /* var(--border) reads almost invisibly against the dark map tile
+     background, so the map card gets its own stronger, brand-tinted
+     border color (var(--border-a)) instead of the page-wide subtle one. */
+  border: 2px solid var(--primary); border-radius: var(--radius-lg);
+  box-shadow: var(--shaow-lg);
+}
 .map-iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
 .map-pin-card {
   position: absolute; background: var(--bg-card); border: 1px solid var(--border);
@@ -728,17 +767,17 @@ textarea.form-input { resize: vertical; min-height: 130px; line-height: 1.65; }
 .mpc-dir:hover { color: var(--accent); }
 
 @media (min-width:1024px) and (max-width:1279px) {
-  .map-header { padding: 52px 40px 32px; }
+  .map-header { padding: 52px var(--side-pad) 32px; }
 }
 @media (min-width:640px) and (max-width:1023px) {
-  .map-header    { padding: 44px 24px 28px; }
-  .map-container { height: 380px; }
+  .map-header    { padding: 44px var(--side-pad) 28px; }
+  .map-container { height: 380px; border-radius: var(--radius-md); }
 }
 @media (max-width:639px) {
-  .map-header     { padding: 32px 16px 24px; }
+  .map-header     { padding: 32px var(--side-pad) 24px; }
   .map-title      { font-size: 1.5rem; }
   .map-sub        { font-size: 0.85rem; }
-  .map-container  { height: 300px; }
+  .map-container  { height: 300px; border-radius: var(--radius-sm); }
   .map-pin-card   { min-width: 160px; padding: 12px 14px; }
   .map-pin-card.online { top: 14px; right: 14px; }
   [dir="rtl"] .map-pin-card.online { right: auto; left: 14px; }
@@ -815,8 +854,8 @@ textarea.form-input { resize: vertical; min-height: 130px; line-height: 1.65; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 34px; border-radius: 50px; font-weight: 700; font-size: 0.93rem; cursor: pointer; border: none; transition: all .25s; font-family: 'DM Sans', sans-serif; }
 .btn-white { background: var(--primary); color:#fff; }
 .btn-white:hover { background: var(--accent);transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
-.btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.45); }
-.btn-outline-white:hover { border-color: #fff; transform: translateY(-2px); }
+.btn-outline-white { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-outline-white:hover {background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 
 @media (min-width:1024px) and (max-width:1279px) { .cta-section { padding: 80px 40px; } }
 @media (min-width:640px) and (max-width:1023px) {

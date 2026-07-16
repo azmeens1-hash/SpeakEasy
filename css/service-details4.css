@@ -12,11 +12,6 @@
   --ink:         #1a1207;
   --text-main:   #2e2416;
   --text-light:  #6b5a47;
-  /* --text-2 was used throughout this file (sec-sub, overview body copy,
-     learning-outcome text, module text, instructor bio, schedule cards) but
-     never defined anywhere, in either :root or body.dark. Aliased to
-     --text-light, the equivalent variable used for this exact role
-     everywhere else in the SpeakEasy design system. */
   --text-2:      #6b5a47;
   --gray:        #9e8a76;
   --border:      rgba(108,63,197,0.15);
@@ -31,11 +26,6 @@
   --nav-h:       68px;
   --gold:        #c8993a;
   --side:        72px;
-  /* --side-pad / --section-v are used throughout this file (nav, hero,
-     sections, footer) but were never defined at the base :root — only
-     inside the tablet/laptop/mobile media queries below. That left every
-     section with broken/invalid spacing at desktop widths (≥1280px).
-     Defined here now so desktop has correct, intentional spacing too. */
   --side-pad:    72px;
   --section-v:   100px;
   --tl-slide:    6px;
@@ -62,15 +52,6 @@ body.dark {
   --gold:        #e8b84b;
 }
 
-/* ── Breakpoint scale used consistently across this file ──
-   mobile:   max-width: 639px
-   tablet:   min-width: 640px  and max-width: 1023px
-   laptop:   min-width: 1024px and max-width: 1279px
-   desktop:  min-width: 1280px
-   (Previously the hero used "min-width:1281px" for desktop and
-   "max-width:1280px" for laptop, while the nav used "min-width:1280px" /
-   "max-width:1279px" — two different desktop cut points in the same file,
-   with a 1px overlap zone. Standardized everywhere to the same scale.) */
 @media (min-width:1024px) and (max-width:1279px) { :root { --side-pad:36px; --section-v:80px; } }
 @media (min-width:640px)  and (max-width:1023px) { :root { --side-pad:24px; --section-v:64px; } }
 @media (max-width:639px)                         { :root { --side-pad:16px; --section-v:48px; } }
@@ -106,9 +87,6 @@ nav {
 }
 body.dark nav { background:rgba(19,21,42,0.95); }
 
-/* ── Logo (inline SVG, small globe icon + large legible wordmark) ──
-   Sits as a flex sibling alongside .nav-links and .nav-icons inside <nav>,
-   so align-items:center on nav keeps all three vertically centred together. */
 .logo {
   display: flex;
   align-items: center;
@@ -119,25 +97,20 @@ body.dark nav { background:rgba(19,21,42,0.95); }
   height: 30px;
   width: auto;
   display: block;
-  direction: ltr;      /* logo wordmark/icon must never mirror with page RTL */
+  direction: ltr;
   unicode-bidi: bidi-override;
 }
 .logo span { color:var(--secondary); }
 
-/* body[dir="rtl"] sets direction:rtl which inherits into the inline SVG and
-   flips the <text> glyph-run direction inside the logo's viewBox — pin it
-   back to LTR explicitly so the wordmark renders correctly in both modes. */
 body[dir="rtl"] .logo svg,
 body[dir="rtl"] .logo svg text {
   direction: ltr;
   unicode-bidi: bidi-override;
 }
 
-/* Easy text defaults to ink in light mode, switches to white in dark mode */
 .logo-easy-text { fill: var(--ink); transition: fill .4s; }
 body.dark .logo-easy-text { fill: #ffffff; }
 
-/* Footer brand logo height override (alignment handled in the footer section below) */
 .footer-brand .logo svg { height: 27px; }
 
 @media (max-width:639px) {
@@ -159,7 +132,6 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .nav-link-text { position:relative; display:inline-block; line-height:1.3; }
 .dropdown-caret { font-size:0.7em; line-height:1; position:relative; top:1px; }
 
-/* ── Active nav state — underline centred under the word itself ── */
 .nav-links > li > a.active,
 .nav-links > .dropdown.active > a {
   color: var(--primary);
@@ -186,7 +158,6 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .nav-links > li > a.active:hover .nav-link-text::after,
 .nav-links > .dropdown.active > a:hover .nav-link-text::after { background: var(--primary); }
 
-/* Active item inside an open dropdown menu */
 .dropdown-menu a.active {
   color: var(--primary);
   font-weight: 700;
@@ -208,7 +179,6 @@ body.dark .logo-easy-text { fill: #ffffff; }
 .mobile-only-item { display:none !important; }
 .nav-icons { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
-/* theme + rtl toggles — same circular shape/behaviour, sized identically by default */
 .theme-toggle {
   width:38px; height:38px; min-width:38px; border-radius:50%;
   border:1.5px solid var(--border); background:var(--primary); color:#fff;
@@ -227,13 +197,10 @@ body.dark .logo-easy-text { fill: #ffffff; }
 }
 .rtl-toggle:hover { background:var(--gradient); }
 
-/* RTL toggle reflects the *current direction state*, not just a hover style —
-   gradient fill + a subtle flip animation so it's obvious the toggle is "on". */
 body[dir="rtl"] .rtl-toggle {
   background: var(--gradient);
   transform: scaleX(-1);
 }
-/* keep the label glyph readable (un-mirror the text inside the mirrored button) */
 body[dir="rtl"] .rtl-toggle span,
 body[dir="rtl"] .rtl-toggle #rtlLabel {
   display: inline-block;
@@ -263,7 +230,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
 }
 .mobile-login-btn:hover { opacity:.88; }
 
-/* ── Desktop: > 1280px ── */
 @media (min-width:1280px) {
   nav { padding:0 72px; }
   .hamburger        { display:none !important; }
@@ -271,7 +237,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
-/* ── Laptop: 1024px – 1279px ── */
 @media (min-width:1024px) and (max-width:1279px) {
   nav { padding:0 36px; }
   .logo svg { height: 29px; }
@@ -283,7 +248,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .mobile-only-item { display:none !important; }
   .nav-links        { display:flex !important; }
 }
-/* ── Tablet: 640px – 1023px ── */
 @media (min-width:640px) and (max-width:1023px) {
   nav { padding:0 24px; }
   .logo svg { height: 27px; }
@@ -294,7 +258,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .nav-icons   { gap:10px; margin-left:auto; }
   .theme-toggle,.rtl-toggle { width:36px; height:36px; min-width:36px; }
 }
-/* ── Mobile: < 640px ── */
 @media (max-width:639px) {
   nav { padding:0 12px; }
   .nav-links   { display:none; }
@@ -305,7 +268,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .theme-toggle { width:30px; height:30px; min-width:30px; font-size:.85rem; }
   .rtl-toggle   { width:30px; height:30px; min-width:30px; font-size:0.6rem; }
 }
-/* ── Shared mobile-menu rules: < 1024px (tablet + mobile) ── */
 @media (max-width:1023px) {
   html,body { overflow-x:hidden; }
   .nav-links.open {
@@ -326,7 +288,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .nav-links.open > li > a:hover,
   .nav-links.open > li.dropdown > a:hover { background:var(--primary); color:#fff !important; }
 
-  /* Active state — mobile menu uses a left accent bar instead of underline */
   .nav-links.open > li > a.active,
   .nav-links.open > li.dropdown.active > a {
     color: var(--primary) !important;
@@ -365,11 +326,6 @@ body[dir="rtl"] .rtl-toggle #rtlLabel {
   .nav-links.open .mobile-only-item:first-of-type { margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
 }
 
-/* ── RTL: keep icon row visually mirrored, not just text-direction-flipped ──
-   Without this, the hamburger/theme/rtl buttons stay in LTR order on the
-   right side while everything else mirrors. The .logo is intentionally left
-   untouched here — reversing the whole nav previously dragged the logo into
-   the mirror and broke its rendering, so only the icon cluster mirrors. */
 body[dir="rtl"] nav .nav-icons { flex-direction: row-reverse; margin-left:0; margin-right:0; }
 body[dir="rtl"] .hamburger { align-items: flex-end; }
 
@@ -443,14 +399,26 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
   display: flex; flex-direction: column; align-items: center;
 }
 
+.hero-title-glass {
+  display: inline-block;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 24px 40px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 5vw, 4.8rem);
   font-weight: 900; line-height: 1.05;
-  color: #ffffff; margin-bottom: 20px; max-width: 800px;
+  color: #ffffff; margin-bottom: 0; max-width: 800px;
   text-shadow: 0 2px 28px rgba(0,0,0,0.45);
 }
-.hero-title em { color: var(--primary); font-style: italic; }
+.hero-title em { color: #ffffff; font-style: italic; }
 .hero-desc { font-size: 1.02rem; color: rgba(255,255,255,0.80); line-height: 1.78; max-width: 600px; margin-bottom: 28px; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 32px; }
 .meta-pill {
@@ -475,14 +443,16 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.55); }
 
 @media (min-width:1280px) { .sd-hero { padding: 130px 72px 110px; } }
-@media (min-width:1024px) and (max-width:1279px) { .sd-hero { padding: 100px 36px 80px; min-height: 500px; } }
+@media (min-width:1024px) and (max-width:1279px) { .sd-hero { padding: 100px 36px 80px; min-height: 500px; } .hero-title-glass { padding: 20px 32px; } }
 @media (min-width:640px) and (max-width:1023px) {
   .sd-hero { padding: 80px 24px 64px; min-height: 420px; }
   .hero-title { font-size: clamp(2rem, 5.5vw, 3.2rem); }
+  .hero-title-glass { padding: 16px 26px; margin-bottom: 18px; }
 }
 @media (max-width:639px) {
   .sd-hero { padding: 60px 16px 48px; min-height: 360px; }
   .hero-title { font-size: clamp(1.8rem, 8.5vw, 2.6rem); }
+  .hero-title-glass { padding: 14px 18px; margin-bottom: 16px; border-radius: var(--radius-md); }
   .hero-desc  { font-size: 0.9rem; }
   .hero-btns  { flex-direction: column; align-items: center; width: 100%; }
   .btn-primary, .btn-ghost { width: 100%; max-width: 320px; justify-content: center; }
@@ -626,9 +596,18 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .mod-info { flex: 1; min-width: 0; }
 .mod-title { font-weight: 700; font-size: 0.9rem; color: var(--ink); margin-bottom: 3px; }
 .mod-meta  { font-size: 0.74rem; color: var(--gray); }
-.mod-tag   { background: var(--accent-soft); color: var(--primary); font-size: 0.68rem; font-weight: 600; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
-.mod-chevron { font-size: 0.9rem; color: var(--gray); flex-shrink: 0; transition: transform .3s; }
-.module-item.open .mod-chevron { transform: rotate(180deg); }
+.mod-toggle {
+  display: flex; align-items: center; gap: 7px;
+  flex-shrink: 0; color: var(--primary); font-size: 0.78rem; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--border-a);
+  transition: all .25s;
+}
+.module-header:hover .mod-toggle { background: var(--primary); color: #fff; border-color: var(--primary); }
+.mod-toggle-icon { font-size: 0.68rem; transition: transform .3s; }
+.module-item.open .mod-toggle-icon { transform: rotate(45deg); }
+.mtt-less { display: none; }
+.module-item.open .mtt-more { display: none; }
+.module-item.open .mtt-less { display: inline; }
 .module-body { display: none; padding: 0 22px 22px 68px; font-size: 0.85rem; color: var(--text-2); line-height: 1.72; }
 .module-item.open .module-body { display: block; }
 .module-body ul { margin-top: 12px; padding-left: 16px; }
@@ -661,6 +640,9 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .inst-badge-text { font-weight: 700; font-size: 0.78rem; color: var(--ink); }
 .inst-badge-sub  { font-size: 0.68rem; color: var(--gray); margin-top: 2px; }
 .inst-info { padding-top: 0; }
+.inst-info .eyebrow,
+.inst-name,
+.inst-role { text-align: center; justify-content: center; width: 100%; }
 .inst-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
 .inst-role { font-size: 0.82rem; color: var(--secondary); font-weight: 550; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; }
 .inst-bio  { font-size: 0.9rem; color: var(--text-2); line-height: 1.8; margin-bottom: 24px; }
@@ -669,7 +651,7 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 .is-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 20px; text-align: center; flex: 1; min-width: 100px; }
 .is-num   { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--primary); }
 .is-label { font-size: 0.72rem; color: var(--gray); margin-top: 3px; }
-.inst-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.inst-tags { display: flex; flex-wrap: wrap; gap: 8px;justify-content: center; margin-top: 12px; }
 .inst-tag  { background: var(--accent-soft); border: 1px solid var(--border-a); color: var(--primary); font-size: 0.76rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
 .inst-tag i { margin-right: 5px; }
 [dir="rtl"] .inst-tag i { margin-right: 0; margin-left: 5px; }
@@ -740,12 +722,14 @@ body[dir="rtl"] .hamburger { align-items: flex-end; }
 }
 .btn-cta-primary:hover { background:var(--accent); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
 .btn-cta-outline {
-  padding: 14px 32px; border: 2px solid rgba(255,255,255,0.45); color: #fff;
+  padding: 14px 32px; border: 2px solid #fff; color: #fff;
   border-radius: 40px; font-weight: 600; font-size: 0.95rem; background: transparent;
   cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .3s;
   text-decoration: none; display: inline-flex; align-items: center;
 }
-.btn-cta-outline:hover { border-color: #fff; transform: translateY(-2px); }
+
+
+.btn-cta-outline:hover { background:rgba(255,255,255,0.12); transform:translateY(-2px); }
 /* ═══════════════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════════════ */
@@ -778,9 +762,6 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   font-size: 0.8rem; color: var(--gray); flex-wrap: wrap; gap: 10px;
 }
-/* ── Footer Contact column — address / email / phone / hours with icons ──
-   Reuses the same font-size and color rhythm as .footer-col a so it sits
-   visually consistent with the Programs/Company columns beside it. */
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
@@ -804,11 +785,6 @@ footer {
 .footer-contact-item a:hover { color: var(--primary); }
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE — consolidated, non-overlapping 4-tier scale
-   (Previously this section duplicated/overrode component rules defined
-   earlier in the file using a different, overlapping breakpoint boundary.
-   Also dropped two orphaned ".inst-flag-stripe" rules that had no base
-   definition anywhere in this file and no matching HTML element on this
-   page — dead CSS left over from copy-pasting between sibling pages.)
 ═══════════════════════════════════════════════════════ */
 
 /* ── Laptop: 1024px – 1279px ── */
@@ -894,7 +870,7 @@ footer {
   .mod-num { font-size: 0.9rem; width: 24px; }
   .mod-title { font-size: 0.82rem; }
   .mod-meta { font-size: 0.66rem; }
-  .mod-tag { display: none; }
+  .mod-toggle { padding: 5px 10px; font-size: 0.68rem; }
   .module-body { padding: 0 14px 16px; font-size: 0.8rem; }
   .module-body ul { padding-left: 14px; }
   .module-body ul li { font-size: 0.77rem; }
